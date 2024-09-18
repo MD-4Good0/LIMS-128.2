@@ -1,5 +1,4 @@
 {
-  "homepage": "https://BohemianRasberry.github.io/medlabview",
   "name": "lab_slh",
   "version": "0.1.0",
   "private": true,
@@ -26,6 +25,9 @@
     "react-router-dom": "^6.20.1",
     "sort-by": "^0.0.2",
     "web-vitals": "^2.1.4"
+  },
+  "engines": {
+    "node": ">= 14.x"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
