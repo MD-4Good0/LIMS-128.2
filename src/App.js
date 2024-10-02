@@ -16,6 +16,7 @@ import PageHomeTesting from './PageHomeTesting';
 import PageSubmitRequest from './PageSubmitRequest';
 import PageTrackMyRequest from './PageTrackMyRequest';
 import PagePendingRequest from './PagePendingRequest';
+import PageForReleaseList from './PageForReleaseList';
 
 Userfront.init("jb7ywq8b");
 
@@ -60,6 +61,7 @@ function App() {
       <Route path="/submit" element={<PageSubmitRequest/>}/>
       <Route path="/trackmyrequest" element={<PageTrackMyRequest/>}/>
       <Route path="/pendingrequest" element={<PagePendingRequest/>}/>
+      <Route path="/forreleaselist" element={<PageForReleaseList/>}/>
 
 
       <Route path="/homerecrel" element={<PageHomeRecRel/>}/>
