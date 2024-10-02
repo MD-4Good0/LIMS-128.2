@@ -15,6 +15,7 @@ import PageHomeRecRel from './PageHomeRecRel';
 import PageHomeTesting from './PageHomeTesting';
 import PageSubmitRequest from './PageSubmitRequest';
 import PageTrackMyRequest from './PageTrackMyRequest';
+import PagePendingRequest from './PagePendingRequest';
 
 Userfront.init("jb7ywq8b");
 
@@ -58,6 +59,7 @@ function App() {
       <Route path="/homeclient" element={<PageHomeClient/>}/>
       <Route path="/submit" element={<PageSubmitRequest/>}/>
       <Route path="/trackmyrequest" element={<PageTrackMyRequest/>}/>
+      <Route path="/pendingrequest" element={<PagePendingRequest/>}/>
 
 
       <Route path="/homerecrel" element={<PageHomeRecRel/>}/>
