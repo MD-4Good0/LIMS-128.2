@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ForReleaseList.css';
 import Userfront from "@userfront/core";
-import { useNavigate } from 'react-router-dom';
 
 import blue_logo_icon from '../Assets/BlueLogo.png';
 

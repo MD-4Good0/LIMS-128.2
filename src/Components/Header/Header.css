@@ -117,3 +117,7 @@
 .center:hover::after{
     transform: scale(1,2);
 }
+
+button, summary {
+    outline: none;
+}

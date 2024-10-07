@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './Submit.css';
 import Userfront from "@userfront/core";
-import { useNavigate } from 'react-router-dom';
 
 import blue_logo_icon from '../Assets/BlueLine.png';
 import dropdown_icon from '../Assets/DropDown.png';
@@ -9,6 +8,11 @@ import dropdown_icon from '../Assets/DropDown.png';
 Userfront.init("jb7ywq8b");
 
 const Register = () => {
+    const [purposeTesting, setPurposeTesting] = useState("");
+    const [otherPurposeTesting, setOtherPurposeTesting] = useState("");
+    const [dropdown_purpose, setDropdownPurpose] = useState(false);
+    const [dropdown_test, setDropdownTest] = useState(false);
+
     return (
         <div className="submit-all-container">
             <div className='submit-container'>
@@ -74,18 +78,64 @@ const Register = () => {
                         </div>
                     </div>
                     <div className='submit-column'>
-                        <button className='purposeoftesting'>
-                            <div className='purpose-title'>
+                        <details className='purposeoftesting'>
+                            <summary className='purpose-title' onClick={() => setDropdownPurpose(!dropdown_purpose)}>
                                 Purpose of Testing
+                                <img 
+                                    src={dropdown_icon} 
+                                    alt='dropdown icon'
+                                    className={dropdown_purpose ? 'rotate-up' : 'rotate-down'}
+                                />
+                            </summary>
+                            <div className="show">
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Monitoring
+                                </label>
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Local Trade
+                                </label>
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Imported
+                                </label>
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Export
+                                </label>
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Complaint
+                                </label>
+                                <label class="purposeoftesting_choices">
+                                    <input type="radio" name="cli-class" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                    <span class="checkmark"></span>
+                                    Others
+                                    <input 
+                                        type="text"
+                                        value={otherPurposeTesting}
+                                        onChange={(e) => setOtherPurposeTesting(e.target.value)}
+                                    />
+                                </label>
                             </div>
-                            <img src={dropdown_icon} alt='drop down'/>
-                        </button>
-                        <button className='testselection'>
-                            <div className='test-title'>
+                        </details>
+
+                        <details className='testselection'>
+                            <summary className='test-title' onClick={() => setDropdownTest(!dropdown_test)}>
                                 Test Selection
-                            </div>
-                            <img src={dropdown_icon} alt='drop down'/>
-                        </button>
+                                <img 
+                                    src={dropdown_icon} 
+                                    alt='dropdown icon'
+                                    className={dropdown_test ? 'rotate-up' : 'rotate-down'}
+                                />
+                            </summary>
+                        </details>
                         <div className='submit-button'>
                             <button className="submit-text-button">Log In</button>
                         </div>
