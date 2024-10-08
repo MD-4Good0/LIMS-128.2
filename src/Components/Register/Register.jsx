@@ -74,7 +74,7 @@ const Register = () => {
                     <div className='register-all-left'>
                         <div className="inputs">
                             <div className="register-input-first-row">
-                                <div className='label-container'>
+                                <div className='label-container-left'>
                                     <div className='l-c-label'>First Name</div>
                                     <div className='first-name'>
                                         <input 
@@ -86,7 +86,7 @@ const Register = () => {
                                     </div>
                                 </div>
 
-                                <div className='label-container'>
+                                <div className='label-container-left'>
                                     <div className='l-c-label'>M.I.</div>
                                     <div className='mi'>
                                         <input 
@@ -98,7 +98,7 @@ const Register = () => {
                                     </div>
                                 </div>
 
-                                <div className='label-container'>
+                                <div className='label-container-left'>
                                     <div className='l-c-label'>Last Name</div>
                                     <div className='last-name'>
                                         <input 
@@ -111,7 +111,7 @@ const Register = () => {
                                 </div>     
                             </div>
 
-                            <div className='label-container'>
+                            <div className='label-container-left'>
                                 <div className='l-c-label'>Company Name</div>
                                 <div className="company-name">
                                     <input 
@@ -124,7 +124,7 @@ const Register = () => {
                             </div>
 
                             <div className="register-input-third-row">
-                                <div className='label-container'>
+                                <div className='label-container-left'>
                                     <div className='l-c-label'>LTO Number</div>
                                     <div className='lto-number'>
                                         <input 
@@ -136,7 +136,7 @@ const Register = () => {
                                     </div>
                                 </div>
 
-                                <div className='label-container'>
+                                <div className='label-container-left'>
                                 <div className='l-c-label'>Contact Number</div>
                                     <div className='contact-number'>
                                         <input 
@@ -149,7 +149,7 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            <div className='label-container'>
+                            <div className='label-container-left'>
                                 <div className='l-c-label'>Email</div>
                                 <div className="email">
                                     <input 
@@ -161,7 +161,7 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            <div className='label-container'>
+                            <div className='label-container-left'>
                                 <div className='l-c-label'>Password</div>
                                 <div className="password">
                                     <input 
@@ -181,7 +181,7 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            <div className='label-container'>
+                            <div className='label-container-left'>
                                 <div className='l-c-label'>Repeat Password</div>
                                 <div className="retype-password">
                                     <input
@@ -204,7 +204,7 @@ const Register = () => {
                     </div>    
 
                     <div className="register-all-right">
-                        <div className='label-container'>
+                        <div className='label-container-right'>
                             <div className='l-c-label'>Client Classification</div>
                                 <div className="cli-class">
                                     <div className="cli-class-both">
@@ -279,7 +279,7 @@ const Register = () => {
                                     </div>
                                 </div>
                         </div>
-                        <div className="login-button" onClick={handleRegister}>
+                        <div className="register-button" onClick={handleRegister}>
                             <button className="text-button">Register</button>
                         </div>
 

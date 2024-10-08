@@ -50,11 +50,19 @@
     
 }
 
-.label-container {
+.label-container-left {
     font-family: 'Poppins';
     font-weight: 700;
     color: #2B9DC1;
     font-size: 16px;
+}
+
+.label-container-right {
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #2B9DC1;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .l-c-label {
@@ -339,4 +347,21 @@ input[type="radio"] {
 
 input[type="radio"]:checked {
     accent-color: #2B9DC1 ; /* Changes color when checked */
+}
+
+.register-button{
+    margin: 20px;
+    padding-top: 20px;
+}
+
+.register-button button{
+    border: none;
+    transition: color 0.3s ease, 
+        background 0.3s ease, 
+}
+
+.register-button button:hover{
+    color: #2B9DC1;
+    background: #fff;
+    border: 4px solid #2B9DC1
 }
