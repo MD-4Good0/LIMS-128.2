@@ -17,6 +17,8 @@ import PageSubmitRequest from './PageSubmitRequest';
 import PageTrackMyRequest from './PageTrackMyRequest';
 import PagePendingRequest from './PagePendingRequest';
 import PageForReleaseList from './PageForReleaseList';
+import PageShowControlNumber from './PageShowControlNumber';
+import PageRequestAddInfo from './PageRequestAddInfo';
 
 Userfront.init("jb7ywq8b");
 
@@ -45,6 +47,9 @@ function App() {
       <Route path="/email-sent" element={<PageForgotES/>}/>
       <Route path="/not-in-system" element={<PageForgotNIS/>}/>
       <Route path="/registered" element={<PageRegisterTY/>}/>
+      <Route path="/showcontrolnumber" element={<PageShowControlNumber/>}/>
+      <Route path="/requestaddinfo" element={<PageRequestAddInfo/>}/>
+
       <Route
         path="*"
         element={
