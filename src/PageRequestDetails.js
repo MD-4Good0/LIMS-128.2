@@ -1,18 +1,18 @@
 import React from "react";
-import SubmitReview from './Components/SubmitReview/SubmitReview';
+import RequestDetails from './Components/RequestDetails/RequestDetails';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 
-function PageSubmitRequestReview() {
+function PageRequestDetails() {
     return(
         <div>
             <Header/>
-            <SubmitReview/>
+            <RequestDetails/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageSubmitRequestReview
+export default PageRequestDetails

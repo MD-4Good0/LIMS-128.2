@@ -6,7 +6,7 @@ import blue_logo_icon from '../Assets/BlueLogo.png';
 
 Userfront.init("jb7ywq8b");
 
-const Register = () => {
+const ForReleaseList = () => {
     return (
         <div className="request-all-container">
             <div className='request-container'>
@@ -26,4 +26,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default ForReleaseList;

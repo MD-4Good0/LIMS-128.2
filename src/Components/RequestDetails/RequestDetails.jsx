@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import './Submit.css';
+import './RequestDetails.css';
 import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom'; 
 
 import blue_line_icon from '../Assets/BlueLine.png';
+import back_button from '../Assets/BackButton.png';
 import dropdown_icon from '../Assets/DropDown.png';
 
 Userfront.init("jb7ywq8b");
 
-const Submit = () => {
+const SubmitReview = () => {
     const [dropdownPurpose, setDropdownPurpose] = useState(false);
     const [dropdownTest, setDropdownTest] = useState(false);
     const [purposeTesting, setPurposeTesting] = useState('');
@@ -37,8 +38,16 @@ const Submit = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmitReview = () => {
-        navigate("/submit-review");
+    const handleApprove = () => {
+        navigate("/show-control-number");
+    };
+
+    const handleRequestAdditionalInformation = () => {
+        navigate("/request-add-info");
+    };
+
+    const handleReject = () => {
+        navigate("/");
     };
 
     return (
@@ -77,31 +86,31 @@ const Submit = () => {
                         <div className='sample-rows'>
                             <div className='sample-row'>
                                 <div>Sample Type/Description :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Lot/Batch Number :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Sample Source :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Production Date :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Expiry Date :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Sampling Date :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                             <div className='sample-row'>
                                 <div>Sampler Name :</div>
-                                <input type="text"/>
+                                <input type="text" value="filled information"/>
                             </div>
                         </div>
                     </div>
@@ -146,12 +155,12 @@ const Submit = () => {
                                             Complaint
                                         </label>
                                         <label class="purposeoftesting_choices">
-                                            <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                            <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)} checked="checked"/>
                                             <span class="checkmark"></span>
                                             Others:
                                             <input 
                                                 type="text"
-                                                value={otherPurposeTesting}
+                                                value="filled information"
                                                 onChange={(e) => setOtherPurposeTesting(e.target.value)}
                                             />
                                         </label>
@@ -187,8 +196,16 @@ const Submit = () => {
                                 </main>
                             )}
                         </div>
-                        <div className='submit-button' onClick={handleSubmitReview}>
-                            <button className="submit-text-button">Submit</button>
+                        <div className='request-details-button'>
+                            <button className="approve-review-text-button" onClick={handleApprove}>
+                                Approve
+                            </button>
+                            <button className="request-additional-information-review-text-button" onClick={handleRequestAdditionalInformation}>
+                                Request Additional Information
+                            </button>
+                            <button className="reject-review-text-button" onClick={handleReject}>
+                                Reject
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -197,4 +214,4 @@ const Submit = () => {
     );
 }
 
-export default Submit;
+export default SubmitReview;

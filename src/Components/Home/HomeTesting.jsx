@@ -9,7 +9,7 @@ import database_icon from '../Assets/Database.png';
 
 Userfront.init("jb7ywq8b");
 
-const HomeClient = () => {
+const HomeTesting = () => {
 
   const navigate = useNavigate();
   
@@ -65,4 +65,4 @@ const HomeClient = () => {
   );
 };
 
-export default HomeClient;
+export default HomeTesting;

@@ -5,17 +5,9 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 Userfront.init("jb7ywq8b");
 
-const Forget = () => {
+const TFA = () => {
     const [authCode, setAuthCode] = useState("");
     const navigate = useNavigate();
-
-    const handleBackToLogin = () => {
-        navigate("/login")
-    };
-
-    const handleRegister = () => {
-        navigate("/register")
-    };
 
     const sendResetLink = async (authCode) => {
         try {
@@ -107,4 +99,4 @@ const Forget = () => {
     );
 }
 
-export default Forget;
+export default TFA;

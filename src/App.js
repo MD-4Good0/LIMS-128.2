@@ -14,11 +14,13 @@ import PageHomeClient from './PageHomeClient';
 import PageHomeRecRel from './PageHomeRecRel';
 import PageHomeTesting from './PageHomeTesting';
 import PageSubmitRequest from './PageSubmitRequest';
+import PageSubmitRequestReview from './PageSubmitRequestReview';
 import PageTrackMyRequest from './PageTrackMyRequest';
 import PagePendingRequest from './PagePendingRequest';
 import PageForReleaseList from './PageForReleaseList';
 import PageShowControlNumber from './PageShowControlNumber';
 import PageRequestAddInfo from './PageRequestAddInfo';
+import PageRequestDetails from './PageRequestDetails';
 
 Userfront.init("jb7ywq8b");
 
@@ -45,9 +47,7 @@ function App() {
       <Route path="/email-sent" element={<PageForgotES/>}/>
       <Route path="/not-in-system" element={<PageForgotNIS/>}/>
       <Route path="/registered" element={<PageRegisterTY/>}/>
-      <Route path="/show-control-number" element={<PageShowControlNumber/>}/>
-      <Route path="/request-add-info" element={<PageRequestAddInfo/>}/>
-
+      
       <Route
         path="*"
         element={
@@ -62,12 +62,16 @@ function App() {
       <Route path="/login" element={<PageLogin/>}/>
 
       <Route path="/home-client" element={<PageHomeClient/>}/>
-      <Route path="/submit-a-request" element={<PageSubmitRequest/>}/>
-      <Route path="/track-my-request" element={<PageTrackMyRequest/>}/>
-      <Route path="/pending-requests" element={<PagePendingRequest/>}/>
-      <Route path="/for-release" element={<PageForReleaseList/>}/>
+        <Route path="/submit-a-request" element={<PageSubmitRequest/>}/>
+          <Route path="/submit-review" element={<PageSubmitRequestReview/>}/>
+        <Route path="/track-my-request" element={<PageTrackMyRequest/>}/>
 
       <Route path="/home-receive-release" element={<PageHomeRecRel/>}/>
+        <Route path="/pending-requests" element={<PagePendingRequest/>}/>
+          <Route path="/request-details" element={<PageRequestDetails/>}/>
+          <Route path="/show-control-number" element={<PageShowControlNumber/>}/>
+          <Route path="/request-add-info" element={<PageRequestAddInfo/>}/>
+        <Route path="/for-release" element={<PageForReleaseList/>}/>
 
       <Route path="/home-testing" element={<PageHomeTesting/>}/>
     </Routes>

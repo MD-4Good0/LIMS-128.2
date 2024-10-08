@@ -164,4 +164,6 @@
     line-height: 1.5; /* Adjust line spacing */
 }
 
-
+textarea:focus {
+    outline: none;
+}

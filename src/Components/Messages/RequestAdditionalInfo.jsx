@@ -15,7 +15,7 @@ const RequestAddInfo = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate("/PageHomeRecRel");
+        navigate("/");
     };
 
     return (

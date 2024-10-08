@@ -18,11 +18,9 @@
 }
 
 .request-title {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 64px;
-    color: #fff;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #2B9DC1;
+    color: #2B9DC1;
 }
 
 .request-1st-container {

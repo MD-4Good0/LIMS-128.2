@@ -11,7 +11,7 @@ const ControlNumber = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate("/PageHomeRecRel")
+        navigate("/")
     };
 
     return (
