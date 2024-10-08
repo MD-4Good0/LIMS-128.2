@@ -42,19 +42,19 @@ const Register = () => {
                     <div className='submit-1st-container-column'>
                         <div className='submit-1st-container-column-row'>
                             <div className='submit-1st-container-column-row-column-1'>
-                                Representative Name:
+                                Representative Name
                                 <input type="text" value="A*******r J*****n A M*******d"/>
                             </div>
                             <div className='submit-1st-container-column-row-column-2'>
-                                Contact Number:
+                                Contact Number
                                 <input type="text" value="0999 999 9999"/>
                             </div>
                             <div className='submit-1st-container-column-row-column-3'>
-                                Email Address:
+                                Email Address
                                 <input type="text" value="sample_email123@example.com.ph"/>
                             </div>
                             <div className='submit-1st-container-column-row-column-4'>
-                                Company Name:
+                                Company Name
                                 <input type="text" value="University of the Philippines Manila"/>
                             </div>
                         </div>
