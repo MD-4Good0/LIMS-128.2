@@ -25,14 +25,12 @@ Userfront.init("jb7ywq8b");
 function Home() {
   if (!Userfront.accessToken()) {
     return <PageLogin />;
-  } else if (Userfront.user.hasRole("viewer")) {
-    return;
-  } else if (Userfront.user.hasRole("author")) {
-    return;
-  } else if (Userfront.user.hasRole("subscriber")) {
-    return;
-  } else if (Userfront.user.hasRole("admin")) {
-    return;
+  } else if (Userfront.user.hasRole("client")) {
+    return <PageHomeClient />;
+  } else if (Userfront.user.hasRole("receive-release")) {
+    return <PageHomeRecRel />;
+  } else if (Userfront.user.hasRole("testing")) {
+    return <PageHomeTesting />;
   }
   return <PageLogin />;
 }
@@ -47,8 +45,8 @@ function App() {
       <Route path="/email-sent" element={<PageForgotES/>}/>
       <Route path="/not-in-system" element={<PageForgotNIS/>}/>
       <Route path="/registered" element={<PageRegisterTY/>}/>
-      <Route path="/showcontrolnumber" element={<PageShowControlNumber/>}/>
-      <Route path="/requestaddinfo" element={<PageRequestAddInfo/>}/>
+      <Route path="/show-control-number" element={<PageShowControlNumber/>}/>
+      <Route path="/request-add-info" element={<PageRequestAddInfo/>}/>
 
       <Route
         path="*"
@@ -62,16 +60,16 @@ function App() {
       />
 
       <Route path="/login" element={<PageLogin/>}/>
-      <Route path="/homeclient" element={<PageHomeClient/>}/>
-      <Route path="/submit" element={<PageSubmitRequest/>}/>
-      <Route path="/trackmyrequest" element={<PageTrackMyRequest/>}/>
-      <Route path="/pendingrequest" element={<PagePendingRequest/>}/>
-      <Route path="/forreleaselist" element={<PageForReleaseList/>}/>
 
+      <Route path="/home-client" element={<PageHomeClient/>}/>
+      <Route path="/submit-a-request" element={<PageSubmitRequest/>}/>
+      <Route path="/track-my-request" element={<PageTrackMyRequest/>}/>
+      <Route path="/pending-requests" element={<PagePendingRequest/>}/>
+      <Route path="/for-release" element={<PageForReleaseList/>}/>
 
-      <Route path="/homerecrel" element={<PageHomeRecRel/>}/>
+      <Route path="/home-receive-release" element={<PageHomeRecRel/>}/>
 
-      <Route path="/hometesting" element={<PageHomeTesting/>}/>
+      <Route path="/home-testing" element={<PageHomeTesting/>}/>
     </Routes>
   );
 }

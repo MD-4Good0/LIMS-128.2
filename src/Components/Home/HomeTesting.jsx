@@ -13,14 +13,14 @@ const HomeClient = () => {
 
   const navigate = useNavigate();
   
-  const handleSubmit = () => {
-    navigate("/submit")
+  const handleForTestingPage = () => {
+    navigate("/for-testing-page")
   };
-  const handleTrack = () => {
-    navigate("/track")
+  const handleTestResults = () => {
+    navigate("/test-results")
   };
-  const handleGuide = () => {
-    navigate("/guide")
+  const handleDatabase = () => {
+    navigate("/testing-database")
   };
 
   return (
@@ -47,16 +47,16 @@ const HomeClient = () => {
         </div>
 
         <div className="options-container" >
-          <div className="option-card" onClick={handleSubmit}>
-            <img src={testing_icon} alt="Submit Request" />
+          <div className="option-card" onClick={handleForTestingPage}>
+            <img src={testing_icon} alt="For Testing Page" />
             <h2>For Testing Page</h2>
           </div>
-          <div className="option-card" onClick={handleTrack}>
-            <img src={test_icon} alt="Track Request" />
+          <div className="option-card" onClick={handleTestResults}>
+            <img src={test_icon} alt="Test Results" />
             <h2>Test Results</h2>
           </div>
-          <div className="option-card" onClick={handleGuide}>
-            <img src={database_icon} alt="Guide" />
+          <div className="option-card" onClick={handleDatabase}>
+            <img src={database_icon} alt="Database" />
             <h2>Database</h2>
           </div>
         </div>

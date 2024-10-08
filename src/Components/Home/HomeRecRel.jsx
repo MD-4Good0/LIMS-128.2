@@ -13,14 +13,14 @@ const HomeClient = () => {
 
   const navigate = useNavigate();
   
-  const handleSubmit = () => {
-    navigate("/submit")
+  const handlePendingRequests = () => {
+    navigate("/pending-requests")
   };
-  const handleTrack = () => {
-    navigate("/track")
+  const handleForRelease = () => {
+    navigate("/for-release")
   };
-  const handleGuide = () => {
-    navigate("/guide")
+  const handleDatabase = () => {
+    navigate("/receive-release-database")
   };
 
   return (
@@ -47,16 +47,16 @@ const HomeClient = () => {
         </div>
 
         <div className="options-container" >
-          <div className="option-card" onClick={handleSubmit}>
-            <img src={pending_icon} alt="Submit Request" />
+          <div className="option-card" onClick={handlePendingRequests}>
+            <img src={pending_icon} alt="Pending Requests" />
             <h2>Pending Requests</h2>
           </div>
-          <div className="option-card" onClick={handleTrack}>
-            <img src={release_icon} alt="Track Request" />
+          <div className="option-card" onClick={handleForRelease}>
+            <img src={release_icon} alt="For Release" />
             <h2>For Release</h2>
           </div>
-          <div className="option-card" onClick={handleGuide}>
-            <img src={database_icon} alt="Guide" />
+          <div className="option-card" onClick={handleDatabase}>
+            <img src={database_icon} alt="Database" />
             <h2>Database</h2>
           </div>
         </div>

@@ -4,7 +4,7 @@ import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 
-function PageRegister() {
+function PageForReleaseList() {
     return(
         <div>
             <Header/>
@@ -15,4 +15,4 @@ function PageRegister() {
     )
 }
 
-export default PageRegister
+export default PageForReleaseList

@@ -181,7 +181,7 @@ const Register = () => {
                             )}
                         </div>
                         <div className='submit-button'>
-                            <button className="submit-text-button">Log In</button>
+                            <button className="submit-text-button">Submit</button>
                         </div>
                     </div>
                 </div>

@@ -14,10 +14,10 @@ const HomeClient = () => {
   const navigate = useNavigate();
   
   const handleSubmit = () => {
-    navigate("/submit")
+    navigate("/submit-a-request")
   };
   const handleTrack = () => {
-    navigate("/track")
+    navigate("/track-my-request")
   };
   const handleGuide = () => {
     navigate("/guide")
@@ -52,7 +52,7 @@ const HomeClient = () => {
             <h2>Submit a Request</h2>
           </div>
           <div className="option-card" onClick={handleTrack}>
-            <img src={track_icon} alt="Track Request" />
+            <img src={track_icon} alt="Track My Request" />
             <h2>Track My Request</h2>
           </div>
           <div className="option-card" onClick={handleGuide}>

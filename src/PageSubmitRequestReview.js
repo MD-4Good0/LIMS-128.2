@@ -4,7 +4,7 @@ import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 
-function PageSubmitRequest() {
+function PageSubmitRequestReview() {
     return(
         <div>
             <Header/>
@@ -15,4 +15,4 @@ function PageSubmitRequest() {
     )
 }
 
-export default PageSubmitRequest
+export default PageSubmitRequestReview
