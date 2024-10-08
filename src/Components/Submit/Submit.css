@@ -11,8 +11,8 @@
     justify-content: center;
     align-items: center;
     width: 1280px;
-    height: 810px;
-    margin-top: 6vh;
+    height: 820px;
+    margin-top: 5.5vh;
     border-radius: 10px;
     background-color: #ffffffb5;
 }
@@ -105,7 +105,7 @@
     align-items: center;
     justify-content: center;
     width: 585px;
-    height: 470px;
+    height: 480px;
     gap: 30px;
     background-color: #fff;
     border-radius: 10px;
@@ -230,7 +230,9 @@ input:focus {
 .tmp-cont {
     display: flex;
     flex-direction: column;
-    margin-top: -20px;
+    margin-top: -15px;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 .tmp-cont img {
@@ -245,21 +247,27 @@ input:focus {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
-    padding-left: 80px;
-    padding-right: 50px;
-    background-color: #ffffff;
+    margin-right: 25px;
+    padding-left: 55px;
     color: #004e65;
     gap: 10px;
-    max-height: 140px;
-    overflow: auto;
+    max-height: 130px;
+    overflow-y: auto;
+}
+
+.spacer-top {
+    color: #ffffff;
+    background-color: #ffffff;
+    margin-bottom: -25px;
+    height: 40px;
 }
 
 .spacer {
     color: #ffffff;
     background-color: #ffffff;
-    margin-top: -10px;
     border-radius: 10px;
+    margin-top: -5px;
+    height: 30px;
 }
 
 .purposeoftesting_choices {

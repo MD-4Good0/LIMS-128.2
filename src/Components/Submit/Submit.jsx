@@ -111,6 +111,7 @@ const Register = () => {
                             {dropdownPurpose && (
                                 <div className="tmp-cont">
                                     <img src={blue_line_icon} alt="blue line"/>
+                                    <div className="spacer-top">.</div>
                                     <div className="submit-show">
                                         <label class="purposeoftesting_choices">
                                             <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
@@ -165,6 +166,7 @@ const Register = () => {
                             {dropdownTest && (
                                 <main className="tmp-cont">
                                     <img src={blue_line_icon} alt="blue line"/>
+                                    <div className="spacer-top">.</div>
                                     <div className="submit-show">
                                         Test selection content here<br/>
                                         Test selection content here<br/>
