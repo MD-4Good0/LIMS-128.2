@@ -20,7 +20,7 @@ const HomeRecRel = () => {
     navigate("/for-release")
   };
   const handleDatabase = () => {
-    navigate("/receive-release-database")
+    navigate("/view-database")
   };
 
   return (

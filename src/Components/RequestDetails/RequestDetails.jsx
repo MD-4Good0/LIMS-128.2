@@ -128,7 +128,7 @@ const SubmitReview = () => {
                                 <div className="tmp-cont">
                                     <img src={blue_line_icon} alt="blue line"/>
                                     <div className="spacer-top">.</div>
-                                    <div className="submit-show">
+                                    <div className="submit-show-filled">
                                         <label class="purposeoftesting_choices">
                                             <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
                                             <span class="checkmark"></span>
@@ -183,7 +183,7 @@ const SubmitReview = () => {
                                 <main className="tmp-cont">
                                     <img src={blue_line_icon} alt="blue line"/>
                                     <div className="spacer-top">.</div>
-                                    <div className="submit-show">
+                                    <div className="submit-show-filled">
                                         Test selection content here<br/>
                                         Test selection content here<br/>
                                         Test selection content here<br/>

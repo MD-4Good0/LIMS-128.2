@@ -74,10 +74,10 @@ function App() {
           <Route path="/show-control-number" element={<PageShowControlNumber/>}/>
           <Route path="/request-add-info" element={<PageRequestAddInfo/>}/>
         <Route path="/for-release" element={<PageForReleaseList/>}/>
-        <Route path="/testing-list" element={<PageTestingList/>}/>
         <Route path="/view-database" element={<PageViewDatabase/>}/>
 
       <Route path="/home-testing" element={<PageHomeTesting/>}/>
+        <Route path="/for-testing-page" element={<PageTestingList/>}/>
     </Routes>
   );
 }

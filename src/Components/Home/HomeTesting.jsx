@@ -20,7 +20,7 @@ const HomeTesting = () => {
     navigate("/test-results")
   };
   const handleDatabase = () => {
-    navigate("/testing-database")
+    navigate("/view-database")
   };
 
   return (

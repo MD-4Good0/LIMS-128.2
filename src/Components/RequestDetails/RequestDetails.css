@@ -78,6 +78,14 @@
     border: 3px solid #E85557;
 }
 
-.submit-show {
+.submit-show-filled {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-right: 45px;
+    padding-left: 55px;
+    color: #004e65;
+    gap: 10px;
     max-height: 165px;
+    overflow-y: auto;
 }
