@@ -4,7 +4,6 @@ import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom'; 
 
 import blue_line_icon from '../Assets/BlueLine.png';
-import back_button from '../Assets/BackButton.png';
 import dropdown_icon from '../Assets/DropDown.png';
 
 Userfront.init("jb7ywq8b");
@@ -155,7 +154,7 @@ const SubmitReview = () => {
                                             Complaint
                                         </label>
                                         <label class="purposeoftesting_choices">
-                                            <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)} checked="checked"/>
+                                            <input type="radio" name="purpose-choices" value={otherPurposeTesting} onChange={(e) => setPurposeTesting(e.target.value)} checked="checked"/>
                                             <span class="checkmark"></span>
                                             Others:
                                             <input 

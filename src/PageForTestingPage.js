@@ -1,18 +1,18 @@
 import React from "react";
-import TestingList from './Components/TestingList/TestingList';
+import ForTestingPage from './Components/ForTestingPage/ForTestingPage';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 
-function PageTestingList() {
+function PageForTestingPage() {
     return(
         <div>
             <Header/>
-            <TestingList/>
+            <ForTestingPage/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageTestingList
+export default PageForTestingPage

@@ -22,7 +22,7 @@ import PageShowControlNumber from './PageShowControlNumber';
 import PageRequestAddInfo from './PageRequestAddInfo';
 import PageRequestDetails from './PageRequestDetails';
 import PageViewDatabase from "./PageViewDatabase";
-import PageTestingList from "./PageTestingList";
+import PageForTestingPage from "./PageForTestingPage";
 
 Userfront.init("jb7ywq8b");
 
@@ -77,7 +77,7 @@ function App() {
         <Route path="/view-database" element={<PageViewDatabase/>}/>
 
       <Route path="/home-testing" element={<PageHomeTesting/>}/>
-        <Route path="/for-testing-page" element={<PageTestingList/>}/>
+        <Route path="/for-testing-page" element={<PageForTestingPage/>}/>
     </Routes>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './TestingList.css';
+import './ForTestingPage.css';
 import Userfront from "@userfront/core";
 
 import blue_logo_icon from '../Assets/BlueLogo.png';

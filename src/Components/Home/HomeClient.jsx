@@ -28,7 +28,7 @@ const HomeClient = () => {
       <main className="main-content">
         <div className='web-title'>
           <div className="web-title-container">
-            <img src={white_logo_icon}/>
+            <img src={white_logo_icon} alt="white logo icon"/>
             <div className="web-titles">
               <p className="L">L</p>
               <p className="ab">ab</p>
