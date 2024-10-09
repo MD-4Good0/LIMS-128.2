@@ -21,6 +21,8 @@ import PageForReleaseList from './PageForReleaseList';
 import PageShowControlNumber from './PageShowControlNumber';
 import PageRequestAddInfo from './PageRequestAddInfo';
 import PageRequestDetails from './PageRequestDetails';
+import PageViewDatabase from "./PageViewDatabase";
+import PageTestingList from "./PageTestingList";
 
 Userfront.init("jb7ywq8b");
 
@@ -72,6 +74,8 @@ function App() {
           <Route path="/show-control-number" element={<PageShowControlNumber/>}/>
           <Route path="/request-add-info" element={<PageRequestAddInfo/>}/>
         <Route path="/for-release" element={<PageForReleaseList/>}/>
+        <Route path="/testing-list" element={<PageTestingList/>}/>
+        <Route path="/view-database" element={<PageViewDatabase/>}/>
 
       <Route path="/home-testing" element={<PageHomeTesting/>}/>
     </Routes>
