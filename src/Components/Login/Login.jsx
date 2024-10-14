@@ -103,14 +103,13 @@ const Login = () => {
                     Welcome to the
                 </p>
                 <div className="all-right-second-row">
-                    <p className="L">L</p>
-                    <p className="ab">ab</p>
+                    <p className="L">N</p>
                     <p className="I">I</p>
-                    <p className="nformation">nformation</p>
                     <p className="M">M</p>
-                    <p className="anagement">anagement</p>
                     <p className="S">S</p>
-                    <p className="ystem">ystem</p>
+                    <p>‎ ‎ ‎ ‎ ‎ ‎  </p>
+                    <p className="laboratory">Laboratory</p>
+                    <p className="services">Services</p>
                 </div>
                 <div className="all-right-third-row">
                     <p>

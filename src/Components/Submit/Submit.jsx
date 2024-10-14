@@ -11,6 +11,7 @@ Userfront.init("jb7ywq8b");
 const Submit = () => {
     const [dropdownPurpose, setDropdownPurpose] = useState(false);
     const [dropdownTest, setDropdownTest] = useState(false);
+    const [dropdownSample, setDropdownSample] = useState(false);
     const [purposeTesting, setPurposeTesting] = useState('');
     const [otherPurposeTesting, setOtherPurposeTesting] = useState('');
 
@@ -18,6 +19,16 @@ const Submit = () => {
         setDropdownPurpose(!dropdownPurpose);
         if (!dropdownPurpose) {
             setDropdownTest(false); // Close test selection
+            setDropdownSample(false);
+        }
+        resetStates();
+    };
+
+    const handleSampleToggle = () => {
+        setDropdownSample(!dropdownSample);
+        if (!dropdownSample) {
+            setDropdownTest(false); // Close test selection
+            setDropdownPurpose(false);
         }
         resetStates();
     };
@@ -26,6 +37,7 @@ const Submit = () => {
         setDropdownTest(!dropdownTest);
         if (!dropdownTest) {
             setDropdownPurpose(false); // Close purpose of testing
+            setDropdownSample(false);
         }
         resetStates();
     };
@@ -154,6 +166,36 @@ const Submit = () => {
                                                 value={otherPurposeTesting}
                                                 onChange={(e) => setOtherPurposeTesting(e.target.value)}
                                             />
+                                        </label>
+                                    </div>
+                                    <div className="spacer">.</div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className='samplecategory' open={dropdownPurpose}>
+                            <div className='sample-title' onClick={handleSampleToggle}>
+                                Sample Category
+                                <img 
+                                    src={dropdown_icon} 
+                                    alt='dropdown icon'
+                                    className={dropdownSample ? 'rotate-up' : 'rotate-down'}
+                                />
+                            </div>
+                            {dropdownSample && (
+                                <div className="tmp-cont">
+                                    <img src={blue_line_icon} alt="blue line"/>
+                                    <div className="spacer-top">.</div>
+                                    <div className="submit-show">
+                                        <label class="samplecategory_choices">
+                                            <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                            <span class="checkmark"></span>
+                                            Walk-in
+                                        </label>
+                                        <label class="samplecategory_choices">
+                                            <input type="radio" name="purpose-choices" value={purposeTesting} onChange={(e) => setPurposeTesting(e.target.value)}/>
+                                            <span class="checkmark"></span>
+                                            Monitoring
                                         </label>
                                     </div>
                                     <div className="spacer">.</div>

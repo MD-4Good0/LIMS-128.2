@@ -15,6 +15,7 @@
     margin-top: 5.5vh;
     border-radius: 10px;
     background-color: #ffffffb5;
+    overflow-y: auto;
 }
 
 .submit-title {
@@ -173,6 +174,11 @@ input:focus {
     transition: transform 0.4s ease;
 }
 
+.samplecategory img, .testselection img {
+    width: 40px;
+    transition: transform 0.4s ease;
+}
+
 .rotate-up {
     transform: rotate(-180deg); /* Rotate 180 degrees */
 }
@@ -182,6 +188,25 @@ input:focus {
 }
 
 .purpose-title, .test-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 485px;
+    height: 85px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #2B9DC1;
+    cursor: pointer;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.sample-title, .test-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -287,6 +312,14 @@ input:focus {
     padding: 0 20px;
     border: 1px solid #004e65;
 } 
+
+.samplecategory_choices {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    color: #004e65;
+}
 
 .submit-show::-webkit-scrollbar {
     width: 10px;
