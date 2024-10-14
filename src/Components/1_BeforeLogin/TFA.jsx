@@ -64,8 +64,9 @@ const TFA = () => {
                     </div>
                 </div>
             </div>
-            <div className='tfa-all-right'>
-                <p className="tfa-first-row">
+            {/*
+            <div className='all-right'>
+                <p className="all-right-first-row">
                     Welcome to the
                 </p>
                 <div className="all-right-second-row">
@@ -77,7 +78,7 @@ const TFA = () => {
                     <p className="laboratory">Laboratory</p>
                     <p className="services">Services</p>
                 </div>
-                <div className="tfa-third-row">
+                <div className="all-right-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 
@@ -92,6 +93,7 @@ const TFA = () => {
                     </p>
                 </div>
             </div>
+            */}
         </div>
     );
 }

@@ -32,7 +32,7 @@ const Header = ({ onLogout }) => {
         <div className='header'>
             <div className="left-stuff">
                 <img src={white_logo_icon} alt="Logo" />
-                <div className="title">NMIS</div>
+                <div className="title">NIMS</div>
             </div>
 
             <div className="right-stuff">

@@ -29,7 +29,7 @@
 }
 
 .left-stuff img {
-    width: 65px;
+    width: 70px;
 }
 
 .right-stuff {
@@ -42,10 +42,11 @@
     height: auto;
     width: auto;
     color: #ffffff;
-    font-size: 48px;
+    font-size: 40px;
     text-align: left;
     font-family:'Poppins';
-    font-weight: 700;
+    font-weight: 600;
+    margin-left: -15px;
 }
 
 .home {

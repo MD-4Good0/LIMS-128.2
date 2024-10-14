@@ -78,6 +78,7 @@ const Forget = () => {
                     </div>
                 </div>
             </div>
+            {/*
             <div className='all-right'>
                 <p className="all-right-first-row">
                     Welcome to the
@@ -106,6 +107,7 @@ const Forget = () => {
                     </p>
                 </div>
             </div>
+            */}
         </div>
     );
 }

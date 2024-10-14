@@ -114,3 +114,12 @@
     font-size: 62px;
     color: white;
 }
+
+.center::after {
+    transform: scale(0,1);
+    transition: transform 0.3s ease;
+}
+
+.center:hover::after{
+    transform: scale(1,2);
+}

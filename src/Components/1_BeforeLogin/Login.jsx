@@ -98,6 +98,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            {/*
             <div className='all-right'>
                 <p className="all-right-first-row">
                     Welcome to the
@@ -126,6 +127,7 @@ const Login = () => {
                     </p>
                 </div>
             </div>
+            */}
         </div>
     );
 }
