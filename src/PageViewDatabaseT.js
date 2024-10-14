@@ -1,16 +1,16 @@
 import React from "react";
-import ForgotNIS from './Components/1a_Messages/ForgotNIS';
+import ViewDatabase from './Components/3_Testing/ViewDatabaseT';
 import BG from './Components/0_Head_Foot_BG/BG';
 import Footer from './Components/0_Head_Foot_BG/Footer';
 
-function PageNotInSystem() {
+function PageViewDatabaseT() {
     return(
         <div>
-            <ForgotNIS/>
+            <ViewDatabase/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageNotInSystem
+export default PageViewDatabaseT

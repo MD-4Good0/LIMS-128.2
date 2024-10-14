@@ -1,13 +1,11 @@
 import React from "react";
-import Guide from './Components/Guide/Guide';
-import BG from './Components/Background/BG';
-import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header';
+import Guide from './Components/3_Client/Guide';
+import BG from './Components/0_Head_Foot_BG/BG';
+import Footer from './Components/0_Head_Foot_BG/Footer';
 
 function PageGuide() {
     return(
         <div>
-            <Header/>
             <Guide/>
             <BG/>
             <Footer />

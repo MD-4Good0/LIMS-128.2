@@ -1,13 +1,11 @@
 import React from "react";
-import ForTestingPage from './Components/ForTestingPage/ForTestingPage';
-import BG from './Components/Background/BG';
-import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header';
+import ForTestingPage from './Components/3_Testing/ForTestingPage';
+import BG from './Components/0_Head_Foot_BG/BG';
+import Footer from './Components/0_Head_Foot_BG/Footer';
 
 function PageForTestingPage() {
     return(
         <div>
-            <Header/>
             <ForTestingPage/>
             <BG/>
             <Footer />

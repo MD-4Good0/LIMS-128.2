@@ -1,13 +1,11 @@
 import React from "react";
-import SubmitReview from './Components/SubmitReview/SubmitReview';
-import BG from './Components/Background/BG';
-import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header';
+import SubmitReview from './Components/3_Client/SubmitReview';
+import BG from './Components/0_Head_Foot_BG/BG';
+import Footer from './Components/0_Head_Foot_BG/Footer';
 
 function PageSubmitRequestReview() {
     return(
         <div>
-            <Header/>
             <SubmitReview/>
             <BG/>
             <Footer />
