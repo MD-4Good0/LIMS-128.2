@@ -23,8 +23,9 @@ import PageRequestAddInfo from "./PageRequestAddInfo";
 import PageRequestDetails from "./PageRequestDetails";
 import PageViewDatabaseT from "./PageViewDatabaseT";
 import PageViewDatabaseRR from "./PageViewDatabaseRR";
-import PageForTestingPage from "./PageForTestingPage";
+import PageForTesting from "./PageForTesting";
 import PageGuide from "./PageGuide";
+import PageTestResults from "./PageTestResults";
 
 Userfront.init("jb7ywq8b");
 
@@ -193,10 +194,18 @@ function App() {
           }
         />
         <Route
-          path="/for-testing-page"
+          path="/for-testing"
           element={
             <ProtectedRoute role="testing">
-              <PageForTestingPage />
+              <PageForTesting />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/test-results"
+          element={
+            <ProtectedRoute role="testing">
+              <PageTestResults />
             </ProtectedRoute>
           }
         />

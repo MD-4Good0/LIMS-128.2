@@ -1,5 +1,5 @@
 import React from 'react';
-import './ForTestingPage.css';
+import './ForTesting.css';
 import Userfront from "@userfront/core";
 
 import blue_logo_icon from '../Assets/BlueLogo.png';
@@ -10,7 +10,7 @@ const TestingList = () => {
     return (
         <div className="request-all-container">
             <div className='request-container'>
-                <div className='request-title'>Testing List</div>
+                <div className='request-title'>For Testing</div>
                 <div className="request-1st-container">
                     <img src={blue_logo_icon} alt="Blue Logo Icon" className="blue-logo-icon" />
 

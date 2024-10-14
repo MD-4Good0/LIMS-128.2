@@ -14,7 +14,7 @@ const HomeTesting = () => {
   const navigate = useNavigate();
   
   const handleForTestingPage = () => {
-    navigate("/for-testing-page")
+    navigate("/for-testing")
   };
   const handleTestResults = () => {
     navigate("/test-results")
@@ -48,8 +48,8 @@ const HomeTesting = () => {
 
         <div className="options-container" >
           <div className="option-card" onClick={handleForTestingPage}>
-            <img src={testing_icon} alt="For Testing Page" />
-            <h2>For Testing Page</h2>
+            <img src={testing_icon} alt="For Testing Z" />
+            <h2>For Testing</h2>
           </div>
           <div className="option-card" onClick={handleTestResults}>
             <img src={test_icon} alt="Test Results" />

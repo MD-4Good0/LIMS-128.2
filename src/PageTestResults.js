@@ -1,16 +1,16 @@
 import React from "react";
-import ForTestingPage from './Components/3_Testing/ForTestingPage';
+import TestResults from './Components/3_Testing/TestResults';
 import BG from './Components/0_Head_Foot_BG/BG';
 import Footer from './Components/0_Head_Foot_BG/Footer';
 
-function PageForTestingPage() {
+function PageTestResults() {
     return(
         <div>
-            <ForTestingPage/>
+            <TestResults/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageForTestingPage
+export default PageTestResults
