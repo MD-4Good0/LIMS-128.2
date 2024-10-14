@@ -23,6 +23,7 @@ import PageRequestAddInfo from './PageRequestAddInfo';
 import PageRequestDetails from './PageRequestDetails';
 import PageViewDatabase from "./PageViewDatabase";
 import PageForTestingPage from "./PageForTestingPage";
+import PageGuide from "./PageGuide"
 
 Userfront.init("jb7ywq8b");
 
@@ -49,6 +50,7 @@ function App() {
       <Route path="/email-sent" element={<PageForgotES/>}/>
       <Route path="/not-in-system" element={<PageForgotNIS/>}/>
       <Route path="/registered" element={<PageRegisterTY/>}/>
+      <Route path="/guide" element={<PageGuide/>}/>
       
       <Route
         path="*"
