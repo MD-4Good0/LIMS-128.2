@@ -26,6 +26,7 @@ import PageViewDatabaseRR from "./PageViewDatabaseRR";
 import PageForTesting from "./PageForTesting";
 import PageGuide from "./PageGuide";
 import PageTestResults from "./PageTestResults";
+import PageTFAVerify from "./PageTFA-Verify-Reg";
 
 Userfront.init("jb7ywq8b");
 
@@ -76,6 +77,7 @@ function App() {
             <Route path="/not-in-system" element={<PageForgotNIS />} />
             <Route path="/registered" element={<PageRegisterTY />} />
             <Route path="/login" element={<PageLogin />} />
+            <Route path="/tfaverify" element={<PageTFAVerify />} />
           </>
         )}
 

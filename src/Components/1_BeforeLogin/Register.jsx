@@ -1,12 +1,335 @@
 import React, { useState } from 'react';
 import './Register.css';
-import Userfront from "@userfront/core";
+//import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import eyeOpen from '../Assets/EyeOpen.png';
 import eyeClose from '../Assets/EyeClose.png';
+import { set } from 'date-fns';
 
-Userfront.init("jb7ywq8b");
+//Userfront.init("jb7ywq8b");
 
+const Register = () => {
+
+    const navigate = useNavigate();
+    const [visible, setVisible] = useState(false);  
+    const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
+
+    const [formData, setFormData] = useState({
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        email: '',
+        companyName: '',
+        ltoNumber: '',
+        contactNumber: '',
+        password: '',
+        repeatPassword: '',
+        clientClassification: ''
+    });
+
+    const handleClientRegistration = async () => {
+        const clientData = {
+            user: {
+                firstName: formData.firstName,
+                middleName: formData.middleName,
+                lastName: formData.lastName,
+                contactNumber: formData.contactNumber,
+                email: formData.email,
+                password: formData.password,
+                userType: 'client',
+            },
+            client: {
+                ltoNumber: formData.ltoNumber,
+                clientClassification: formData.clientClassification,
+                companyName: formData.companyName 
+            },
+        };
+        
+        try {
+            const response = await fetch('http://localhost:8080/clients', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(clientData),
+            });
+            const data = await response.json();
+            console.log('Client registration is successful:', data);
+        } catch (error) {
+            console.error('Error during registration:', error);
+        }
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        let signUpSuccess = false;
+    
+        /*
+        // Form validation
+        if (
+            !formData.firstName ||
+            !formData.lastName ||
+            !formData.contactNumber ||
+            !formData.email ||
+            !formData.password ||
+            !formData.confirmpass ||
+            !formData.ltoNumber
+        ) {
+            alert('Please fill in all required fields.');
+            return;
+        }*/
+    
+        if (formData.password !== formData.repeatPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+    
+        await handleClientRegistration();
+        signUpSuccess = true;
+    
+        if (signUpSuccess) {
+            sessionStorage.setItem('userEmail', formData.email);
+            navigate('/tfaverify');
+        }
+    };
+
+    const handleForgetPassword = () => {
+        navigate("/forget")
+    };
+
+    const handleBackToLogin = () => {
+        navigate("/login")
+    };
+    
+    return (
+        <div className='register-all-container'>
+            <div className='register-container'>
+                <div className="registration">Registration</div>
+                <form onSubmit={handleSubmit} className="client-record-registration">
+                <div className="register-form">
+                    <div className='register-all-left'>
+                        <div className="inputs">
+                            <div className="register-input-first-row">
+                                <div className='label-container-left'>
+                                    <div className='l-c-label'>First Name</div>
+                                    <div className='first-name'>
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="firstName" 
+                                        id="firstName" 
+                                    />
+                                    </div>
+                                </div>
+
+                                <div className='label-container-left'>
+                                    <div className='l-c-label'>M.I.</div>
+                                    <div className='mi'>
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="middleName" 
+                                        id="middleName" 
+                                    />
+                                    </div>
+                                </div>
+
+                                <div className='label-container-left'>
+                                    <div className='l-c-label'>Last Name</div>
+                                    <div className='last-name'>
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="lastName" 
+                                        id="lastName" 
+                                    />
+                                    </div>
+                                </div>     
+                            </div>
+
+                            <div className='label-container-left'>
+                                <div className='l-c-label'>Company Name</div>
+                                <div className="company-name">
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="companyName" 
+                                        id="companyName" 
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="register-input-third-row">
+                                <div className='label-container-left'>
+                                    <div className='l-c-label'>LTO Number</div>
+                                    <div className='lto-number'>
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="ltoNumber" 
+                                        id="ltoNumber" 
+                                    />
+                                    </div>
+                                </div>
+
+                                <div className='label-container-left'>
+                                <div className='l-c-label'>Contact Number</div>
+                                    <div className='contact-number'>
+                                    <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="contactNumber" 
+                                        id="contactNumber" 
+                                        maxLength={13}
+                                    />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='label-container-left'>
+                                <div className='l-c-label'>Email</div>
+                                <div className="email">
+                                <input 
+                                        className="font-link"
+                                        type="text" 
+                                        name="companyName" 
+                                        id="companyName" 
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='label-container-left'>
+                                <div className='l-c-label'>Password</div>
+                                <div className="password">
+                                    <input 
+                                        className="font-link"
+                                        type={visible ? "text" : "password"}
+                                        name="password" 
+                                        id="password"
+                                    />
+
+                                    <div className="eyecon-register" onClick={() => setVisible(!visible)}>
+                                        <button>
+                                            {visible ? <img src={eyeOpen} alt="Show Password" /> 
+                                                    : <img src={eyeClose} alt="Hide Password" />}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='label-container-left'>
+                                <div className='l-c-label'>Repeat Password</div>
+                                <div className="retype-password">
+                                    <input
+                                        className="font-link"
+                                        type={repeatPasswordVisible ? "text" : "password"}
+                                        name="repeatPassword"
+                                        id="repeat-password"
+                                    />
+
+                                <div className="eyecon-register" onClick={() => setRepeatPasswordVisible(!repeatPasswordVisible)}>
+                                    <button>
+                                        {repeatPasswordVisible ? <img src={eyeOpen} alt="Show Password" /> : <img src={eyeClose} alt="Hide Password" />}
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>    
+
+                    <div className="register-all-right">
+                        <div className='label-container-right'>
+                            <div className='l-c-label'>Client Classification</div>
+                                <div className="cli-class">
+                                    <div className="cli-class-both">
+                                        <div className="cli-class-left">
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Importer
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Exporter
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Slaughterhouse
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Poultry Dressing Plant
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Meat Dealer
+                                            </label>
+                                        </div>
+
+                                        <div className="cli-class-right">
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Meat Processing Plant
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Meat Cutting Plant
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Consumer
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Plant Officer
+                                            </label>
+                                            <label class="cli-class-container">
+                                                <input type="radio" id="clientClassification" name="clientClassification" onChange={(e) => setFormData({ ...formData, clientClassification: e.target.name })}/>
+                                                <span class="checkmark"></span>
+                                                Cold Storage Warehouse
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className="cli-class-others">
+                                        <label class="cli-class-container">
+                                            <input type="radio" name="cli-class"/>
+                                            <span class="checkmark"></span>
+                                            Others:
+                                            <input 
+                                                type="text"
+                                                name="clientClassification"
+                                                onChange={(e) => set(formData.clientClassification)}
+                                            />
+                                        </label>
+                                    </div>
+                        </div>
+                        <div className="register-button" onClick={handleSubmit} align="center">
+                                <button className="text-button">Register</button>
+                            </div>
+
+                            <div className="register-last-row-text">
+                                <button className="center button-text" onClick={handleBackToLogin}>Back To Log In</button>
+                                <button className="center button-text" onClick={handleForgetPassword}>Forget Password?</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    );
+
+/*
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -82,7 +405,7 @@ const Register = () => {
                                             type="text"
                                             value={firstName}
                                             onChange={(e) => setFirstName(e.target.value)}
-                                        />
+                                        /> 
                                     </div>
                                 </div>
 
@@ -295,6 +618,8 @@ const Register = () => {
             </div>
         </div>
     );
+    */
+
 }
 
 export default Register;
