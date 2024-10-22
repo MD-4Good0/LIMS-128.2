@@ -28,8 +28,6 @@ public class TesterService {
 	private List<User> loggedInTesters = new ArrayList<>();
 	private List<User> loggedInAdmins = new ArrayList<>();
 
-
-
     @Autowired
     public TesterService(UserRepository userRepository, TesterRepository testerRepository, JavaMailSender javaMailSender) {
 		this.userRepository = userRepository;
@@ -120,8 +118,6 @@ public class TesterService {
         return "Failed to change password";
     }
     
-
-
 
     public void logout(String username) {
         // Remove the logged-out patient from the list based on the username
