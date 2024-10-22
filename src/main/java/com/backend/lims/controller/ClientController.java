@@ -1,5 +1,6 @@
 package com.backend.lims.controller;
 
+import com.backend.lims.dto.ClientDTO;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,11 +45,28 @@ public class ClientController {
         
         return ResponseEntity.ok(response);
     }
-    
+
+    @GetMapping("/clientview/{userId}")
+    public ResponseEntity<ClientDTO> getClientProfile(@PathVariable Long userId) {
+
+        ClientDTO clientDTO = clientService.getClientDetails(userId);
+
+        if (clientDTO != null) {
+            System.out.println("Check further");
+            return ResponseEntity.ok(clientDTO);
+        } else {
+            System.out.println("This has failed");
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    /*
     @GetMapping("/clientview/{clientUserId}")
     public Client getClientProfile(@PathVariable Long clientUserId) {
         return clientService.getClientProfile(clientUserId);
     }
+
+     */
     
     @GetMapping("/clientdetails/{username}")
     public ResponseEntity<Client> getUserByUsername(@PathVariable String username) {

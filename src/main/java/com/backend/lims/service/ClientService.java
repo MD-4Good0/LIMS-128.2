@@ -1,5 +1,6 @@
 package com.backend.lims.service;
 
+import com.backend.lims.dto.ClientDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -47,8 +48,7 @@ public class ClientService {
         String subject = "Account Verification";
         sendVerificationEmail(email, subject, code);
 	}
-    
-    
+
     public String addUser(User user, Client client) {
         User u = userRepository.findByUsername(user.getUsername());
         User uemail = userRepository.findByEmail(user.getEmail());
@@ -145,8 +145,6 @@ public class ClientService {
         loggedInClients.removeIf(user -> user.getUsername().equals(username));
     }
 
-
-
     
     public Client getUserByUsername(String username) {
         User user = userRepository.findByUsername(username);
@@ -181,12 +179,26 @@ public class ClientService {
         return null;
     }
 
-    public Client getClientProfile(Long clientUserId) {
-    	return clientRepository.findByUserId(clientUserId);
-    }
-    
+    public ClientDTO getClientDetails(Long clientUserId) {
+        Client client = clientRepository.findByUserId(clientUserId);
+        if (client != null) {
+            return new ClientDTO(
+                    client.getUser().getUsername(),
+                    client.getUser().getContactNumber(),
+                    client.getUser().getEmail(),
+                    client.getCompanyName(),
+                    client.getLtoNo(),
+                    client.getClassification()
+            );
+        }
 
- 
+        return null;
+    }
+
+
+    public Client getClientProfile(Long clientUserId) {
+        return clientRepository.findByUserId(clientUserId);
+    }
 
     public void setLoggedInClient(User loggedInClient) {
         // Add the logged-in client to the list

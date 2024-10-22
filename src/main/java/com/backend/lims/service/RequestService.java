@@ -20,13 +20,33 @@ public class RequestService {
     
     @Autowired
     private ClientRepository clientRepository;
-    
+
+    public RequestService(RequestRepository requestRepository, ClientRepository clientRepository) {
+        this.requestRepository = requestRepository;
+        this.clientRepository = clientRepository;
+    }
+
     public Request submitRequest(Request request, Long clientId) {
-        Client client = clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
+        // Fetch client by clientId
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new IllegalArgumentException("Client not found with id: " + clientId));
+
+        // Set the client information
         request.setClient(client);
-        request.setSubmissionDate(LocalDate.now());
-        request.setRequestStatus(RequestStatus.PENDING_REVIEW);
+
+        // Set initial request status to PENDING_REVIEW
+        request.setRequestStatus(Request.RequestStatus.PENDING_REVIEW);
+
+        // Set submission date if not already set
+        if (request.getSubmissionDate() == null) {
+            request.setSubmissionDate(LocalDate.now());
+        }
+
+        // Set createdAt and updatedAt timestamps
         request.setCreatedAt(LocalDateTime.now());
+        request.setUpdatedAt(LocalDateTime.now());
+
+        // Save the request to the database
         return requestRepository.save(request);
     }
 

@@ -14,7 +14,7 @@ public class Request {
     private Long id;
     
     public enum TestingPurpose {
-        MONITORING, LOCAL_TRADE, IMPORTED, EXPORT, COMPLAINT, OTHERS
+        Monitoring, Local_Trade, Imported, Export, Complaint, Others
     }
 
     public enum RequestStatus {
@@ -61,6 +61,36 @@ public class Request {
     // Timestamps
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+	public Request() {
+	}
+
+	public Request(Long id, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, String sampleTypeDescription, String lotBatchNo, String sampleSource, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
+		this.id = id;
+		this.client = client;
+		this.representativeName = representativeName;
+		this.contactNumber = contactNumber;
+		this.emailAddress = emailAddress;
+		this.companyName = companyName;
+		this.clientClassification = clientClassification;
+		this.ltoNumber = ltoNumber;
+		this.sampleTypeDescription = sampleTypeDescription;
+		this.lotBatchNo = lotBatchNo;
+		this.sampleSource = sampleSource;
+		this.productionDate = productionDate;
+		this.expiryDate = expiryDate;
+		this.samplingDate = samplingDate;
+		this.samplerName = samplerName;
+		this.testingPurpose = testingPurpose;
+		this.testSelections = testSelections;
+		this.requestStatus = requestStatus;
+		this.controlNumber = controlNumber;
+		this.submissionDate = submissionDate;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
 	public Long getId() {
 		return id;
 	}

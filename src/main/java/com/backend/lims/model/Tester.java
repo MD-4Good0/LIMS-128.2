@@ -28,7 +28,6 @@ public class Tester {
 	public Tester() {
 		
 	}
-	
 
 	public Tester(Long userId, String specialization, User user, String licenseNumber) {
 		super();

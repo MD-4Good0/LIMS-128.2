@@ -11,16 +11,16 @@ import com.backend.lims.model.Request;
 import com.backend.lims.service.RequestService;
 
 @RestController
-@RequestMapping("/api/requests")
+@RequestMapping("/requests")
 public class RequestController {
     
     @Autowired
     private RequestService requestService;
 
     // Submit a new request
-    @PostMapping("/submit/{clientId}")
-    public ResponseEntity<Request> submitRequest(@RequestBody Request request, @PathVariable Long clientId) {
-        return new ResponseEntity<>(requestService.submitRequest(request, clientId), HttpStatus.CREATED);
+    @PostMapping("/submitrequest/{userId}")
+    public ResponseEntity<Request> submitRequest(@RequestBody Request request, @PathVariable Long userId) {
+        return new ResponseEntity<>(requestService.submitRequest(request, userId), HttpStatus.CREATED);
     }
 
     // Get pending requests (for staff review)

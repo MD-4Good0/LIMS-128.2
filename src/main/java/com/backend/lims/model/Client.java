@@ -35,14 +35,13 @@ public class Client {
 		this.ltoNo =  unvClient.getLtoNo();
 		this.classification = unvClient.getClassification();
 	}
-    
 
-	public Client(Long userId, String seniorId, String pwdId, String philhealthId, String hmo, User user) {
+	public Client(Long userId, String companyName, String classification, String ltoNo, User user) {
 		super();
 		this.userId = userId;
 		this.companyName = companyName;
-		this.ltoNo = ltoNo;
 		this.classification = classification;
+		this.ltoNo = ltoNo;
 		this.user = user;
 	}
 
