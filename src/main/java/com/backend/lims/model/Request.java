@@ -1,17 +1,18 @@
 package com.backend.lims.model;
 
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.*;
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
+@Transactional
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long requestId;
     
     public enum TestingPurpose {
         Monitoring, Local_Trade, Imported, Export, Complaint, Others
@@ -31,20 +32,15 @@ public class Request {
     private String clientClassification;
     private String ltoNumber;
 
-    // Sample Information
-    private String sampleTypeDescription;
-    private String lotBatchNo;
-    private String sampleSource;
-    private LocalDate productionDate;
-    private LocalDate expiryDate;
-    private LocalDate samplingDate;
-    private String samplerName;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fkRequestId", referencedColumnName = "requestId")
+    private List<Sample> sample;
 
     // Purpose of Testing (ENUM for better management)
     @Enumerated(EnumType.STRING)
     private TestingPurpose testingPurpose;
 
-    // Test Selection (Can be a list of selected tests)
+    // Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
     @ElementCollection
     private List<String> testSelections;
 
@@ -53,6 +49,7 @@ public class Request {
     private RequestStatus requestStatus;
 
     // Control Number
+	// What is this control number
     private String controlNumber;
 
     // Submission Date
@@ -65,9 +62,8 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long id, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, String sampleTypeDescription, String lotBatchNo, String sampleSource, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
-		super();
-		this.id = id;
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
 		this.contactNumber = contactNumber;
@@ -75,13 +71,7 @@ public class Request {
 		this.companyName = companyName;
 		this.clientClassification = clientClassification;
 		this.ltoNumber = ltoNumber;
-		this.sampleTypeDescription = sampleTypeDescription;
-		this.lotBatchNo = lotBatchNo;
-		this.sampleSource = sampleSource;
-		this.productionDate = productionDate;
-		this.expiryDate = expiryDate;
-		this.samplingDate = samplingDate;
-		this.samplerName = samplerName;
+		this.sample = sample;
 		this.testingPurpose = testingPurpose;
 		this.testSelections = testSelections;
 		this.requestStatus = requestStatus;
@@ -92,10 +82,10 @@ public class Request {
 	}
 
 	public Long getId() {
-		return id;
+		return requestId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long requestId) {
+		this.requestId = requestId;
 	}
 	public Client getClient() {
 		return client;
@@ -118,6 +108,15 @@ public class Request {
 	public String getEmailAddress() {
 		return emailAddress;
 	}
+
+	public List<Sample> getSample() {
+		return sample;
+	}
+
+	public void setSample(List<Sample> sample) {
+		this.sample = sample;
+	}
+
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
@@ -138,48 +137,6 @@ public class Request {
 	}
 	public void setLtoNumber(String ltoNumber) {
 		this.ltoNumber = ltoNumber;
-	}
-	public String getSampleTypeDescription() {
-		return sampleTypeDescription;
-	}
-	public void setSampleTypeDescription(String sampleTypeDescription) {
-		this.sampleTypeDescription = sampleTypeDescription;
-	}
-	public String getLotBatchNo() {
-		return lotBatchNo;
-	}
-	public void setLotBatchNo(String lotBatchNo) {
-		this.lotBatchNo = lotBatchNo;
-	}
-	public String getSampleSource() {
-		return sampleSource;
-	}
-	public void setSampleSource(String sampleSource) {
-		this.sampleSource = sampleSource;
-	}
-	public LocalDate getProductionDate() {
-		return productionDate;
-	}
-	public void setProductionDate(LocalDate productionDate) {
-		this.productionDate = productionDate;
-	}
-	public LocalDate getExpiryDate() {
-		return expiryDate;
-	}
-	public void setExpiryDate(LocalDate expiryDate) {
-		this.expiryDate = expiryDate;
-	}
-	public LocalDate getSamplingDate() {
-		return samplingDate;
-	}
-	public void setSamplingDate(LocalDate samplingDate) {
-		this.samplingDate = samplingDate;
-	}
-	public String getSamplerName() {
-		return samplerName;
-	}
-	public void setSamplerName(String samplerName) {
-		this.samplerName = samplerName;
 	}
 	public TestingPurpose getTestingPurpose() {
 		return testingPurpose;
