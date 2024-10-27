@@ -40,6 +40,12 @@ public class Request {
     @Enumerated(EnumType.STRING)
     private TestingPurpose testingPurpose;
 
+	private Boolean isMicrobial;
+
+	private Boolean isChem;
+
+	private Boolean isMolBio;
+
     // Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
     @ElementCollection
     private List<String> testSelections;
@@ -62,7 +68,8 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -73,6 +80,9 @@ public class Request {
 		this.ltoNumber = ltoNumber;
 		this.sample = sample;
 		this.testingPurpose = testingPurpose;
+		this.isMicrobial = isMicrobial;
+		this.isChem = isChem;
+		this.isMolBio = isMolBio;
 		this.testSelections = testSelections;
 		this.requestStatus = requestStatus;
 		this.controlNumber = controlNumber;
@@ -144,6 +154,31 @@ public class Request {
 	public void setTestingPurpose(TestingPurpose testingPurpose) {
 		this.testingPurpose = testingPurpose;
 	}
+
+	public Boolean getMicrobial() {
+		return isMicrobial;
+	}
+
+	public void setMicrobial(Boolean microbial) {
+		isMicrobial = microbial;
+	}
+
+	public Boolean getChem() {
+		return isChem;
+	}
+
+	public void setChem(Boolean chem) {
+		isChem = chem;
+	}
+
+	public Boolean getMolBio() {
+		return isMolBio;
+	}
+
+	public void setMolBio(Boolean molBio) {
+		isMolBio = molBio;
+	}
+
 	public List<String> getTestSelections() {
 		return testSelections;
 	}
