@@ -48,7 +48,13 @@ public class Request {
 
     // Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
     @ElementCollection
-    private List<String> testSelections;
+    private List<String> testSelectionMicorbial;
+
+	@ElementCollection
+	private List<String> testSelectionChem;
+
+	@ElementCollection
+	private List<String> testSelectionMolBio;
 
     // Request Status
     @Enumerated(EnumType.STRING)
@@ -68,7 +74,7 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelections, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicorbial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		super();
 		this.requestId = requestId;
 		this.client = client;
@@ -83,7 +89,9 @@ public class Request {
 		this.isMicrobial = isMicrobial;
 		this.isChem = isChem;
 		this.isMolBio = isMolBio;
-		this.testSelections = testSelections;
+		this.testSelectionMicorbial = testSelectionMicorbial;
+		this.testSelectionChem = testSelectionChem;
+		this.testSelectionMolBio = testSelectionMolBio;
 		this.requestStatus = requestStatus;
 		this.controlNumber = controlNumber;
 		this.submissionDate = submissionDate;
@@ -91,10 +99,11 @@ public class Request {
 		this.updatedAt = updatedAt;
 	}
 
-	public Long getId() {
+	public Long getRequestId() {
 		return requestId;
 	}
-	public void setId(Long requestId) {
+
+	public void setRequestId(Long requestId) {
 		this.requestId = requestId;
 	}
 	public Client getClient() {
@@ -179,12 +188,30 @@ public class Request {
 		isMolBio = molBio;
 	}
 
-	public List<String> getTestSelections() {
-		return testSelections;
+	public List<String> getTestSelectionMicorbial() {
+		return testSelectionMicorbial;
 	}
-	public void setTestSelections(List<String> testSelections) {
-		this.testSelections = testSelections;
+
+	public void setTestSelectionMicorbial(List<String> testSelectionMicorbial) {
+		this.testSelectionMicorbial = testSelectionMicorbial;
 	}
+
+	public List<String> getTestSelectionChem() {
+		return testSelectionChem;
+	}
+
+	public void setTestSelectionChem(List<String> testSelectionChem) {
+		this.testSelectionChem = testSelectionChem;
+	}
+
+	public List<String> getTestSelectionMolBio() {
+		return testSelectionMolBio;
+	}
+
+	public void setTestSelectionMolBio(List<String> testSelectionMolBio) {
+		this.testSelectionMolBio = testSelectionMolBio;
+	}
+
 	public RequestStatus getRequestStatus() {
 		return requestStatus;
 	}
