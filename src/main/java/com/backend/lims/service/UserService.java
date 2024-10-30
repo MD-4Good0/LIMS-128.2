@@ -99,7 +99,7 @@ public class UserService {
         }
 
         if (user != null && bcrypt.matches(password, user.getPassword())) {
-            if ("TESTER".equalsIgnoreCase(user.getUserType())) {
+            if ("STAFF".equalsIgnoreCase(user.getUserType())) {
                 // Check if the user is marked as deleted
                 if ("deleted".equalsIgnoreCase(user.getDeletionStatus())) {
                     return "Login denied: Account has been deleted.";

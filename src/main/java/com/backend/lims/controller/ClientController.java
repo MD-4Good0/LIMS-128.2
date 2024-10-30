@@ -81,6 +81,7 @@ public class ClientController {
     
     @GetMapping("/clientuserid/{username}")
     public Long getUserIdByUsername(@PathVariable String username) {
+        System.out.println("get here");
         return clientService.getUserIdByUsername(username);
     }
 

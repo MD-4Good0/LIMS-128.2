@@ -51,7 +51,7 @@ public class StaffController {
         }
     }
 
-    @GetMapping("/allusers")
+    @GetMapping("/allstaff")
     public ResponseEntity<List<Staff>> viewAllUsers() {
         List<Staff> allUsers = staffService.getAllUsers();
         if (allUsers != null && !allUsers.isEmpty()) {

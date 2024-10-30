@@ -46,7 +46,6 @@ public class ClientDTO {
         this.classification = classification;
     }
 
-
     public Long getId() {
         return id;
     }

@@ -52,7 +52,7 @@ public class TesterController {
         }
     }
 
-    @GetMapping("/allusers")
+    @GetMapping("/alltesters")
     public ResponseEntity<List<Tester>> viewAllUsers() {
         List<Tester> allUsers = testerService.getAllUsers();
         if (allUsers != null && !allUsers.isEmpty()) {

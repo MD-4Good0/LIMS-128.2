@@ -32,9 +32,9 @@ public class Request {
     private String clientClassification;
     private String ltoNumber;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Sample.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "fkRequestId", referencedColumnName = "requestId")
-    private List<Sample> sample;
+	private List<Sample> sample;
 
     // Purpose of Testing (ENUM for better management)
     @Enumerated(EnumType.STRING)
@@ -48,7 +48,7 @@ public class Request {
 
     // Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
     @ElementCollection
-    private List<String> testSelectionMicorbial;
+    private List<String> testSelectionMicrobial;
 
 	@ElementCollection
 	private List<String> testSelectionChem;
@@ -74,7 +74,7 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicorbial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		super();
 		this.requestId = requestId;
 		this.client = client;
@@ -89,7 +89,7 @@ public class Request {
 		this.isMicrobial = isMicrobial;
 		this.isChem = isChem;
 		this.isMolBio = isMolBio;
-		this.testSelectionMicorbial = testSelectionMicorbial;
+		this.testSelectionMicrobial = testSelectionMicrobial;
 		this.testSelectionChem = testSelectionChem;
 		this.testSelectionMolBio = testSelectionMolBio;
 		this.requestStatus = requestStatus;
@@ -106,26 +106,61 @@ public class Request {
 	public void setRequestId(Long requestId) {
 		this.requestId = requestId;
 	}
+
 	public Client getClient() {
 		return client;
 	}
+
 	public void setClient(Client client) {
 		this.client = client;
 	}
+
 	public String getRepresentativeName() {
 		return representativeName;
 	}
+
 	public void setRepresentativeName(String representativeName) {
 		this.representativeName = representativeName;
 	}
+
 	public String getContactNumber() {
 		return contactNumber;
 	}
+
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
+
 	public String getEmailAddress() {
 		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getClientClassification() {
+		return clientClassification;
+	}
+
+	public void setClientClassification(String clientClassification) {
+		this.clientClassification = clientClassification;
+	}
+
+	public String getLtoNumber() {
+		return ltoNumber;
+	}
+
+	public void setLtoNumber(String ltoNumber) {
+		this.ltoNumber = ltoNumber;
 	}
 
 	public List<Sample> getSample() {
@@ -136,30 +171,10 @@ public class Request {
 		this.sample = sample;
 	}
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
-	public String getCompanyName() {
-		return companyName;
-	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-	public String getClientClassification() {
-		return clientClassification;
-	}
-	public void setClientClassification(String clientClassification) {
-		this.clientClassification = clientClassification;
-	}
-	public String getLtoNumber() {
-		return ltoNumber;
-	}
-	public void setLtoNumber(String ltoNumber) {
-		this.ltoNumber = ltoNumber;
-	}
 	public TestingPurpose getTestingPurpose() {
 		return testingPurpose;
 	}
+
 	public void setTestingPurpose(TestingPurpose testingPurpose) {
 		this.testingPurpose = testingPurpose;
 	}
@@ -188,12 +203,12 @@ public class Request {
 		isMolBio = molBio;
 	}
 
-	public List<String> getTestSelectionMicorbial() {
-		return testSelectionMicorbial;
+	public List<String> getTestSelectionMicrobial() {
+		return testSelectionMicrobial;
 	}
 
-	public void setTestSelectionMicorbial(List<String> testSelectionMicorbial) {
-		this.testSelectionMicorbial = testSelectionMicorbial;
+	public void setTestSelectionMicrobial(List<String> testSelectionMicrobial) {
+		this.testSelectionMicrobial = testSelectionMicrobial;
 	}
 
 	public List<String> getTestSelectionChem() {
@@ -215,30 +230,39 @@ public class Request {
 	public RequestStatus getRequestStatus() {
 		return requestStatus;
 	}
+
 	public void setRequestStatus(RequestStatus requestStatus) {
 		this.requestStatus = requestStatus;
 	}
+
 	public String getControlNumber() {
 		return controlNumber;
 	}
+
 	public void setControlNumber(String controlNumber) {
 		this.controlNumber = controlNumber;
 	}
+
 	public LocalDate getSubmissionDate() {
 		return submissionDate;
 	}
+
 	public void setSubmissionDate(LocalDate submissionDate) {
 		this.submissionDate = submissionDate;
 	}
+
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
+
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
+
 	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
+
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}

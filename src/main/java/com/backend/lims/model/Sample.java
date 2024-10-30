@@ -1,8 +1,6 @@
 package com.backend.lims.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import org.hibernate.annotations.CollectionIdJdbcTypeCode;
+import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -16,24 +14,31 @@ public class Sample {
     private String sampleTypeDescription;
     private String lotBatchNo;
     private String sampleSource;
+    private String sampleProvince;
     private LocalDate productionDate;
     private LocalDate expiryDate;
     private LocalDate samplingDate;
     private String samplerName;
 
+    @ManyToOne
+    @JoinColumn(name = "fkRequestId", referencedColumnName = "requestId")
+    private Request request;
+
     public Sample() {
     }
 
-    public Sample(Long sampleId, String sampleTypeDescription, String lotBatchNo, String sampleSource, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName) {
+    public Sample(Long sampleId, String sampleTypeDescription, String lotBatchNo, String sampleSource, String sampleProvince, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, Request request) {
         super();
         this.sampleId = sampleId;
         this.sampleTypeDescription = sampleTypeDescription;
         this.lotBatchNo = lotBatchNo;
         this.sampleSource = sampleSource;
+        this.sampleProvince = sampleProvince;
         this.productionDate = productionDate;
         this.expiryDate = expiryDate;
         this.samplingDate = samplingDate;
         this.samplerName = samplerName;
+        this.request = request;
     }
 
     public Long getSampleId() {
@@ -68,6 +73,14 @@ public class Sample {
         this.sampleSource = sampleSource;
     }
 
+    public String getSampleProvince() {
+        return sampleProvince;
+    }
+
+    public void setSampleProvince(String sampleProvince) {
+        this.sampleProvince = sampleProvince;
+    }
+
     public LocalDate getProductionDate() {
         return productionDate;
     }
@@ -98,5 +111,13 @@ public class Sample {
 
     public void setSamplerName(String samplerName) {
         this.samplerName = samplerName;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
     }
 }
