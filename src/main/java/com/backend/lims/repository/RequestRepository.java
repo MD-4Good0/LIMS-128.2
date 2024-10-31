@@ -18,4 +18,5 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     List<Request> findByRequestStatus(RequestStatus status);
     List<Request> findByClient(Client client);
     Request findByRequestId(Long requestId);
+    List<Request> findByClientUserId(Long clientUserId);
 }
