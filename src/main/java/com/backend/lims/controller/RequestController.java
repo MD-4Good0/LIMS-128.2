@@ -29,6 +29,11 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getPendingRequests(), HttpStatus.OK);
     }
 
+    @GetMapping("/trackrequest/{requestId}")
+    public ResponseEntity<Request> trackRequest(@PathVariable Long requestId) {
+        return new ResponseEntity<>(requestService.getSpecificPendingRequest(requestId), HttpStatus.OK);
+    }
+
     // Approve request (For testing)
     @PutMapping("/approve/{requestId}")
     public ResponseEntity<Request> approveRequest(@PathVariable Long requestId) {

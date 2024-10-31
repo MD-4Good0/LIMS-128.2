@@ -54,6 +54,10 @@ public class RequestService {
         return requestRepository.findByRequestStatus(RequestStatus.PENDING_REVIEW);
     }
 
+    public Request getSpecificPendingRequest(Long requestId) {
+        return requestRepository.findByRequestId(requestId);
+    }
+
     public Request approveRequest(Long requestId) {
         Request request = requestRepository.findById(requestId).orElseThrow(() -> new RuntimeException("Request not found"));
         request.setRequestStatus(RequestStatus.FOR_TESTING);

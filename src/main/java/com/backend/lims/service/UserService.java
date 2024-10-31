@@ -126,9 +126,10 @@ public class UserService {
             user = userRepository.findByEmail(identifier);
         }
 
+        // Assumed that user exists
         if (user != null) {
-            if ("CLIENT".equalsIgnoreCase(user.getUserType())) {
-                String result = clientLogin(identifier, password);
+            if ("CLIENT".equalsIgnoreCase(user.getUserType())) { // User is a client
+                String result = clientLogin(identifier, password); // Call clientLogin function
                 if (result.equals("Login successful")) {
                     return user.getUserType().toLowerCase() + "/" + user.getUserId().toString(); // Return username upon successful login
                 }
