@@ -76,4 +76,7 @@ public class RequestService {
     private String generateControlNumber(Long requestId) {
         return "CTRL-" + requestId + "-" + LocalDate.now().getYear();
     }
+    public List<Request> getUserRequests(Long userId) {
+        return requestRepository.findByClientUserId(userId);
+    }
 }

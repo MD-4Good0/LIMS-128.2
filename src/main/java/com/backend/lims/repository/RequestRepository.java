@@ -10,6 +10,9 @@ import com.backend.lims.model.Client;
 import com.backend.lims.model.Request;
 import com.backend.lims.model.Request.RequestStatus;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
     List<Request> findByRequestStatus(RequestStatus status);

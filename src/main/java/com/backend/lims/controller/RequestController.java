@@ -46,4 +46,9 @@ public class RequestController {
     public ResponseEntity<List<Request>> getForReleaseRequests() {
         return new ResponseEntity<>(requestService.getForReleaseRequests(), HttpStatus.OK);
     }
+    // Get requests by user ID
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Request>> getUserRequests(@PathVariable Long userId) {
+        return new ResponseEntity<>(requestService.getUserRequests(userId), HttpStatus.OK);
+    }
 }
