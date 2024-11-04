@@ -66,7 +66,15 @@ public class StaffService {
 
         return null;
     }
-  
+
+    public String getStaffUsernameByUserId(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        if (user != null) {
+            return user.getUsername();
+        } else {
+            return null; // Return null or handle the case when the user is not found
+        }
+    }
     
     public Long getStaffUserIdByUsername(String username) {
         User user = userRepository.findByUsername(username);

@@ -64,7 +64,15 @@ public class TesterService {
 
         return null;
     }
-  
+
+    public String getTesterUsernameByUserId(Long userId) {
+        User user = userRepository.findByUserId(userId);
+        if (user != null) {
+            return user.getUsername();
+        } else {
+            return null; // Return null or handle the case when the user is not found
+        }
+    }
     
     public Long getTesterUserIdByUsername(String username) {
         User user = userRepository.findByUsername(username);

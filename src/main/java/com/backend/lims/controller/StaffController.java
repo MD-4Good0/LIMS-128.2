@@ -28,18 +28,28 @@ public class StaffController {
     	return ResponseEntity.ok(staffService.addUser(user, staff));
     }
     
-	 @GetMapping("/getStaffUserId")
-	    public ResponseEntity<Long> getStaffUserId(@RequestParam String username) {
-	        Long staffUserId = staffService.getStaffUserIdByUsername(username);
+	 @GetMapping("/getStaffUserId/{username}")
+     public ResponseEntity<Long> getStaffUserId(@RequestParam String username) {
+        Long staffUserId = staffService.getStaffUserIdByUsername(username);
 	        if (staffUserId != null) {
 	            return ResponseEntity.ok(staffUserId);
 	        } else {
 	            // Handle the case when the staff's user is not found
 	            return ResponseEntity.notFound().build();
 	        }
-	    }
+    }
 
-    
+    @GetMapping("/getStaffUsername/{userId}")
+    public ResponseEntity<String> getStaffUsername(@RequestParam Long userId) {
+        String staffUsername = staffService.getStaffUsernameByUserId(userId);
+        if (staffUsername != null) {
+            return ResponseEntity.ok(staffUsername);
+        } else {
+            // Handle the case when the staff's user is not found
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/staffdetails/{username}")
     public ResponseEntity<Staff> getStaffByUsername(@PathVariable String username) {
     	Staff user = staffService.getStaffByUsername(username);

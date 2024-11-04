@@ -29,7 +29,7 @@ public class TesterController {
     	return ResponseEntity.ok(testerService.addUser(user, tester));
     }
   
-	 @GetMapping("/getTesterUserId")
+	 @GetMapping("/getTesterUserId/{username}")
 	    public ResponseEntity<Long> getTesterUserId(@RequestParam String username) {
 	        Long testerUserId = testerService.getTesterUserIdByUsername(username);
 	        if (testerUserId != null) {
@@ -40,6 +40,16 @@ public class TesterController {
 	        }
 	    }
 
+    @GetMapping("/getTesterUsername/{userId}")
+    public ResponseEntity<String> getTesterUsername(@RequestParam Long userId) {
+        String testerUsername = testerService.getTesterUsernameByUserId(userId);
+        if (testerUsername != null) {
+            return ResponseEntity.ok(testerUsername);
+        } else {
+            // Handle the case when the staff's user is not found
+            return ResponseEntity.notFound().build();
+        }
+    }
     
     @GetMapping("/testerdetails/{username}")
     public ResponseEntity<Tester> getTesterByUsername(@PathVariable String username) {
