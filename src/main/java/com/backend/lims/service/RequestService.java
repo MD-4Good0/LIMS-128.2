@@ -54,6 +54,10 @@ public class RequestService {
         return requestRepository.findByRequestStatus(RequestStatus.PENDING_REVIEW);
     }
 
+    public List<Request> getForTesting() {
+        return requestRepository.findByRequestStatus(RequestStatus.FOR_TESTING);
+    }
+
     public Request getSpecificPendingRequest(Long requestId) {
         return requestRepository.findByRequestId(requestId);
     }

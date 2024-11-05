@@ -29,6 +29,11 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getPendingRequests(), HttpStatus.OK);
     }
 
+    @GetMapping("/for-testing")
+    public ResponseEntity<List<Request>> getForTesting() {
+        return new ResponseEntity<>(requestService.getForTesting(), HttpStatus.OK);
+    }
+
     @GetMapping("/trackrequest/{requestId}")
     public ResponseEntity<Request> trackRequest(@PathVariable Long requestId) {
         return new ResponseEntity<>(requestService.getSpecificPendingRequest(requestId), HttpStatus.OK);
