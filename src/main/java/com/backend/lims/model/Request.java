@@ -10,35 +10,45 @@ import org.springframework.transaction.annotation.Transactional;
 @Entity
 @Transactional
 public class Request {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long requestId;
-    
-    public enum TestingPurpose {
-        Monitoring, Local_Trade, Imported, Export, Complaint, Others
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long requestId;
 
-    public enum RequestStatus {
-        PENDING_REVIEW, FOR_TESTING, FOR_RELEASE, REJECTED
-    }
+	public enum TestingPurpose {
+		Monitoring, Local_Trade, Imported, Export, Complaint, Others
+	}
 
-    // Client Information
-    @ManyToOne
-    private Client client;  // Prefilled client information based on logged-in user
-    private String representativeName;
-    private String contactNumber;
-    private String emailAddress;
-    private String companyName;
-    private String clientClassification;
-    private String ltoNumber;
+	public enum RequestStatus {
+		PENDING_REVIEW, FOR_TESTING, FOR_RELEASE, REJECTED
+	}
 
+	// Client Information
+	@ManyToOne
+	private Client client;  // Prefilled client information based on logged-in user
+	private String representativeName;
+	private String contactNumber;
+	private String emailAddress;
+	private String companyName;
+	private String clientClassification;
+	private String ltoNumber;
+
+	// Sample Information
 	@OneToMany(targetEntity = Sample.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "fkRequestId", referencedColumnName = "requestId")
-	private List<Sample> sample;
+	private List<Sample> sample; // Creates separate string for sample descriptions
 
-    // Purpose of Testing (ENUM for better management)
-    @Enumerated(EnumType.STRING)
-    private TestingPurpose testingPurpose;
+	private String lotBatchNo;
+	private String sampleSource;
+	private String sampleProvince;
+	private String sampleAddress;
+	private LocalDate productionDate;
+	private LocalDate expiryDate;
+	private LocalDate samplingDate;
+	private String samplerName;
+
+	// Purpose of Testing (ENUM for better management)
+	@Enumerated(EnumType.STRING)
+	private TestingPurpose testingPurpose;
 
 	private Boolean isMicrobial;
 
@@ -46,9 +56,9 @@ public class Request {
 
 	private Boolean isMolBio;
 
-    // Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
-    @ElementCollection
-    private List<String> testSelectionMicrobial;
+	// Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
+	@ElementCollection
+	private List<String> testSelectionMicrobial;
 
 	@ElementCollection
 	private List<String> testSelectionChem;
@@ -56,26 +66,25 @@ public class Request {
 	@ElementCollection
 	private List<String> testSelectionMolBio;
 
-    // Request Status
-    @Enumerated(EnumType.STRING)
-    private RequestStatus requestStatus;
+	// Request Status
+	@Enumerated(EnumType.STRING)
+	private RequestStatus requestStatus;
 
-    // Control Number
+	// Control Number
 	// What is this control number
-    private String controlNumber;
+	private String controlNumber;
 
-    // Submission Date
-    private LocalDate submissionDate;
+	// Submission Date
+	private LocalDate submissionDate;
 
-    // Timestamps
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+	// Timestamps
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
-		super();
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -85,6 +94,14 @@ public class Request {
 		this.clientClassification = clientClassification;
 		this.ltoNumber = ltoNumber;
 		this.sample = sample;
+		this.lotBatchNo = lotBatchNo;
+		this.sampleSource = sampleSource;
+		this.sampleProvince = sampleProvince;
+		this.sampleAddress = sampleAddress;
+		this.productionDate = productionDate;
+		this.expiryDate = expiryDate;
+		this.samplingDate = samplingDate;
+		this.samplerName = samplerName;
 		this.testingPurpose = testingPurpose;
 		this.isMicrobial = isMicrobial;
 		this.isChem = isChem;
@@ -169,6 +186,70 @@ public class Request {
 
 	public void setSample(List<Sample> sample) {
 		this.sample = sample;
+	}
+
+	public String getLotBatchNo() {
+		return lotBatchNo;
+	}
+
+	public void setLotBatchNo(String lotBatchNo) {
+		this.lotBatchNo = lotBatchNo;
+	}
+
+	public String getSampleSource() {
+		return sampleSource;
+	}
+
+	public void setSampleSource(String sampleSource) {
+		this.sampleSource = sampleSource;
+	}
+
+	public String getSampleProvince() {
+		return sampleProvince;
+	}
+
+	public void setSampleProvince(String sampleProvince) {
+		this.sampleProvince = sampleProvince;
+	}
+
+	public String getSampleAddress() {
+		return sampleAddress;
+	}
+
+	public void setSampleAddress(String sampleAddress) {
+		this.sampleAddress = sampleAddress;
+	}
+
+	public LocalDate getProductionDate() {
+		return productionDate;
+	}
+
+	public void setProductionDate(LocalDate productionDate) {
+		this.productionDate = productionDate;
+	}
+
+	public LocalDate getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(LocalDate expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public LocalDate getSamplingDate() {
+		return samplingDate;
+	}
+
+	public void setSamplingDate(LocalDate samplingDate) {
+		this.samplingDate = samplingDate;
+	}
+
+	public String getSamplerName() {
+		return samplerName;
+	}
+
+	public void setSamplerName(String samplerName) {
+		this.samplerName = samplerName;
 	}
 
 	public TestingPurpose getTestingPurpose() {
