@@ -85,6 +85,11 @@ public class ClientController {
         return clientService.getUserIdByUsername(username);
     }
 
+    @GetMapping("/clientusername/{userId}")
+    public String getUserIdByUsername(@PathVariable Long userId) {
+        return clientService.getUsernameByUserId(userId);
+    }
+
     @PutMapping("/editpatient/{username}")
     public ResponseEntity<String> updateDetails(@PathVariable String username, @RequestBody UserClientRequest userClientRequest) {
     	User user = userClientRequest.getUser();

@@ -1,7 +1,6 @@
 package com.backend.lims.service;
 
 import com.backend.lims.dto.ClientDTO;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.backend.lims.model.User;
@@ -23,8 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class ClientService {
@@ -175,7 +172,21 @@ public class ClientService {
                 }
             }
         }
+        return null;
+    }
 
+    public String getUsernameByUserId(Long userId) {
+        System.out.println(userId);
+        User user = userRepository.findByUserId(userId);
+
+        if (user != null) {
+            System.out.println("This is a test");
+            for (User loggedInClient : loggedInClients) {
+                if (loggedInClient.getUsername().equals(user.getUsername())) {
+                    return user.getUsername();
+                }
+            }
+        }
         return null;
     }
 
