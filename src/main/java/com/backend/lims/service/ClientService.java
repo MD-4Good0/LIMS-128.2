@@ -180,12 +180,7 @@ public class ClientService {
         User user = userRepository.findByUserId(userId);
 
         if (user != null) {
-            System.out.println("This is a test");
-            for (User loggedInClient : loggedInClients) {
-                if (loggedInClient.getUsername().equals(user.getUsername())) {
-                    return user.getUsername();
-                }
-            }
+            return user.getUsername();
         }
         return null;
     }
