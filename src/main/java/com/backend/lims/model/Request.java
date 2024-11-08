@@ -41,6 +41,7 @@ public class Request {
 	private String sampleSource;
 	private String sampleProvince;
 	private String sampleAddress;
+  private String sampleCategory;
 	private LocalDate productionDate;
 	private LocalDate expiryDate;
 	private LocalDate samplingDate;
@@ -84,7 +85,7 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt, String sampleCategory) {
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -114,6 +115,7 @@ public class Request {
 		this.submissionDate = submissionDate;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+    this.sampleCategory = sampleCategory;
 	}
 
 	public Long getRequestId() {
@@ -347,4 +349,12 @@ public class Request {
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+  
+  public String getSampleCategory() {
+    return sampleCategory;
+  }
+
+  public void setSampleCategory(String sampleCategory) {
+    this.sampleCategory = sampleCategory;
+  }
 }
