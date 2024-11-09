@@ -82,10 +82,20 @@ public class Request {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
+	@Column(name = "other_testing_purpose")
+	private String otherTestingPurpose;
+
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt, String sampleCategory) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress,
+				   String companyName, String clientClassification, String ltoNumber, List<Sample> sample,
+				   String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress,
+				   LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName,
+				   TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio,
+				   List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio,
+				   RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt,
+				   LocalDateTime updatedAt, String sampleCategory, String otherTestingPurpose) {
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -115,7 +125,8 @@ public class Request {
 		this.submissionDate = submissionDate;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-    this.sampleCategory = sampleCategory;
+		this.sampleCategory = sampleCategory;
+		this.otherTestingPurpose = otherTestingPurpose; //Cael's changes//
 	}
 
 	public Long getRequestId() {
@@ -357,4 +368,12 @@ public class Request {
   public void setSampleCategory(String sampleCategory) {
     this.sampleCategory = sampleCategory;
   }
+	//Cael's changes//
+	public String getOtherTestingPurpose() {
+		return otherTestingPurpose;
+	}
+
+	public void setOtherTestingPurpose(String otherTestingPurpose) {
+		this.otherTestingPurpose = otherTestingPurpose;
+	}
 }
