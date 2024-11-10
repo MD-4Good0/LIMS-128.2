@@ -56,49 +56,6 @@ public class Request {
 
 	private Boolean isMolBio;
 
-	// TEST SELECTIONS ~> As per request
-
-	// CHEM TEST SELECTION
-	// Microbial Inhibition
-	private Boolean betaLactams;
-	private Boolean tetracyclines;
-	private Boolean sulfonamides;
-	private Boolean aminoglycosides;
-	private Boolean macrolides;
-	private Boolean quinolones;
-	// Enzyme-Linked ImmunoSorbent
-	private Boolean chloramphenicol;
-	private Boolean nitrofuranAoz;
-	private Boolean beta_agonists;
-	private Boolean corticosteroids;
-	private Boolean olaquindox;
-	private Boolean nitrufuranAmoz;
-	private Boolean stilbenes;
-	private Boolean ractopamine;
-
-	// MICROBIAL TEST SELECTION
-	private Boolean standardPlateCount;
-	private Boolean staphylococcusAureus;
-	private Boolean salmonellaSp;
-	private Boolean campylobacter;
-	private Boolean cultureAndSensitivityTest;
-	private Boolean coliformCount;
-	private Boolean eColi;
-	private Boolean eColiAndeColi0O157;
-	private Boolean yeastAndMolds;
-
-	// MOLBIO TEST SELECTION
-	private Boolean dog;
-	private Boolean cat;
-	private Boolean chicken;
-	private Boolean buffalo;
-	private Boolean cattle;
-	private Boolean horse;
-	private Boolean goat;
-	private Boolean sheep;
-	private Boolean swine;
-
-	/*
 	// Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
 	@ElementCollection
 	private List<String> testSelectionMicrobial;
@@ -108,7 +65,6 @@ public class Request {
 
 	@ElementCollection
 	private List<String> testSelectionMolBio;
-	 */
 
 	// Request Status
 	@Enumerated(EnumType.STRING)
@@ -128,7 +84,7 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, Boolean betaLactams, Boolean tetracyclines, Boolean sulfonamides, Boolean aminoglycosides, Boolean macrolides, Boolean quinolones, Boolean chloramphenicol, Boolean nitrofuranAoz, Boolean beta_agonists, Boolean corticosteroids, Boolean olaquindox, Boolean nitrufuranAmoz, Boolean stilbenes, Boolean ractopamine, Boolean standardPlateCount, Boolean staphylococcusAureus, Boolean salmonellaSp, Boolean campylobacter, Boolean cultureAndSensitivityTest, Boolean coliformCount, Boolean eColi, Boolean eColiAndeColi0O157, Boolean yeastAndMolds, Boolean dog, Boolean cat, Boolean chicken, Boolean buffalo, Boolean cattle, Boolean horse, Boolean goat, Boolean sheep, Boolean swine, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, List<String> testSelectionMicrobial, List<String> testSelectionChem, List<String> testSelectionMolBio, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -150,38 +106,9 @@ public class Request {
 		this.isMicrobial = isMicrobial;
 		this.isChem = isChem;
 		this.isMolBio = isMolBio;
-		this.betaLactams = betaLactams;
-		this.tetracyclines = tetracyclines;
-		this.sulfonamides = sulfonamides;
-		this.aminoglycosides = aminoglycosides;
-		this.macrolides = macrolides;
-		this.quinolones = quinolones;
-		this.chloramphenicol = chloramphenicol;
-		this.nitrofuranAoz = nitrofuranAoz;
-		this.beta_agonists = beta_agonists;
-		this.corticosteroids = corticosteroids;
-		this.olaquindox = olaquindox;
-		this.nitrufuranAmoz = nitrufuranAmoz;
-		this.stilbenes = stilbenes;
-		this.ractopamine = ractopamine;
-		this.standardPlateCount = standardPlateCount;
-		this.staphylococcusAureus = staphylococcusAureus;
-		this.salmonellaSp = salmonellaSp;
-		this.campylobacter = campylobacter;
-		this.cultureAndSensitivityTest = cultureAndSensitivityTest;
-		this.coliformCount = coliformCount;
-		this.eColi = eColi;
-		this.eColiAndeColi0O157 = eColiAndeColi0O157;
-		this.yeastAndMolds = yeastAndMolds;
-		this.dog = dog;
-		this.cat = cat;
-		this.chicken = chicken;
-		this.buffalo = buffalo;
-		this.cattle = cattle;
-		this.horse = horse;
-		this.goat = goat;
-		this.sheep = sheep;
-		this.swine = swine;
+		this.testSelectionMicrobial = testSelectionMicrobial;
+		this.testSelectionChem = testSelectionChem;
+		this.testSelectionMolBio = testSelectionMolBio;
 		this.requestStatus = requestStatus;
 		this.controlNumber = controlNumber;
 		this.submissionDate = submissionDate;
@@ -357,260 +284,28 @@ public class Request {
 		isMolBio = molBio;
 	}
 
-	public Boolean getBetaLactams() {
-		return betaLactams;
+	public List<String> getTestSelectionMicrobial() {
+		return testSelectionMicrobial;
 	}
 
-	public void setBetaLactams(Boolean betaLactams) {
-		this.betaLactams = betaLactams;
+	public void setTestSelectionMicrobial(List<String> testSelectionMicrobial) {
+		this.testSelectionMicrobial = testSelectionMicrobial;
 	}
 
-	public Boolean getTetracyclines() {
-		return tetracyclines;
+	public List<String> getTestSelectionChem() {
+		return testSelectionChem;
 	}
 
-	public void setTetracyclines(Boolean tetracyclines) {
-		this.tetracyclines = tetracyclines;
+	public void setTestSelectionChem(List<String> testSelectionChem) {
+		this.testSelectionChem = testSelectionChem;
 	}
 
-	public Boolean getSulfonamides() {
-		return sulfonamides;
+	public List<String> getTestSelectionMolBio() {
+		return testSelectionMolBio;
 	}
 
-	public void setSulfonamides(Boolean sulfonamides) {
-		this.sulfonamides = sulfonamides;
-	}
-
-	public Boolean getAminoglycosides() {
-		return aminoglycosides;
-	}
-
-	public void setAminoglycosides(Boolean aminoglycosides) {
-		this.aminoglycosides = aminoglycosides;
-	}
-
-	public Boolean getMacrolides() {
-		return macrolides;
-	}
-
-	public void setMacrolides(Boolean macrolides) {
-		this.macrolides = macrolides;
-	}
-
-	public Boolean getQuinolones() {
-		return quinolones;
-	}
-
-	public void setQuinolones(Boolean quinolones) {
-		this.quinolones = quinolones;
-	}
-
-	public Boolean getChloramphenicol() {
-		return chloramphenicol;
-	}
-
-	public void setChloramphenicol(Boolean chloramphenicol) {
-		this.chloramphenicol = chloramphenicol;
-	}
-
-	public Boolean getNitrofuranAoz() {
-		return nitrofuranAoz;
-	}
-
-	public void setNitrofuranAoz(Boolean nitrofuranAoz) {
-		this.nitrofuranAoz = nitrofuranAoz;
-	}
-
-	public Boolean getBeta_agonists() {
-		return beta_agonists;
-	}
-
-	public void setBeta_agonists(Boolean beta_agonists) {
-		this.beta_agonists = beta_agonists;
-	}
-
-	public Boolean getCorticosteroids() {
-		return corticosteroids;
-	}
-
-	public void setCorticosteroids(Boolean corticosteroids) {
-		this.corticosteroids = corticosteroids;
-	}
-
-	public Boolean getOlaquindox() {
-		return olaquindox;
-	}
-
-	public void setOlaquindox(Boolean olaquindox) {
-		this.olaquindox = olaquindox;
-	}
-
-	public Boolean getNitrufuranAmoz() {
-		return nitrufuranAmoz;
-	}
-
-	public void setNitrufuranAmoz(Boolean nitrufuranAmoz) {
-		this.nitrufuranAmoz = nitrufuranAmoz;
-	}
-
-	public Boolean getStilbenes() {
-		return stilbenes;
-	}
-
-	public void setStilbenes(Boolean stilbenes) {
-		this.stilbenes = stilbenes;
-	}
-
-	public Boolean getRactopamine() {
-		return ractopamine;
-	}
-
-	public void setRactopamine(Boolean ractopamine) {
-		this.ractopamine = ractopamine;
-	}
-
-	public Boolean getStandardPlateCount() {
-		return standardPlateCount;
-	}
-
-	public void setStandardPlateCount(Boolean standardPlateCount) {
-		this.standardPlateCount = standardPlateCount;
-	}
-
-	public Boolean getStaphylococcusAureus() {
-		return staphylococcusAureus;
-	}
-
-	public void setStaphylococcusAureus(Boolean staphylococcusAureus) {
-		this.staphylococcusAureus = staphylococcusAureus;
-	}
-
-	public Boolean getSalmonellaSp() {
-		return salmonellaSp;
-	}
-
-	public void setSalmonellaSp(Boolean salmonellaSp) {
-		this.salmonellaSp = salmonellaSp;
-	}
-
-	public Boolean getCampylobacter() {
-		return campylobacter;
-	}
-
-	public void setCampylobacter(Boolean campylobacter) {
-		this.campylobacter = campylobacter;
-	}
-
-	public Boolean getCultureAndSensitivityTest() {
-		return cultureAndSensitivityTest;
-	}
-
-	public void setCultureAndSensitivityTest(Boolean cultureAndSensitivityTest) {
-		this.cultureAndSensitivityTest = cultureAndSensitivityTest;
-	}
-
-	public Boolean getColiformCount() {
-		return coliformCount;
-	}
-
-	public void setColiformCount(Boolean coliformCount) {
-		this.coliformCount = coliformCount;
-	}
-
-	public Boolean geteColi() {
-		return eColi;
-	}
-
-	public void seteColi(Boolean eColi) {
-		this.eColi = eColi;
-	}
-
-	public Boolean geteColiAndeColi0O157() {
-		return eColiAndeColi0O157;
-	}
-
-	public void seteColiAndeColi0O157(Boolean eColiAndeColi0O157) {
-		this.eColiAndeColi0O157 = eColiAndeColi0O157;
-	}
-
-	public Boolean getYeastAndMolds() {
-		return yeastAndMolds;
-	}
-
-	public void setYeastAndMolds(Boolean yeastAndMolds) {
-		this.yeastAndMolds = yeastAndMolds;
-	}
-
-	public Boolean getDog() {
-		return dog;
-	}
-
-	public void setDog(Boolean dog) {
-		this.dog = dog;
-	}
-
-	public Boolean getCat() {
-		return cat;
-	}
-
-	public void setCat(Boolean cat) {
-		this.cat = cat;
-	}
-
-	public Boolean getChicken() {
-		return chicken;
-	}
-
-	public void setChicken(Boolean chicken) {
-		this.chicken = chicken;
-	}
-
-	public Boolean getBuffalo() {
-		return buffalo;
-	}
-
-	public void setBuffalo(Boolean buffalo) {
-		this.buffalo = buffalo;
-	}
-
-	public Boolean getCattle() {
-		return cattle;
-	}
-
-	public void setCattle(Boolean cattle) {
-		this.cattle = cattle;
-	}
-
-	public Boolean getHorse() {
-		return horse;
-	}
-
-	public void setHorse(Boolean horse) {
-		this.horse = horse;
-	}
-
-	public Boolean getGoat() {
-		return goat;
-	}
-
-	public void setGoat(Boolean goat) {
-		this.goat = goat;
-	}
-
-	public Boolean getSheep() {
-		return sheep;
-	}
-
-	public void setSheep(Boolean sheep) {
-		this.sheep = sheep;
-	}
-
-	public Boolean getSwine() {
-		return swine;
-	}
-
-	public void setSwine(Boolean swine) {
-		this.swine = swine;
+	public void setTestSelectionMolBio(List<String> testSelectionMolBio) {
+		this.testSelectionMolBio = testSelectionMolBio;
 	}
 
 	public RequestStatus getRequestStatus() {
