@@ -1,13 +1,13 @@
 package com.backend.lims.controller;
 
-import java.util.List;
-
+import com.backend.lims.dto.ChemTestReportDTO;
+import com.backend.lims.dto.MicrobialTestReportDTO;
+import com.backend.lims.dto.MolBioTestReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.lims.model.Report;
 import com.backend.lims.service.ReportService;
 
 @RestController
@@ -24,8 +24,19 @@ public class ReportController {
     }
      */
 
-    @GetMapping("/unique-counts/aminoglycosides")
-    public List<Object[]> getAminoglycosides() {
-        return reportService.getChemReport();
+    @GetMapping("/chemreport")
+    public ChemTestReportDTO getChemTestResultsReport() {
+        return reportService.generateChemReport();
     }
+
+    @GetMapping("/molbioreport")
+    public MolBioTestReportDTO getMolBioTestResultsReport() {
+        return reportService.generateMolBioReport();
+    }
+
+    @GetMapping("/microbialreport")
+    public MicrobialTestReportDTO getMicrobialTestResultsReport() {
+        return reportService.generateMicrobialReport();
+    }
+
 }
