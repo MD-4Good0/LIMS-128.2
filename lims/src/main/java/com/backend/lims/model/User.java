@@ -1,6 +1,7 @@
 package com.backend.lims.model;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import com.backend.lims.model.UnverifiedUser;
 
@@ -41,10 +42,14 @@ public class User {
 	@Column(name = "deletion_status", length = 50)
 	private String deletionStatus;
 
+	private String otp;
+
+	private LocalDateTime otpTimestamp;
+
 	public User() {
 		
 	}
-	
+
 	public User(UnverifiedUser unvUser) {
 		this.userId = unvUser.getUserId();
 		this.username = unvUser.getUsername();
@@ -70,9 +75,7 @@ public class User {
 		this.deletionStatus = deletionStatus;
 	}
 
-	public User(Long userId, String username, String firstName, String middleName, String lastName, int age, String sex,
-				Date birthday, String address, String contactNumber, String email, String password, String userType, String avatar) {
-		super();
+	public User(Long userId, String username, String firstName, String middleName, String lastName, String contactNumber, String email, String password, String userType, String deletionStatus, String otp, LocalDateTime otpTimestamp) {
 		this.userId = userId;
 		this.username = username;
 		this.firstName = firstName;
@@ -82,6 +85,9 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.userType = userType;
+		this.deletionStatus = deletionStatus;
+		this.otp = otp;
+		this.otpTimestamp = otpTimestamp;
 	}
 
 	public Long getUserId() {
@@ -124,7 +130,7 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	
+
 	public String getContactNumber() {
 		return contactNumber;
 	}
@@ -164,7 +170,20 @@ public class User {
 	public void setDeletionStatus(String deletionStatus) {
 		this.deletionStatus = deletionStatus;
 	}
-	
-	
 
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+
+	public LocalDateTime getOtpTimestamp() {
+		return otpTimestamp;
+	}
+
+	public void setOtpTimestamp(LocalDateTime otpTimestamp) {
+		this.otpTimestamp = otpTimestamp;
+	}
 }

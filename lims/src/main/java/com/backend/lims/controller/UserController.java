@@ -1,5 +1,6 @@
 package com.backend.lims.controller;
 
+import com.backend.lims.model.User;
 import com.backend.lims.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    /*
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam("identifier") String identifier,
                                         @RequestParam("password") String password) {
@@ -31,5 +33,34 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(username);
         }
     }
+     */
 
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String identifier, @RequestParam String password) {
+        String loginResult = userService.login(identifier, password);
+
+        // Check if login was successful and TFA is initiated
+        if (loginResult.contains("Login denied") || loginResult.equals("Invalid credentials")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(loginResult);
+        } else if (loginResult.equals("User not found")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+
+        // OTP has been sent to email, prompt user to verify
+        return ResponseEntity.ok("TFA initiated. Please check your email for the OTP.");
+    }
+
+    // Endpoint to verify OTP and complete login
+    @PostMapping("/verify-otp")
+    public ResponseEntity<String> verifyOTP(@RequestParam String username, @RequestParam String otp) {
+        String verifyResult = userService.verifyOTP(username, otp);
+
+        // Verify OTP result and complete login if successful
+        if (!verifyResult.equals("Invalid or expired OTP.")) {
+            System.out.println(verifyResult);
+            return ResponseEntity.ok(verifyResult);
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not allowed");
+    }
 }

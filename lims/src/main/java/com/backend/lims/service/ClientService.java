@@ -228,6 +228,7 @@ public class ClientService {
         message.setText("To verify your account, please enter this code: " + String.valueOf(code) + "\n\nOr follow this link in your browser: " + link);
         javaMailSender.send(message);
     }
+
     private Integer generateVerificationCode() {
     	Random random = new Random();
         int min = 100000;
