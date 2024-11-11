@@ -17,8 +17,15 @@ public class ReportController {
     @Autowired
     private ReportService reportService;
 
+    /*
     @GetMapping("/complete")
     public List<Report> getCompleteReport() {
         return reportService.generateCompleteReport();
+    }
+     */
+
+    @GetMapping("/unique-counts/aminoglycosides")
+    public List<Object[]> getAminoglycosides() {
+        return reportService.getChemReport();
     }
 }

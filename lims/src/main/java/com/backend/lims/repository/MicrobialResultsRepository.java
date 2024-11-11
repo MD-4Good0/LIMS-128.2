@@ -9,7 +9,7 @@ import com.backend.lims.model.MicrobialTestResults;
 import com.backend.lims.model.Report;
 
 public interface MicrobialResultsRepository extends JpaRepository<MicrobialTestResults, Long>{
-	
+	/*
 	@Query("SELECT new com.backend.lims.model.Report(s.province, " +
 		       "TO_CHAR(r.submissionDate, 'YYYY-MM') AS monthYear, " +
 		       "'Microbial' AS testType, COUNT(mtr), " +
@@ -39,5 +39,7 @@ public interface MicrobialResultsRepository extends JpaRepository<MicrobialTestR
 		       "GROUP BY s.province, monthYear, s.sampleType, r.testingPurpose " +
 		       "ORDER BY s.province, monthYear")
 		List<Report> generateMicrobialReport();
+
+	 */
 
 }

@@ -2,6 +2,7 @@ package com.backend.lims.controller;
 
 import java.util.List;
 
+import com.backend.lims.dto.RequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,11 @@ public class RequestController {
     @GetMapping("/pending")
     public ResponseEntity<List<Request>> getPendingRequests() {
         return new ResponseEntity<>(requestService.getPendingRequests(), HttpStatus.OK);
+    }
+
+    @GetMapping("/pendingDTO")
+    public ResponseEntity<List<RequestDTO>> getPendingRequestsDTO() {
+        return new ResponseEntity<>(requestService.getPendingRequestsDTO(), HttpStatus.OK);
     }
 
     @GetMapping("/trackrequest/{requestId}")

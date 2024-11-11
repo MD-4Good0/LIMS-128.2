@@ -4,7 +4,9 @@
 	import java.time.LocalDateTime;
 	import java.util.List;
 	import java.time.format.DateTimeFormatter;
-	
+	import java.util.stream.Collectors;
+
+	import com.backend.lims.dto.RequestDTO;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Service;
 	
@@ -106,4 +108,19 @@
 	            .max() // Get the max value
 	            .orElse(0) + 1; // Start at 1 if none exist
 	    }
+
+		public List<RequestDTO> getPendingRequestsDTO() {
+			List<Request> pendingRequests = requestRepository.findByRequestStatus(Request.RequestStatus.PENDING_REVIEW);
+			return pendingRequests.stream()
+					.map(request -> new RequestDTO(
+							request.getRequestId(),
+							request.getRepresentativeName(),
+							request.getContactNumber(),
+							request.getEmailAddress(),
+							request.getCompanyName(),
+							request.getRequestStatus(),
+							request.getSubmissionDate()
+					))
+					.collect(Collectors.toList());
+		}
 	}

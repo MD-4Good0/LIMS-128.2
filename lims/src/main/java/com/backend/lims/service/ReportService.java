@@ -3,6 +3,7 @@ package com.backend.lims.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.backend.lims.repository.ChemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +14,15 @@ import com.backend.lims.repository.MolBioResultsRepository;
 
 @Service
 public class ReportService {
-	
-	@Autowired
-    private MolBioResultsRepository molBioRepo;
 
     @Autowired
-    private MicrobialResultsRepository microbialRepo;
+    private ChemRepository chemRepository;
 
-    @Autowired
-    private ChemResultsRepository chemRepo;
+    public List<Object[]> getChemReport() {
+        return chemRepository.countUniqueAminoglycosides();
+    }
 
+    /*
     public List<Report> generateCompleteReport() {
         List<Report> molBioReports = molBioRepo.generateMolBioReport();
         List<Report> microbialReports = microbialRepo.generateMicrobialReport();
@@ -36,5 +36,7 @@ public class ReportService {
 
         return fullReport;
     }
+
+     */
 
 }

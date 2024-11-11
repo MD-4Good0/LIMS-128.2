@@ -9,7 +9,7 @@ import com.backend.lims.model.ChemTestResults;
 import com.backend.lims.model.Report;
 
 public interface ChemResultsRepository extends JpaRepository<ChemTestResults, Long> {
-	
+	/*
 	@Query("SELECT new com.backend.lims.model.Report(s.province, " +
 		       "TO_CHAR(r.submissionDate, 'YYYY-MM') AS monthYear, " +
 		       "'Chem' AS testType, COUNT(ctr), " +
@@ -51,4 +51,5 @@ public interface ChemResultsRepository extends JpaRepository<ChemTestResults, Lo
 		List<Report> generateChemReport();
 
 
+	 */
 }
