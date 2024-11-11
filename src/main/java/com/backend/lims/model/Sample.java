@@ -20,10 +20,9 @@ public class Sample {
     public Sample() {
     }
 
-    public Sample(Long sampleId, String sampleTypeDescription, Request request) {
+    public Sample(Long sampleId, String sampleTypeDescription) {
         this.sampleId = sampleId;
         this.sampleTypeDescription = sampleTypeDescription;
-        this.request = request;
     }
 
     public Long getSampleId() {
@@ -40,13 +39,5 @@ public class Sample {
 
     public void setSampleTypeDescription(String sampleTypeDescription) {
         this.sampleTypeDescription = sampleTypeDescription;
-    }
-
-    public Request getRequest() {
-        return request;
-    }
-
-    public void setRequest(Request request) {
-        this.request = request;
     }
 }

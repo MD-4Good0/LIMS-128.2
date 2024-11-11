@@ -1,6 +1,6 @@
 package com.backend.lims.dto;
 
-public class MicrobialTestDTO {
+public class MicrobioTestDTO {
     private String standardPlateCount;
     private String staphylococcusAureus;
     private String salmonellaSp;
@@ -11,10 +11,10 @@ public class MicrobialTestDTO {
     private String eColiAndeColi0O157;
     private String yeastAndMolds;
 
-    public MicrobialTestDTO() {
+    public MicrobioTestDTO() {
     }
 
-    public MicrobialTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds) {
+    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds) {
         this.standardPlateCount = standardPlateCount;
         this.staphylococcusAureus = staphylococcusAureus;
         this.salmonellaSp = salmonellaSp;

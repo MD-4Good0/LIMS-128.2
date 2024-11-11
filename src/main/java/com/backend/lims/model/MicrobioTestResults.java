@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Transactional
-public class MicrobialTestResults {
+public class MicrobioTestResults {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long microbialResultId;
@@ -23,10 +23,10 @@ public class MicrobialTestResults {
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     private Result result;
 
-    public MicrobialTestResults() {
+    public MicrobioTestResults() {
     }
 
-    public MicrobialTestResults(Long microbialResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, Result result) {
+    public MicrobioTestResults(Long microbialResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, Result result) {
         super();
         this.microbialResultId = microbialResultId;
         this.sampleId = sampleId;
@@ -42,11 +42,11 @@ public class MicrobialTestResults {
         this.result = result;
     }
 
-    public Long getMicrobialResultId() {
+    public Long getMicrobioResultId() {
         return microbialResultId;
     }
 
-    public void setMicrobialResultId(Long microbialResultId) {
+    public void setMicrobioResultId(Long microbialResultId) {
         this.microbialResultId = microbialResultId;
     }
 

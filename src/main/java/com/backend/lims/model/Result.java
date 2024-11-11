@@ -15,9 +15,9 @@ public class Result {
     private Long testerId;
     private String testerUsername;
 
-    @OneToMany(targetEntity = MicrobialTestResults.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = MicrobioTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
-    private List<MicrobialTestResults> microbialTestResults;
+    private List<MicrobioTestResults> microbialTestResults;
 
     @OneToMany(targetEntity = ChemTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
@@ -30,7 +30,7 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobialTestResults> microbialTestResults, List<ChemTestResults> chemTestResults, List<MolBioTestResults> molBioTestResults) {
+    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobioTestResults> microbialTestResults, List<ChemTestResults> chemTestResults, List<MolBioTestResults> molBioTestResults) {
         super();
         this.resultId = resultId;
         this.requestId = requestId;
@@ -73,11 +73,11 @@ public class Result {
         this.testerUsername = testerUsername;
     }
 
-    public List<MicrobialTestResults> getMicrobialTestResults() {
+    public List<MicrobioTestResults> getMicrobioTestResults() {
         return microbialTestResults;
     }
 
-    public void setMicrobialTestResults(List<MicrobialTestResults> microbialTestResults) {
+    public void setMicrobioTestResults(List<MicrobioTestResults> microbialTestResults) {
         this.microbialTestResults = microbialTestResults;
     }
 

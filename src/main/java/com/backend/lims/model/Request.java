@@ -51,21 +51,27 @@ public class Request {
 	@Enumerated(EnumType.STRING)
 	private TestingPurpose testingPurpose;
 
-	private Boolean isMicrobial;
+	private Boolean isMicrobio;
 
 	private Boolean isChem;
 
 	private Boolean isMolBio;
 
-	// CHECK TEST RESULTS
+	// CHEM TEST RESULTS
+
 	// Microbial Inhibition
+	@Column
+	private Boolean microbial;
 	private Boolean betaLactams;
 	private Boolean tetracyclines;
 	private Boolean sulfonamides;
 	private Boolean aminoglycosides;
 	private Boolean macrolides;
 	private Boolean quinolones;
+
 	// Enzyme-Linked ImmunoSorbent
+	@Column
+	private Boolean elisa;
 	private Boolean chloramphenicol;
 	private Boolean nitrofuranAoz;
 	private Boolean beta_agonists;
@@ -75,7 +81,7 @@ public class Request {
 	private Boolean stilbenes;
 	private Boolean ractopamine;
 
-	// MICROBIAL TEST RESULTS
+	// MICROBIO TEST RESULTS
 	private Boolean standardPlateCount;
 	private Boolean staphylococcusAureus;
 	private Boolean salmonellaSp;
@@ -89,6 +95,8 @@ public class Request {
 	private Boolean yeastAndMolds;
 
 	// MOLBIO TEST RESULTS
+	@Column
+	private Boolean speciesIdentification;
 	private Boolean dog;
 	private Boolean cat;
 	private Boolean chicken;
@@ -99,21 +107,9 @@ public class Request {
 	private Boolean sheep;
 	private Boolean swine;
 
-	/*
-	// Test Selection (Can be a list of selected tests) ~> should be enumerated in frontend
-	@ElementCollection
-	private List<String> testSelectionMicrobial;
-
-	@ElementCollection
-	private List<String> testSelectionChem;
-
-	@ElementCollection
-	private List<String> testSelectionMolBio;
-
 	// Request Status
 	@Enumerated(EnumType.STRING)
 	private RequestStatus requestStatus;
-	 */
 
 	// Control Number
 	// What is this control number
@@ -126,10 +122,83 @@ public class Request {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
+	@Column(name = "other_testing_purpose")
+	private String otherTestingPurpose;
+
 	public Request() {
 	}
 
-	public Request(Long requestId, Client client, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, String sampleCategory, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobial, Boolean isChem, Boolean isMolBio, Boolean betaLactams, Boolean tetracyclines, Boolean sulfonamides, Boolean aminoglycosides, Boolean macrolides, Boolean quinolones, Boolean chloramphenicol, Boolean nitrofuranAoz, Boolean beta_agonists, Boolean corticosteroids, Boolean olaquindox, Boolean nitrufuranAmoz, Boolean stilbenes, Boolean ractopamine, Boolean standardPlateCount, Boolean staphylococcusAureus, Boolean salmonellaSp, Boolean campylobacter, Boolean cultureAndSensitivityTest, String gramPositiveAst, String gramNegativeAst, Boolean coliformCount, Boolean eColi, Boolean eColiAndeColi0O157, Boolean yeastAndMolds, Boolean dog, Boolean cat, Boolean chicken, Boolean buffalo, Boolean cattle, Boolean horse, Boolean goat, Boolean sheep, Boolean swine, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Request(Long requestId,
+				   Client client,
+				   String representativeName,
+				   String contactNumber,
+				   String emailAddress,
+				   String companyName,
+				   String clientClassification,
+				   String ltoNumber,
+				   List<Sample> sample,
+				   String lotBatchNo,
+				   String sampleSource,
+				   String sampleProvince,
+				   String sampleAddress,
+				   String sampleCategory,
+				   LocalDate productionDate,
+				   LocalDate expiryDate,
+				   LocalDate samplingDate,
+				   String samplerName,
+				   TestingPurpose testingPurpose,
+				   //
+				   Boolean isMicrobio,
+				   Boolean isChem,
+				   Boolean isMolBio,
+				   //
+				   Boolean microbial,
+				   Boolean betaLactams,
+				   Boolean tetracyclines,
+				   Boolean sulfonamides,
+				   Boolean aminoglycosides,
+				   Boolean macrolides,
+				   Boolean quinolones,
+				   //
+				   Boolean elisa,
+				   Boolean chloramphenicol,
+				   Boolean nitrofuranAoz,
+				   Boolean beta_agonists,
+				   Boolean corticosteroids,
+				   Boolean olaquindox,
+				   Boolean nitrufuranAmoz,
+				   Boolean stilbenes,
+				   Boolean ractopamine,
+				   //
+				   Boolean standardPlateCount,
+				   Boolean staphylococcusAureus,
+				   Boolean salmonellaSp,
+				   Boolean campylobacter,
+				   Boolean cultureAndSensitivityTest,
+				   String gramPositiveAst,
+				   String gramNegativeAst,
+				   Boolean coliformCount,
+				   Boolean eColi,
+				   Boolean eColiAndeColi0O157,
+				   Boolean yeastAndMolds,
+				   //
+				   Boolean speciesIdentification,
+				   Boolean dog,
+				   Boolean cat,
+				   Boolean chicken,
+				   Boolean buffalo,
+				   Boolean cattle,
+				   Boolean horse,
+				   Boolean goat,
+				   Boolean sheep,
+				   Boolean swine,
+				   //
+				   String controlNumber,
+				   LocalDate submissionDate,
+				   LocalDateTime createdAt,
+				   LocalDateTime updatedAt,
+				   String otherTestingPurpose)
+	{
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeName = representativeName;
@@ -149,15 +218,18 @@ public class Request {
 		this.samplingDate = samplingDate;
 		this.samplerName = samplerName;
 		this.testingPurpose = testingPurpose;
-		this.isMicrobial = isMicrobial;
+		this.otherTestingPurpose = otherTestingPurpose;
+		this.isMicrobio = isMicrobio;
 		this.isChem = isChem;
 		this.isMolBio = isMolBio;
+		this.microbial = microbial;
 		this.betaLactams = betaLactams;
 		this.tetracyclines = tetracyclines;
 		this.sulfonamides = sulfonamides;
 		this.aminoglycosides = aminoglycosides;
 		this.macrolides = macrolides;
 		this.quinolones = quinolones;
+		this.elisa = elisa;
 		this.chloramphenicol = chloramphenicol;
 		this.nitrofuranAoz = nitrofuranAoz;
 		this.beta_agonists = beta_agonists;
@@ -177,6 +249,7 @@ public class Request {
 		this.eColi = eColi;
 		this.eColiAndeColi0O157 = eColiAndeColi0O157;
 		this.yeastAndMolds = yeastAndMolds;
+		this.speciesIdentification = speciesIdentification;
 		this.dog = dog;
 		this.cat = cat;
 		this.chicken = chicken;
@@ -344,12 +417,19 @@ public class Request {
 		this.testingPurpose = testingPurpose;
 	}
 
-	public Boolean getMicrobial() {
-		return isMicrobial;
+	public String getOtherTestingPurpose() {
+		return otherTestingPurpose;
+	}
+	public void setOtherTestingPurpose(String otherTestingPurpose) {
+		this.otherTestingPurpose = otherTestingPurpose;
 	}
 
-	public void setMicrobial(Boolean microbial) {
-		isMicrobial = microbial;
+	public Boolean getMicrobio() {
+		return isMicrobio;
+	}
+
+	public void setMicrobio(Boolean microbio) {
+		isMicrobio = microbio;
 	}
 
 	public Boolean getChem() {
@@ -366,6 +446,14 @@ public class Request {
 
 	public void setMolBio(Boolean molBio) {
 		isMolBio = molBio;
+	}
+
+	public Boolean getMicrobial() {
+		return betaLactams;
+	}
+
+	public void setMicrobial(Boolean microbial) {
+		this.microbial = microbial;
 	}
 
 	public Boolean getBetaLactams() {
@@ -414,6 +502,14 @@ public class Request {
 
 	public void setQuinolones(Boolean quinolones) {
 		this.quinolones = quinolones;
+	}
+
+	public Boolean getElisa() {
+		return elisa;
+	}
+
+	public void setElisa(Boolean elisa) {
+		this.elisa = elisa;
 	}
 
 	public Boolean getChloramphenicol() {
@@ -568,6 +664,14 @@ public class Request {
 		this.yeastAndMolds = yeastAndMolds;
 	}
 
+	public Boolean getSpeciesIdentification() {
+		return speciesIdentification;
+	}
+
+	public void setSpeciesIdentification(Boolean speciesIdentification) {
+		this.speciesIdentification = speciesIdentification;
+	}
+
 	public Boolean getDog() {
 		return dog;
 	}
@@ -638,6 +742,14 @@ public class Request {
 
 	public void setSwine(Boolean swine) {
 		this.swine = swine;
+	}
+
+	public RequestStatus getRequestStatus() {
+		return requestStatus;
+	}
+
+	public void setRequestStatus(RequestStatus requestStatus) {
+		this.requestStatus = requestStatus;
 	}
 
 	public String getControlNumber() {

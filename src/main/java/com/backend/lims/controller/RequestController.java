@@ -39,7 +39,7 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getClientRequest(username), HttpStatus.OK);
     }
 
-    @GetMapping("/trackrequest/{requestId}")
+    @GetMapping("/pendingrequest/{requestId}")
     public ResponseEntity<Request> trackRequest(@PathVariable Long requestId) {
         return new ResponseEntity<>(requestService.getSpecificPendingRequest(requestId), HttpStatus.OK);
     }

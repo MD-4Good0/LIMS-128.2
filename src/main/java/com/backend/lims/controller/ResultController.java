@@ -1,7 +1,7 @@
 package com.backend.lims.controller;
 
 import com.backend.lims.dto.ChemTestDTO;
-import com.backend.lims.dto.MicrobialTestDTO;
+import com.backend.lims.dto.MicrobioTestDTO;
 import com.backend.lims.dto.MolBioTestDTO;
 import com.backend.lims.model.*;
 import com.backend.lims.repository.ResultRepository;
@@ -36,12 +36,12 @@ public class ResultController {
         return ResponseEntity.ok(updatedResult);
     }
 
-    @PutMapping("/microbialTestResults/{sampleId}")
-    public ResponseEntity<MicrobialTestResults> updateMicrobialTestResultData(
+    @PutMapping("/microbioTestResults/{sampleId}")
+    public ResponseEntity<MicrobioTestResults> updateMicrobioTestResultData(
             @PathVariable Long sampleId,
-            @RequestBody MicrobialTestDTO microbialTestDTO) {
+            @RequestBody MicrobioTestDTO microbioTestDTO) {
 
-        MicrobialTestResults updatedResult = resultService.updateMicrobialTestResultData(sampleId, microbialTestDTO);
+        MicrobioTestResults updatedResult = resultService.updateMicrobioTestResultData(sampleId, microbioTestDTO);
         return ResponseEntity.ok(updatedResult);
     }
 
