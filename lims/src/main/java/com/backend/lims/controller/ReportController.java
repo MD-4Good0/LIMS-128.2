@@ -1,8 +1,6 @@
 package com.backend.lims.controller;
 
-import com.backend.lims.dto.ChemTestReportDTO;
-import com.backend.lims.dto.MicrobioTestReportDTO;
-import com.backend.lims.dto.MolBioTestReportDTO;
+import com.backend.lims.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +22,14 @@ public class ReportController {
     }
      */
 
-    @GetMapping("/chemreport")
-    public ChemTestReportDTO getChemTestResultsReport() {
-        return reportService.generateChemReport();
+    @GetMapping("/chemmicrobialreport")
+    public ChemMicrobialTestReportDTO getChemMicrobialTestResultsReport() {
+        return reportService.generateChemMicrobialReport();
+    }
+
+    @GetMapping("/chemelisareport")
+    public ChemElisaTestReportDTO getChemElisaTestResultsReport() {
+        return reportService.generateChemElisaReport();
     }
 
     @GetMapping("/molbioreport")

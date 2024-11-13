@@ -1,6 +1,7 @@
 package com.backend.lims.service;
 
-import com.backend.lims.dto.ChemTestDTO;
+import com.backend.lims.dto.ChemElisaTestDTO;
+import com.backend.lims.dto.ChemMicrobialTestDTO;
 import com.backend.lims.dto.MicrobioTestDTO;
 import com.backend.lims.dto.MolBioTestDTO;
 import com.backend.lims.model.*;
@@ -15,20 +16,22 @@ import java.util.List;
 @Service
 public class ResultService {
     private final ResultRepository resultRepository;
-    private final ChemRepository chemRepository;
+    private final ChemMicrobialRepository chemMicrobialRepository;
+    private final ChemElisaRepository chemElisaRepository;
     private final MicrobioRepository microbioRepository;
     private final MolBioRepository molBioRepository;
     private final RequestRepository requestRepository;
     private final SampleRepository sampleRepository;
 
     @Autowired
-    public ResultService(ResultRepository resultRepository, ChemRepository chemRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository, RequestRepository requestRepository, SampleRepository sampleRepository) {
+    public ResultService(ResultRepository resultRepository, ChemMicrobialRepository chemMicrobialRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository, RequestRepository requestRepository, SampleRepository sampleRepository, ChemElisaRepository chemElisaRepository) {
         this.resultRepository = resultRepository;
-        this.chemRepository = chemRepository;
+        this.chemMicrobialRepository = chemMicrobialRepository;
         this.microbioRepository = microbioRepository;
         this.molBioRepository = molBioRepository;
         this.requestRepository = requestRepository;
         this.sampleRepository = sampleRepository;
+        this.chemElisaRepository = chemElisaRepository;
     }
 
     @Transactional
@@ -40,18 +43,32 @@ public class ResultService {
         Result savedResult = resultRepository.save(result);
         Request request = requestRepository.findByRequestId(requestId);
 
-        if (request.getChem()) {
-            List<ChemTestResults> chemTestResultsList = new ArrayList<>();
+        if (request.getMicrobial()) {
+            List<ChemMicrobialTestResults> chemMicrobialTestResultsList = new ArrayList<>();
             for (Long sampleId : sampleIds) {
-                ChemTestResults chemTestResult = new ChemTestResults();
+                ChemMicrobialTestResults chemTestResult = new ChemMicrobialTestResults();
                 chemTestResult.setSampleId(sampleId);
 
-                chemRepository.save(chemTestResult);
-                chemTestResultsList.add(chemTestResult);
+                chemMicrobialRepository.save(chemTestResult);
+                chemMicrobialTestResultsList.add(chemTestResult);
             }
 
             // Attach chemTestResultsList to savedResult and return
-            savedResult.setChemTestResults(chemTestResultsList);
+            savedResult.setChemMicrobialTestResults(chemMicrobialTestResultsList);
+        }
+
+        if (request.getElisa()) {
+            List<ChemElisaTestResults> chemElisaTestResultsList = new ArrayList<>();
+            for (Long sampleId : sampleIds) {
+                ChemElisaTestResults chemTestResult = new ChemElisaTestResults();
+                chemTestResult.setSampleId(sampleId);
+
+                chemElisaRepository.save(chemTestResult);
+                chemElisaTestResultsList.add(chemTestResult);
+            }
+
+            // Attach chemTestResultsList to savedResult and return
+            savedResult.setChemElisaTestResults(chemElisaTestResultsList);
         }
 
         if (request.getMolBio()) {
@@ -88,29 +105,40 @@ public class ResultService {
     }
 
     // Function 2: Update ChemTestResults by sampleId
-    public ChemTestResults updateChemTestResultData(Long sampleId, ChemTestDTO chemTestDTO) {
+    public ChemMicrobialTestResults updateChemMicrobialTestResultData(Long sampleId, ChemMicrobialTestDTO chemMicrobialTestDTO) {
         // Find the ChemTestResults by sampleId
-        ChemTestResults chemTestResult = chemRepository.findBySampleId(sampleId)
+        ChemMicrobialTestResults chemTestResult = chemMicrobialRepository.findBySampleId(sampleId)
                 .orElseThrow(() -> new RuntimeException("ChemTestResult not found for sampleId: " + sampleId));
 
         // Update fields
-        chemTestResult.setBetaLactams(chemTestDTO.getBetaLactams());
-        chemTestResult.setTetracyclines(chemTestDTO.getTetracyclines());
-        chemTestResult.setSulfonamides(chemTestDTO.getSulfonamides());
-        chemTestResult.setAminoglycosides(chemTestDTO.getAminoglycosides());
-        chemTestResult.setMacrolides(chemTestDTO.getMacrolides());
-        chemTestResult.setQuinolones(chemTestDTO.getQuinolones());
-        chemTestResult.setChloramphenicol(chemTestDTO.getChloramphenicol());
-        chemTestResult.setNitrofuranAoz(chemTestDTO.getNitrofuranAoz());
-        chemTestResult.setBeta_agonists(chemTestDTO.getBeta_agonists());
-        chemTestResult.setCorticosteroids(chemTestDTO.getCorticosteroids());
-        chemTestResult.setOlaquindox(chemTestDTO.getOlaquindox());
-        chemTestResult.setNitrufuranAmoz(chemTestDTO.getNitrufuranAmoz());
-        chemTestResult.setStilbenes(chemTestDTO.getStilbenes());
-        chemTestResult.setRactopamine(chemTestDTO.getRactopamine());
+        chemTestResult.setBetaLactams(chemMicrobialTestDTO.getBetaLactams());
+        chemTestResult.setTetracyclines(chemMicrobialTestDTO.getTetracyclines());
+        chemTestResult.setSulfonamides(chemMicrobialTestDTO.getSulfonamides());
+        chemTestResult.setAminoglycosides(chemMicrobialTestDTO.getAminoglycosides());
+        chemTestResult.setMacrolides(chemMicrobialTestDTO.getMacrolides());
+        chemTestResult.setQuinolones(chemMicrobialTestDTO.getQuinolones());
 
         // Save updated ChemTestResult
-        return chemRepository.save(chemTestResult);
+        return chemMicrobialRepository.save(chemTestResult);
+    }
+
+    public ChemElisaTestResults updateChemElisaTestResultData(Long sampleId, ChemElisaTestDTO chemElisaTestDTO) {
+        // Find the ChemTestResults by sampleId
+        ChemElisaTestResults chemTestResult = chemElisaRepository.findBySampleId(sampleId)
+                .orElseThrow(() -> new RuntimeException("ChemTestResult not found for sampleId: " + sampleId));
+
+        // Update fields
+        chemTestResult.setChloramphenicol(chemElisaTestDTO.getChloramphenicol());
+        chemTestResult.setNitrofuranAoz(chemElisaTestDTO.getNitrofuranAoz());
+        chemTestResult.setBeta_agonists(chemElisaTestDTO.getBeta_agonists());
+        chemTestResult.setCorticosteroids(chemElisaTestDTO.getCorticosteroids());
+        chemTestResult.setOlaquindox(chemElisaTestDTO.getOlaquindox());
+        chemTestResult.setNitrufuranAmoz(chemElisaTestDTO.getNitrufuranAmoz());
+        chemTestResult.setStilbenes(chemElisaTestDTO.getStilbenes());
+        chemTestResult.setRactopamine(chemElisaTestDTO.getRactopamine());
+
+        // Save updated ChemTestResult
+        return chemElisaRepository.save(chemTestResult);
     }
 
     @Transactional

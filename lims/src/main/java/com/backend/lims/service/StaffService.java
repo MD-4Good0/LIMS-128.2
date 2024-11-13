@@ -46,6 +46,8 @@ public class StaffService {
         user.setPassword(encryptedPassword);
         user.setUserType("staff");
         userRepository.save(user);
+
+        staffRepository.save(staff);
         
         return "User registered successfully";
     }

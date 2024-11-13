@@ -1,6 +1,7 @@
 package com.backend.lims.controller;
 
-import com.backend.lims.dto.ChemTestDTO;
+import com.backend.lims.dto.ChemElisaTestDTO;
+import com.backend.lims.dto.ChemMicrobialTestDTO;
 import com.backend.lims.dto.MicrobioTestDTO;
 import com.backend.lims.dto.MolBioTestDTO;
 import com.backend.lims.model.*;
@@ -24,12 +25,21 @@ public class ResultController {
         return new ResponseEntity<>(resultService.createResult(result, requestId), HttpStatus.CREATED);
     }
 
-    @PutMapping("/chemTestResults/{sampleId}")
-    public ResponseEntity<ChemTestResults> updateChemTestResultData(
+    @PutMapping("/chemMicrobialTestResults/{sampleId}")
+    public ResponseEntity<ChemMicrobialTestResults> updateChemMicrobialTestResultData(
             @PathVariable Long sampleId,
-            @RequestBody ChemTestDTO chemTestDTO) {
+            @RequestBody ChemMicrobialTestDTO chemMicrobialTestDTO) {
 
-        ChemTestResults updatedResult = resultService.updateChemTestResultData(sampleId, chemTestDTO);
+        ChemMicrobialTestResults updatedResult = resultService.updateChemMicrobialTestResultData(sampleId, chemMicrobialTestDTO);
+        return ResponseEntity.ok(updatedResult);
+    }
+
+    @PutMapping("/chemTestElisaResults/{sampleId}")
+    public ResponseEntity<ChemElisaTestResults> updateChemElisaTestResultData(
+            @PathVariable Long sampleId,
+            @RequestBody ChemElisaTestDTO chemElisaTestDTO) {
+
+        ChemElisaTestResults updatedResult = resultService.updateChemElisaTestResultData(sampleId, chemElisaTestDTO);
         return ResponseEntity.ok(updatedResult);
     }
 

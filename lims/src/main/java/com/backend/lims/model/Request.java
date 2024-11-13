@@ -25,6 +25,7 @@ public class Request {
 	// Client Information
 	@ManyToOne
 	private Client client;  // Prefilled client information based on logged-in user
+	private Long representativeId;
 	private String representativeName;
 	private String contactNumber;
 	private String emailAddress;
@@ -130,6 +131,7 @@ public class Request {
 
 	public Request(Long requestId,
 				   Client client,
+				   Long representativeId,
 				   String representativeName,
 				   String contactNumber,
 				   String emailAddress,
@@ -201,6 +203,7 @@ public class Request {
 	{
 		this.requestId = requestId;
 		this.client = client;
+		this.representativeId = representativeId;
 		this.representativeName = representativeName;
 		this.contactNumber = contactNumber;
 		this.emailAddress = emailAddress;
@@ -279,6 +282,14 @@ public class Request {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public Long getRepresentativeId() {
+		return representativeId;
+	}
+
+	public void setRepresentativeId(Long representativeId) {
+		this.representativeId = representativeId;
 	}
 
 	public String getRepresentativeName() {

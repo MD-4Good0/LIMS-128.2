@@ -1,14 +1,10 @@
 package com.backend.lims.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-import com.backend.lims.model.ChemTestResults;
-import com.backend.lims.model.Report;
+import com.backend.lims.model.ChemMicrobialTestResults;
 
-public interface ChemResultsRepository extends JpaRepository<ChemTestResults, Long> {
+public interface ChemResultsRepository extends JpaRepository<ChemMicrobialTestResults, Long> {
 	/*
 	@Query("SELECT new com.backend.lims.model.Report(s.province, " +
 		       "TO_CHAR(r.submissionDate, 'YYYY-MM') AS monthYear, " +

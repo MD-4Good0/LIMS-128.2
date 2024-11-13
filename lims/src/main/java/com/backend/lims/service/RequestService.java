@@ -34,6 +34,8 @@ public class RequestService {
         // Set the client information
         request.setClient(client);
 
+        request.setRepresentativeId(clientId);
+
         // Set initial request status to PENDING_REVIEW
         request.setRequestStatus(Request.RequestStatus.PENDING_REVIEW);
 
@@ -62,8 +64,8 @@ public class RequestService {
         return requestRepository.findByRequestId(requestId);
     }
 
-    public List<Request> getClientRequest(String username) {
-        return requestRepository.findByRepresentativeName(username);
+    public List<Request> getClientRequest(Long userId) {
+        return requestRepository.findByRepresentativeId(userId);
     }
 
     public Request approveRequest(Long requestId) {

@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
 public class TesterController {
 	private final TesterService testerService;
 
@@ -22,11 +23,34 @@ public class TesterController {
         this.testerService = testerService;
     }
 
+    /*
     @PostMapping("/tester")
     public ResponseEntity<String> addUser(@RequestBody UserTesterRequest userTesterRequest) {
     	 User user = userTesterRequest.getUser();
          Tester tester = userTesterRequest.getTester();
     	return ResponseEntity.ok(testerService.addUser(user, tester));
+    }
+     */
+
+    @PostMapping("/chemtester")
+    public ResponseEntity<String> addChemTester(@RequestBody UserTesterRequest userTesterRequest) {
+        User user = userTesterRequest.getUser();
+        Tester tester = userTesterRequest.getTester();
+        return ResponseEntity.ok(testerService.addChemTester(user, tester));
+    }
+
+    @PostMapping("/microbiotester")
+    public ResponseEntity<String> addMicrobioTester(@RequestBody UserTesterRequest userTesterRequest) {
+        User user = userTesterRequest.getUser();
+        Tester tester = userTesterRequest.getTester();
+        return ResponseEntity.ok(testerService.addMicrobioTester(user, tester));
+    }
+
+    @PostMapping("/molbiotester")
+    public ResponseEntity<String> addMolBioTester(@RequestBody UserTesterRequest userTesterRequest) {
+        User user = userTesterRequest.getUser();
+        Tester tester = userTesterRequest.getTester();
+        return ResponseEntity.ok(testerService.addMolBioTester(user, tester));
     }
   
 	 @GetMapping("/getTesterUserId")
@@ -101,8 +125,6 @@ public class TesterController {
 
         return ResponseEntity.ok(testerService.changePassword(username, oldPassword, newPassword));
     }
-    
- 
 
     @DeleteMapping("/tester")
     public ResponseEntity<String> deleteUser(@RequestParam("userId") Long userId) {

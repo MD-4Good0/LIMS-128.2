@@ -34,9 +34,9 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getForTesting(), HttpStatus.OK);
     }
 
-    @GetMapping("/clientrequest/{username}")
-    public ResponseEntity<List<Request>> getClientRequests(@PathVariable String username) {
-        return new ResponseEntity<>(requestService.getClientRequest(username), HttpStatus.OK);
+    @GetMapping("/clientrequest/{userId}")
+    public ResponseEntity<List<Request>> getClientRequests(@PathVariable Long userId) {
+        return new ResponseEntity<>(requestService.getClientRequest(userId), HttpStatus.OK);
     }
 
     @GetMapping("/pendingrequest/{requestId}")

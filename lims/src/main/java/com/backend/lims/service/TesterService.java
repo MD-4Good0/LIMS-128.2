@@ -28,15 +28,13 @@ public class TesterService {
 	private List<User> loggedInTesters = new ArrayList<>();
 	private List<User> loggedInAdmins = new ArrayList<>();
 
-
-
     @Autowired
     public TesterService(UserRepository userRepository, TesterRepository testerRepository, JavaMailSender javaMailSender) {
 		this.userRepository = userRepository;
 		this.testerRepository = testerRepository;
 		this.javaMailSender = javaMailSender;
     }
-    
+    /*
     public String addUser(User user, Tester tester) {
     	if (userRepository.findByUsername(user.getUsername()) != null) {
             return "Username already exists. Please choose another one.";
@@ -47,6 +45,50 @@ public class TesterService {
         user.setUserType("tester");
         userRepository.save(user);
         
+        return "User registered successfully";
+    }
+
+     */
+
+    public String addChemTester(User user, Tester tester) {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
+            return "Username already exists. Please choose another one.";
+        }
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptedPassword = bcrypt.encode(user.getPassword());
+        user.setPassword(encryptedPassword);
+        user.setUserType("chemtester");
+        userRepository.save(user);
+
+        testerRepository.save(tester);
+        return "User registered successfully";
+    }
+
+    public String addMicrobioTester(User user, Tester tester) {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
+            return "Username already exists. Please choose another one.";
+        }
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptedPassword = bcrypt.encode(user.getPassword());
+        user.setPassword(encryptedPassword);
+        user.setUserType("microbiotester");
+        userRepository.save(user);
+
+        testerRepository.save(tester);
+        return "User registered successfully";
+    }
+
+    public String addMolBioTester(User user, Tester tester) {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
+            return "Username already exists. Please choose another one.";
+        }
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptedPassword = bcrypt.encode(user.getPassword());
+        user.setPassword(encryptedPassword);
+        user.setUserType("molbiotester");
+        userRepository.save(user);
+
+        testerRepository.save(tester);
         return "User registered successfully";
     }
 

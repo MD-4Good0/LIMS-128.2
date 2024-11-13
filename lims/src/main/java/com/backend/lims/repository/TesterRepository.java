@@ -6,5 +6,6 @@ import com.backend.lims.model.Tester;
 
 public interface TesterRepository extends JpaRepository<Tester, Long> {
 	Tester findByUserId(Long userId);
-	List<Tester> findAll(); 
+	List<Tester> findAll();
+	//Tester findByLicenseNumber(String licenseNumber);
 }

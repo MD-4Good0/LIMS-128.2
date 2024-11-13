@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.backend.lims.dto.ChemTestReportDTO;
-import com.backend.lims.dto.MicrobioTestReportDTO;
-import com.backend.lims.dto.MolBioTestReportDTO;
-import com.backend.lims.repository.ChemRepository;
+import com.backend.lims.dto.*;
+import com.backend.lims.repository.ChemElisaRepository;
+import com.backend.lims.repository.ChemMicrobialRepository;
 import com.backend.lims.repository.MicrobioRepository;
 import com.backend.lims.repository.MolBioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,34 +15,44 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReportService {
 
-    private ChemRepository chemRepository;
-    private MicrobioRepository microbioRepository;
-    private MolBioRepository molBioRepository;
+    private final ChemMicrobialRepository chemMicrobialRepository;
+    private final ChemElisaRepository chemElisaRepository;
+    private final MicrobioRepository microbioRepository;
+    private final MolBioRepository molBioRepository;
 
-    @Autowired
-    public ReportService(ChemRepository chemRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository) {
-        this.chemRepository = chemRepository;
+    public ReportService(ChemMicrobialRepository chemMicrobialRepository, ChemElisaRepository chemElisaRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository) {
+        this.chemMicrobialRepository = chemMicrobialRepository;
+        this.chemElisaRepository = chemElisaRepository;
         this.microbioRepository = microbioRepository;
         this.molBioRepository = molBioRepository;
     }
 
-    public ChemTestReportDTO generateChemReport() {
-        ChemTestReportDTO report = new ChemTestReportDTO();
+    @Autowired
 
-        report.setBetaLactamsCounts(convertToMap(chemRepository.countUniqueBetaLactams()));
-        report.setTetracyclinesCounts(convertToMap(chemRepository.countUniqueTetracyclines()));
-        report.setSulfonamidesCounts(convertToMap(chemRepository.countUniqueSulfonamides()));
-        report.setAminoglycosidesCounts(convertToMap(chemRepository.countUniqueAminoglycosides()));
-        report.setMacrolidesCounts(convertToMap(chemRepository.countUniqueMacrolides()));
-        report.setQuinolonesCounts(convertToMap(chemRepository.countUniqueQuinolones()));
-        report.setChloramphenicolCounts(convertToMap(chemRepository.countUniqueChloramphenicol()));
-        report.setNitrofuranAozCounts(convertToMap(chemRepository.countUniqueNitrofuranAoz()));
-        report.setBetaAgonistsCounts(convertToMap(chemRepository.countUniqueBetaAgonists()));
-        report.setCorticosteroidsCounts(convertToMap(chemRepository.countUniqueCorticosteroids()));
-        report.setOlaquindoxCounts(convertToMap(chemRepository.countUniqueOlaquindox()));
-        report.setNitrufuranAmozCounts(convertToMap(chemRepository.countUniqueNitrufuranAmoz()));
-        report.setStilbenesCounts(convertToMap(chemRepository.countUniqueStilbenes()));
-        report.setRactopamineCounts(convertToMap(chemRepository.countUniqueRactopamine()));
+    public ChemMicrobialTestReportDTO generateChemMicrobialReport() {
+        ChemMicrobialTestReportDTO report = new ChemMicrobialTestReportDTO();
+
+        report.setBetaLactamsCounts(convertToMap(chemMicrobialRepository.countUniqueBetaLactams()));
+        report.setTetracyclinesCounts(convertToMap(chemMicrobialRepository.countUniqueTetracyclines()));
+        report.setSulfonamidesCounts(convertToMap(chemMicrobialRepository.countUniqueSulfonamides()));
+        report.setAminoglycosidesCounts(convertToMap(chemMicrobialRepository.countUniqueAminoglycosides()));
+        report.setMacrolidesCounts(convertToMap(chemMicrobialRepository.countUniqueMacrolides()));
+        report.setQuinolonesCounts(convertToMap(chemMicrobialRepository.countUniqueQuinolones()));
+
+        return report;
+    }
+
+    public ChemElisaTestReportDTO generateChemElisaReport() {
+        ChemElisaTestReportDTO report = new ChemElisaTestReportDTO();
+
+        report.setChloramphenicolCounts(convertToMap(chemElisaRepository.countUniqueChloramphenicol()));
+        report.setNitrofuranAozCounts(convertToMap(chemElisaRepository.countUniqueNitrofuranAoz()));
+        report.setBetaAgonistsCounts(convertToMap(chemElisaRepository.countUniqueBetaAgonists()));
+        report.setCorticosteroidsCounts(convertToMap(chemElisaRepository.countUniqueCorticosteroids()));
+        report.setOlaquindoxCounts(convertToMap(chemElisaRepository.countUniqueOlaquindox()));
+        report.setNitrufuranAmozCounts(convertToMap(chemElisaRepository.countUniqueNitrufuranAmoz()));
+        report.setStilbenesCounts(convertToMap(chemElisaRepository.countUniqueStilbenes()));
+        report.setRactopamineCounts(convertToMap(chemElisaRepository.countUniqueRactopamine()));
 
         return report;
     }

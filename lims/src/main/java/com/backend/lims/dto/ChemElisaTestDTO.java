@@ -1,12 +1,6 @@
 package com.backend.lims.dto;
 
-public class ChemTestDTO {
-    private String betaLactams;
-    private String tetracyclines;
-    private String sulfonamides;
-    private String aminoglycosides;
-    private String macrolides;
-    private String quinolones;
+public class ChemElisaTestDTO {
     // Enzyme-Linked ImmunoSorbent
     private String chloramphenicol;
     private String nitrofuranAoz;
@@ -17,16 +11,10 @@ public class ChemTestDTO {
     private String stilbenes;
     private String ractopamine;
 
-    public ChemTestDTO() {
+    public ChemElisaTestDTO() {
     }
 
-    public ChemTestDTO(String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine) {
-        this.betaLactams = betaLactams;
-        this.tetracyclines = tetracyclines;
-        this.sulfonamides = sulfonamides;
-        this.aminoglycosides = aminoglycosides;
-        this.macrolides = macrolides;
-        this.quinolones = quinolones;
+    public ChemElisaTestDTO(String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine) {
         this.chloramphenicol = chloramphenicol;
         this.nitrofuranAoz = nitrofuranAoz;
         this.beta_agonists = beta_agonists;
@@ -35,54 +23,6 @@ public class ChemTestDTO {
         this.nitrufuranAmoz = nitrufuranAmoz;
         this.stilbenes = stilbenes;
         this.ractopamine = ractopamine;
-    }
-
-    public String getBetaLactams() {
-        return betaLactams;
-    }
-
-    public void setBetaLactams(String betaLactams) {
-        this.betaLactams = betaLactams;
-    }
-
-    public String getTetracyclines() {
-        return tetracyclines;
-    }
-
-    public void setTetracyclines(String tetracyclines) {
-        this.tetracyclines = tetracyclines;
-    }
-
-    public String getSulfonamides() {
-        return sulfonamides;
-    }
-
-    public void setSulfonamides(String sulfonamides) {
-        this.sulfonamides = sulfonamides;
-    }
-
-    public String getAminoglycosides() {
-        return aminoglycosides;
-    }
-
-    public void setAminoglycosides(String aminoglycosides) {
-        this.aminoglycosides = aminoglycosides;
-    }
-
-    public String getMacrolides() {
-        return macrolides;
-    }
-
-    public void setMacrolides(String macrolides) {
-        this.macrolides = macrolides;
-    }
-
-    public String getQuinolones() {
-        return quinolones;
-    }
-
-    public void setQuinolones(String quinolones) {
-        this.quinolones = quinolones;
     }
 
     public String getChloramphenicol() {

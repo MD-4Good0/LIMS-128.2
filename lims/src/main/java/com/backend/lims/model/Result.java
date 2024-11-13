@@ -19,9 +19,13 @@ public class Result {
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     private List<MicrobioTestResults> microbioTestResults;
 
-    @OneToMany(targetEntity = ChemTestResults.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = ChemMicrobialTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
-    private List<ChemTestResults> chemTestResults;
+    private List<ChemMicrobialTestResults> chemMicrobialTestResults;
+
+    @OneToMany(targetEntity = ChemElisaTestResults.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
+    private List<ChemElisaTestResults> chemElisaTestResults;
 
     @OneToMany(targetEntity = MolBioTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
@@ -30,14 +34,14 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobioTestResults> microbioTestResults, List<ChemTestResults> chemTestResults, List<MolBioTestResults> molBioTestResults) {
-        super();
+    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobioTestResults> microbioTestResults, List<ChemMicrobialTestResults> chemMicrobialTestResults, List<ChemElisaTestResults> chemElisaTestResults, List<MolBioTestResults> molBioTestResults) {
         this.resultId = resultId;
         this.requestId = requestId;
         this.testerId = testerId;
         this.testerUsername = testerUsername;
         this.microbioTestResults = microbioTestResults;
-        this.chemTestResults = chemTestResults;
+        this.chemMicrobialTestResults = chemMicrobialTestResults;
+        this.chemElisaTestResults = chemElisaTestResults;
         this.molBioTestResults = molBioTestResults;
     }
 
@@ -81,12 +85,20 @@ public class Result {
         this.microbioTestResults = microbioTestResults;
     }
 
-    public List<ChemTestResults> getChemTestResults() {
-        return chemTestResults;
+    public List<ChemMicrobialTestResults> getChemMicrobialTestResults() {
+        return chemMicrobialTestResults;
     }
 
-    public void setChemTestResults(List<ChemTestResults> chemTestResults) {
-        this.chemTestResults = chemTestResults;
+    public void setChemMicrobialTestResults(List<ChemMicrobialTestResults> chemMicrobialTestResults) {
+        this.chemMicrobialTestResults = chemMicrobialTestResults;
+    }
+
+    public List<ChemElisaTestResults> getChemElisaTestResults() {
+        return chemElisaTestResults;
+    }
+
+    public void setChemElisaTestResults(List<ChemElisaTestResults> chemElisaTestResults) {
+        this.chemElisaTestResults = chemElisaTestResults;
     }
 
     public List<MolBioTestResults> getMolBioTestResults() {
