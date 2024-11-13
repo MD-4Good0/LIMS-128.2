@@ -1,15 +1,6 @@
-package com.backend.lims.model;
+package com.backend.lims.dto;
 
-import jakarta.persistence.*;
-import org.springframework.transaction.annotation.Transactional;
-
-@Entity
-@Transactional
-public class MicrobialTestResults {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long microbialResultId;
-    private Long sampleId;
+public class MicrobioTestDTO {
     private String standardPlateCount;
     private String staphylococcusAureus;
     private String salmonellaSp;
@@ -19,17 +10,11 @@ public class MicrobialTestResults {
     private String eColi;
     private String eColiAndeColi0O157;
     private String yeastAndMolds;
-    @ManyToOne
-    @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
-    private Result result;
 
-    public MicrobialTestResults() {
+    public MicrobioTestDTO() {
     }
 
-    public MicrobialTestResults(Long microbialResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, Result result) {
-        super();
-        this.microbialResultId = microbialResultId;
-        this.sampleId = sampleId;
+    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds) {
         this.standardPlateCount = standardPlateCount;
         this.staphylococcusAureus = staphylococcusAureus;
         this.salmonellaSp = salmonellaSp;
@@ -39,23 +24,6 @@ public class MicrobialTestResults {
         this.eColi = eColi;
         this.eColiAndeColi0O157 = eColiAndeColi0O157;
         this.yeastAndMolds = yeastAndMolds;
-        this.result = result;
-    }
-
-    public Long getMicrobioResultId() {
-        return microbialResultId;
-    }
-
-    public void setMicrobioResultId(Long microbialResultId) {
-        this.microbialResultId = microbialResultId;
-    }
-
-    public Long getSampleId() {
-        return sampleId;
-    }
-
-    public void setSampleId(Long sampleId) {
-        this.sampleId = sampleId;
     }
 
     public String getStandardPlateCount() {
@@ -128,13 +96,5 @@ public class MicrobialTestResults {
 
     public void setYeastAndMolds(String yeastAndMolds) {
         this.yeastAndMolds = yeastAndMolds;
-    }
-
-    public Result getResult() {
-        return result;
-    }
-
-    public void setResult(Result result) {
-        this.result = result;
     }
 }

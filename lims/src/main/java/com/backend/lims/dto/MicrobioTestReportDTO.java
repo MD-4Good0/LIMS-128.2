@@ -2,7 +2,7 @@ package com.backend.lims.dto;
 
 import java.util.Map;
 
-public class MicrobialTestReportDTO {
+public class MicrobioTestReportDTO {
     private Map<Object, Long> standardPlateCount;
     private Map<Object, Long> staphylococcusAureus;
     private Map<Object, Long> salmonellaSp;

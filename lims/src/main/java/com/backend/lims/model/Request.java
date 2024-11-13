@@ -449,7 +449,7 @@ public class Request {
 	}
 
 	public Boolean getMicrobial() {
-		return betaLactams;
+		return microbial;
 	}
 
 	public void setMicrobial(Boolean microbial) {

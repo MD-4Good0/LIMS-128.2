@@ -15,9 +15,9 @@ public class Result {
     private Long testerId;
     private String testerUsername;
 
-    @OneToMany(targetEntity = MicrobialTestResults.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = MicrobioTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
-    private List<MicrobialTestResults> microbialTestResults;
+    private List<MicrobioTestResults> microbioTestResults;
 
     @OneToMany(targetEntity = ChemTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
@@ -30,13 +30,13 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobialTestResults> microbialTestResults, List<ChemTestResults> chemTestResults, List<MolBioTestResults> molBioTestResults) {
+    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobioTestResults> microbioTestResults, List<ChemTestResults> chemTestResults, List<MolBioTestResults> molBioTestResults) {
         super();
         this.resultId = resultId;
         this.requestId = requestId;
         this.testerId = testerId;
         this.testerUsername = testerUsername;
-        this.microbialTestResults = microbialTestResults;
+        this.microbioTestResults = microbioTestResults;
         this.chemTestResults = chemTestResults;
         this.molBioTestResults = molBioTestResults;
     }
@@ -73,12 +73,12 @@ public class Result {
         this.testerUsername = testerUsername;
     }
 
-    public List<MicrobialTestResults> getMicrobioTestResults() {
-        return microbialTestResults;
+    public List<MicrobioTestResults> getMicrobioTestResults() {
+        return microbioTestResults;
     }
 
-    public void setMicrobioTestResults(List<MicrobialTestResults> microbialTestResults) {
-        this.microbialTestResults = microbialTestResults;
+    public void setMicrobioTestResults(List<MicrobioTestResults> microbioTestResults) {
+        this.microbioTestResults = microbioTestResults;
     }
 
     public List<ChemTestResults> getChemTestResults() {

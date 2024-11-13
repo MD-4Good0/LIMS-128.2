@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.backend.lims.dto.ChemTestReportDTO;
-import com.backend.lims.dto.MicrobialTestReportDTO;
+import com.backend.lims.dto.MicrobioTestReportDTO;
 import com.backend.lims.dto.MolBioTestReportDTO;
 import com.backend.lims.repository.ChemRepository;
-import com.backend.lims.repository.MicrobialRepository;
+import com.backend.lims.repository.MicrobioRepository;
 import com.backend.lims.repository.MolBioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 public class ReportService {
 
     private ChemRepository chemRepository;
-    private MicrobialRepository microbialRepository;
+    private MicrobioRepository microbioRepository;
     private MolBioRepository molBioRepository;
 
     @Autowired
-    public ReportService(ChemRepository chemRepository, MicrobialRepository microbialRepository, MolBioRepository molBioRepository) {
+    public ReportService(ChemRepository chemRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository) {
         this.chemRepository = chemRepository;
-        this.microbialRepository = microbialRepository;
+        this.microbioRepository = microbioRepository;
         this.molBioRepository = molBioRepository;
     }
 
@@ -64,18 +64,18 @@ public class ReportService {
         return report;
     }
 
-    public MicrobialTestReportDTO generateMicrobialReport() {
-        MicrobialTestReportDTO report = new MicrobialTestReportDTO();
+    public MicrobioTestReportDTO generateMicrobioReport() {
+        MicrobioTestReportDTO report = new MicrobioTestReportDTO();
 
-        report.setStandardPlateCount(convertToMap(microbialRepository.countUniqueStandardPlateCount()));
-        report.setStaphylococcusAureus(convertToMap(microbialRepository.countUniqueStaphylococcusAureus()));
-        report.setSalmonellaSp(convertToMap(microbialRepository.countUniqueSalmonellaSp()));
-        report.setCampylobacter(convertToMap(microbialRepository.countUniqueCampylobacter()));
-        report.setCultureAndSensitivityTest(convertToMap(microbialRepository.countUniqueCultureAndSensitivityTest()));
-        report.setColiformCount(convertToMap(microbialRepository.countUniqueColiformCount()));
-        report.setEColi(convertToMap(microbialRepository.countUniqueEColi()));
-        report.setEColiAndeColi0O157(convertToMap(microbialRepository.countUniqueEColiAndeColi0O157()));
-        report.setYeastAndMolds(convertToMap(microbialRepository.countUniqueYeastAndMolds()));
+        report.setStandardPlateCount(convertToMap(microbioRepository.countUniqueStandardPlateCount()));
+        report.setStaphylococcusAureus(convertToMap(microbioRepository.countUniqueStaphylococcusAureus()));
+        report.setSalmonellaSp(convertToMap(microbioRepository.countUniqueSalmonellaSp()));
+        report.setCampylobacter(convertToMap(microbioRepository.countUniqueCampylobacter()));
+        report.setCultureAndSensitivityTest(convertToMap(microbioRepository.countUniqueCultureAndSensitivityTest()));
+        report.setColiformCount(convertToMap(microbioRepository.countUniqueColiformCount()));
+        report.setEColi(convertToMap(microbioRepository.countUniqueEColi()));
+        report.setEColiAndeColi0O157(convertToMap(microbioRepository.countUniqueEColiAndeColi0O157()));
+        report.setYeastAndMolds(convertToMap(microbioRepository.countUniqueYeastAndMolds()));
 
         return report;
     }

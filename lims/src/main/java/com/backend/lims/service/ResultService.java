@@ -1,7 +1,7 @@
 package com.backend.lims.service;
 
 import com.backend.lims.dto.ChemTestDTO;
-import com.backend.lims.dto.MicrobialTestDTO;
+import com.backend.lims.dto.MicrobioTestDTO;
 import com.backend.lims.dto.MolBioTestDTO;
 import com.backend.lims.model.*;
 import com.backend.lims.repository.*;
@@ -16,16 +16,16 @@ import java.util.List;
 public class ResultService {
     private final ResultRepository resultRepository;
     private final ChemRepository chemRepository;
-    private final MicrobialRepository microbialRepository;
+    private final MicrobioRepository microbioRepository;
     private final MolBioRepository molBioRepository;
     private final RequestRepository requestRepository;
     private final SampleRepository sampleRepository;
 
     @Autowired
-    public ResultService(ResultRepository resultRepository, ChemRepository chemRepository, MicrobialRepository microbialRepository, MolBioRepository molBioRepository, RequestRepository requestRepository, SampleRepository sampleRepository) {
+    public ResultService(ResultRepository resultRepository, ChemRepository chemRepository, MicrobioRepository microbioRepository, MolBioRepository molBioRepository, RequestRepository requestRepository, SampleRepository sampleRepository) {
         this.resultRepository = resultRepository;
         this.chemRepository = chemRepository;
-        this.microbialRepository = microbialRepository;
+        this.microbioRepository = microbioRepository;
         this.molBioRepository = molBioRepository;
         this.requestRepository = requestRepository;
         this.sampleRepository = sampleRepository;
@@ -68,18 +68,18 @@ public class ResultService {
             savedResult.setMolBioTestResults(molBioTestResultsList);
         }
 
-        if (request.getMicrobial()) {
-            List<MicrobialTestResults> microbialTestResultsList = new ArrayList<>();
+        if (request.getMicrobio()) {
+            List<MicrobioTestResults> microbioTestResultsList = new ArrayList<>();
             for (Long sampleId : sampleIds) {
-                MicrobialTestResults microbialTestResult = new MicrobialTestResults();
-                microbialTestResult.setSampleId(sampleId);
+                MicrobioTestResults microbioTestResult = new MicrobioTestResults();
+                microbioTestResult.setSampleId(sampleId);
 
-                microbialRepository.save(microbialTestResult);
-                microbialTestResultsList.add(microbialTestResult);
+                microbioRepository.save(microbioTestResult);
+                microbioTestResultsList.add(microbioTestResult);
             }
 
             // Attach MicroBioTestResultsList to savedResult and return
-            savedResult.setMicrobioTestResults(microbialTestResultsList);
+            savedResult.setMicrobioTestResults(microbioTestResultsList);
         }
 
         // Populate ChemTestResults with sampleIds and associate with the saved Result
@@ -114,24 +114,24 @@ public class ResultService {
     }
 
     @Transactional
-    public MicrobialTestResults updateMicrobialTestResultData(Long sampleId, MicrobialTestDTO microbialTestDTO) {
-        // Find the MicrobialTestResults by sampleId
-        MicrobialTestResults microbialTestResult = microbialRepository.findBySampleId(sampleId)
-                .orElseThrow(() -> new RuntimeException("MicrobialTestResult not found for sampleId: " + sampleId));
+    public MicrobioTestResults updateMicrobioTestResultData(Long sampleId, MicrobioTestDTO microbioTestDTO) {
+        // Find the MicrobioTestResults by sampleId
+        MicrobioTestResults microbioTestResults = microbioRepository.findBySampleId(sampleId)
+                .orElseThrow(() -> new RuntimeException("MicrobioTestResult not found for sampleId: " + sampleId));
 
         // Update fields
-        microbialTestResult.setStandardPlateCount(microbialTestDTO.getStandardPlateCount());
-        microbialTestResult.setStaphylococcusAureus(microbialTestDTO.getStaphylococcusAureus());
-        microbialTestResult.setSalmonellaSp(microbialTestDTO.getSalmonellaSp());
-        microbialTestResult.setCampylobacter(microbialTestDTO.getCampylobacter());
-        microbialTestResult.setCultureAndSensitivityTest(microbialTestDTO.getCultureAndSensitivityTest());
-        microbialTestResult.setColiformCount(microbialTestDTO.getColiformCount());
-        microbialTestResult.seteColi(microbialTestDTO.geteColi());
-        microbialTestResult.seteColiAndeColi0O157(microbialTestDTO.geteColiAndeColi0O157());
-        microbialTestResult.setYeastAndMolds(microbialTestDTO.getYeastAndMolds());
+        microbioTestResults.setStandardPlateCount(microbioTestDTO.getStandardPlateCount());
+        microbioTestResults.setStaphylococcusAureus(microbioTestDTO.getStaphylococcusAureus());
+        microbioTestResults.setSalmonellaSp(microbioTestDTO.getSalmonellaSp());
+        microbioTestResults.setCampylobacter(microbioTestDTO.getCampylobacter());
+        microbioTestResults.setCultureAndSensitivityTest(microbioTestDTO.getCultureAndSensitivityTest());
+        microbioTestResults.setColiformCount(microbioTestDTO.getColiformCount());
+        microbioTestResults.seteColi(microbioTestDTO.geteColi());
+        microbioTestResults.seteColiAndeColi0O157(microbioTestDTO.geteColiAndeColi0O157());
+        microbioTestResults.setYeastAndMolds(microbioTestDTO.getYeastAndMolds());
 
-        // Save updated MicrobialTestResult
-        return microbialRepository.save(microbialTestResult);
+        // Save updated MicrobioTestResult
+        return microbioRepository.save(microbioTestResults);
     }
 
     @Transactional

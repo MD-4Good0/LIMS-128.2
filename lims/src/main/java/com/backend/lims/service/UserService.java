@@ -100,7 +100,7 @@ public class UserService {
             }
 
             initiateTFA(user);  // Initiate TFA for the user
-            return "tfa"; // Return user type and ID
+            return user.getUserType().toLowerCase() + "/" + user.getUserId().toString();
         }
 
         return "Invalid credentials";

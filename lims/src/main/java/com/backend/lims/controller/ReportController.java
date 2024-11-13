@@ -1,7 +1,7 @@
 package com.backend.lims.controller;
 
 import com.backend.lims.dto.ChemTestReportDTO;
-import com.backend.lims.dto.MicrobialTestReportDTO;
+import com.backend.lims.dto.MicrobioTestReportDTO;
 import com.backend.lims.dto.MolBioTestReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +34,9 @@ public class ReportController {
         return reportService.generateMolBioReport();
     }
 
-    @GetMapping("/microbialreport")
-    public MicrobialTestReportDTO getMicrobialTestResultsReport() {
-        return reportService.generateMicrobialReport();
+    @GetMapping("/microbioreport")
+    public MicrobioTestReportDTO getMicrobioTestResultsReport() {
+        return reportService.generateMicrobioReport();
     }
 
 }
