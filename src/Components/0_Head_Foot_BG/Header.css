@@ -4,53 +4,50 @@
     align-items: center;
     margin: auto;
     background-color: #2b9ec16f;
-    padding-top: 6px;
+    padding-top: 6PX;
     padding-bottom: 6px;
+    
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     background-color: #2b9ec16f;
+
     box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
-    overflow: visible; /* Allow content to overflow */
 }
 
 .left-stuff {
-    padding-left: 355px;
+    padding-left: 331px;
     gap: 20px;
     display: flex;
     align-items: center;
-    position: relative;
+    opacity: 50%;
+    transition: opacity 0.3s ease;
+}
+
+.left-stuff:hover {
+    opacity: 100%;
 }
 
 .left-stuff img {
     width: 70px;
-    position: absolute; /* Position logo absolutely */
-    top: -20px; /* Adjust as needed to control vertical overflow */
-    left: 250px;
-    transform: translateX(-20px); /* Fine-tune to control horizontal overflow */
 }
 
 .right-stuff {
-    padding-right: 330px;
+    padding-right: 331px;
     display: flex;
     align-items: center;
+    gap: 15px; /* Add space between the home and logout buttons */
 }
 
 .title {
     height: auto;
     width: auto;
     color: #ffffff;
-    font-size: 36px;
+    font-size: 40px;
     text-align: left;
     font-family:'Poppins';
     font-weight: 600;
     margin-left: -15px;
-    opacity: 50%;
-    transition: opacity 0.3s ease;
-}
-
-.title:hover {
-    opacity: 100%;
 }
 
 .home {
@@ -125,17 +122,4 @@
 
 button, summary {
     outline: none;
-}
-
-.login-prompt {
-    font-size: 26px;
-    font-weight: 200;
-    font-family:'Poppins';
-    color: #ffffffa7;
-    padding: 10px 25px;
-    transition: color 0.3s ease;
-}
-
-.login-prompt:hover {
-    color: #fff;
 }

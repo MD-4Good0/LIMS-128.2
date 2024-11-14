@@ -15,7 +15,7 @@
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 48px;
-    color: #004e65;
+    color: #2B9DC1;
     padding-top: 29px;
 }
 
@@ -62,6 +62,7 @@
     font-weight: 700;
     color: #2B9DC1;
     font-size: 16px;
+    margin-top: 10px;
 }
 
 .l-c-label {
@@ -76,7 +77,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
     padding-right: 15px;
@@ -89,7 +90,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
 }
@@ -102,7 +103,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -113,7 +114,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
 }
@@ -125,7 +126,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
 }
@@ -137,7 +138,7 @@
     border: none;
     outline: none;
     color: #004e65;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
 }
@@ -285,7 +286,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -20px;
+    margin-top: -100px;
 }
 
 .cli-class {
@@ -351,25 +352,9 @@ input[type="radio"]:checked {
     accent-color: #2B9DC1 ; /* Changes color when checked */
 }
 
-.register-note {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins';
-    padding-top: 30px;
-    color: #004e65;
-    opacity: 30%;
-    transition: opacity 0.3s ease;
-}
-
-.register-note:hover {
-    opacity: 100%;
-}
-
 .register-button{
     margin: 20px;
-    margin-top: 30px;
+    padding-top: 20px;
 }
 
 .register-button button{

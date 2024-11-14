@@ -1,40 +1,26 @@
 import './Home.css';
 import Userfront from "@userfront/core";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import white_logo_icon from '../Assets/WhiteLogo.png';
+
 import testing_icon from '../Assets/TestingPage.png';
 import test_icon from '../Assets/TestResults.png';
 import database_icon from '../Assets/Database.png';
-import { useEffect, useState } from 'react';
 
 Userfront.init("jb7ywq8b");
 
 const HomeTesting = () => {
-  const { userId } = useParams();
-  const [userType, setUserType] = useState(null); // State to hold userType
+
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Retrieve responseData from local storage
-    const responseData = localStorage.getItem('responseData');
-    
-    // If responseData exists, parse it to get userType
-    if (responseData) {
-      const [type] = responseData.split('/'); // Assuming responseData is like "tester/10"
-      setUserType(type);
-    }
-  }, []);
-
+  
   const handleForTestingPage = () => {
-    navigate(`/for-testing/${userId}`);
+    navigate("/for-testing")
   };
-
   const handleTestResults = () => {
-    navigate(`/test-results/${userId}`);
+    navigate("/test-results")
   };
-
   const handleDatabase = () => {
-    navigate(`/testing-database/${userId}`);
+    navigate("/testing-database")
   };
 
   return (
@@ -57,12 +43,12 @@ const HomeTesting = () => {
         </div>
 
         <div className="announcement-box">
-          <h4>Welcome to the Testing Portal, Tester!</h4>
+          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
         </div>
 
-        <div className="options-container">
+        <div className="options-container" >
           <div className="option-card" onClick={handleForTestingPage}>
-            <img src={testing_icon} alt="For Testing" />
+            <img src={testing_icon} alt="For Testing Z" />
             <h2>For Testing</h2>
           </div>
           <div className="option-card" onClick={handleTestResults}>

@@ -1,83 +1,106 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import './TrackMyRequest.css';
-
+import Userfront from "@userfront/core";
 import blue_logo_icon from '../Assets/BlueLogo.png';
 
-const TrackRequest = () => {
-    const {userId} = useParams();
+Userfront.init("jb7ywq8b");
+
+const TrackMyRequest = () => {
     const [requests, setRequests] = useState([]);
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch data from backend on component mount
-        fetch('http://localhost:8080/requests/pending')
-            .then(response => {
+        const fetchUserRequests = async () => {
+            try {
+                const userId = Userfront.user.userId;
+                const response = await fetch(`/requests/user/${userId}`);
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Failed to fetch requests');
                 }
-                return response.json();
-            })
-            .then(data => {
-                // Update state with fetched data
+                const data = await response.json();
+                console.log("Fetched Requests:", data); // Add this line
                 setRequests(data);
-            })
-            .catch(error => {
-                console.error('Error fetching pending requests:', error);
-            });
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+        
+        fetchUserRequests();
     }, []);
 
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+    };
+
+    const getSampleDescription = (samples) => {
+        if (!samples || samples.length === 0) return 'No samples';
+        return samples.map((sample, index) => (
+            <div key={index}>
+                {sample.sampleType || sample.description || 'Sample ' + (index + 1)}
+            </div>
+        ));
+    };
+
     return (
-        <div className="trackmyrequest-all-container">
-            <div className='trackmyrequest-container'>
-                <div className='trackmyrequest-title'>Track My Requests</div>
-                <div className="trackmyrequest-1st-container">
-                    <div className="trackmyrequest-1st-container-header">
-                        <div className="trackmyrequest-1st-container-header-title">
-                            Username
-                        </div>
-                        <div className="lineseperator">
-                            |
-                        </div>
-                        <div className="trackmyrequest-1st-container-header-title-middle">
-                            Submission Date
-                        </div>
-                        <div className="lineseperator">
-                            |
-                        </div>
-                        <div className="trackmyrequest-1st-container-header-title">
-                            Status
-                        </div>
-                    </div>
-                    {requests.length > 0 ? (
-                        requests.map((request, index) => (
-                            <button 
-                                key={index} 
-                                className="request-button"
-                                onClick={() => navigate(`/request-details/${userId}/${request.requestId}`)}
-                            >
-                                <div className="req-side">{request.representativeName}</div>
-                                <p className="req-lineseparator">|</p>
-                                <div className="req-middle">{request.emailAddress}</div>
-                                <p className="req-lineseparator">|</p>
-                                <div className="req-side">{request.submissionDate}</div>
-                            </button>
-                        ))
-                    ) : (
-                        <div className="pendingrequest-2nd-container">
+        <div className="request-all-container">
+            <div className="request-container">
+                <div className="request-title">Track My Request</div>
+                <div className="request-1st-container">
+                    {loading ? (
+                        <div className="loading">Loading...</div>
+                    ) : error ? (
+                        <div className="error">{error}</div>
+                    ) : requests.length === 0 ? (
+                        <>
                             <img src={blue_logo_icon} alt="Blue Logo Icon" className="blue-logo-icon" />
-                            <h1 className='msg-noreqres1'>
+                            <h1 className="msg-noreqres1">
                                 You have no ongoing requests and results.
                             </h1>
-                            <h1 className='msg-noreqres2'>
+                            <h1 className="msg-noreqres2">
                                 Request through the "Submit a Request" page.
                             </h1>
+                        </>
+                    ) : (
+                        <div className="requests-table-container">
+                            <table className="requests-table">
+                                <thead>
+                                    <tr>
+                                        <th>Control Number</th>
+                                        <th>Representative Name</th>
+                                        <th>Sample Type/Description</th>
+                                        <th>Date Requested</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {requests.map((request) => (
+                                        <tr key={request.requestId}>
+                                            <td>{request.controlNumber}</td>
+                                            <td>{request.representativeName}</td>
+                                            <td>{getSampleDescription(request.sample)}</td>
+                                            <td>{formatDate(request.createdAt)}</td>
+                                            <td>
+                                                <span className={`status-badge ${request.requestStatus.toLowerCase()}`}>
+                                                    {request.requestStatus.replace(/_/g, ' ')}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     )}
                 </div>
             </div>
         </div>
     );
-}
+};
 
-export default TrackRequest;
+export default TrackMyRequest;

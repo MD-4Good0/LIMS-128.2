@@ -1,16 +1,16 @@
 import React from "react";
-import TFA from './Components/1_BeforeLogin/TFA';
+import Submit from './Components/3_Client/SubmitRequest';
 import BG from './Components/0_Head_Foot_BG/BG';
 import Footer from './Components/0_Head_Foot_BG/Footer';
 
-function PageTFA({ onLogin }) {
+function PageSubmitRequest() {
     return(
         <div>
-            <TFA onLogin={onLogin}/>
+            <Submit/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageTFA
+export default PageSubmitRequest

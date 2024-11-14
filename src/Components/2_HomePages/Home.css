@@ -40,6 +40,7 @@
     gap: 45px;
 }
 
+
 .web-titles {
     display: flex;
     align-items: flex-end;
@@ -53,9 +54,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1025px;
+    max-width: 1280px;
     height: 100%;
-    max-height: 90px;
+    max-height: 95px;
     padding: 15px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 10px;
@@ -64,18 +65,6 @@
 }
 
 .announcement-box h2 {
-    font-weight: 700;
-    font-size: 40px;
-    color: #2B9DC1;
-}
-
-.announcement-box h3 {
-    font-weight: 700;
-    font-size: 36px;
-    color: #2B9DC1;
-}
-
-.announcement-box h4 {
     font-weight: 700;
     font-size: 36px;
     color: #2B9DC1;
@@ -89,13 +78,14 @@
 .options-container {
     display: flex;
     justify-content: center;
-    gap: 70px;
-    width: 100px;
+    gap: 130px;
+    width: 100%;
+    max-width: 1174px;
 }
 
 .option-card {
-    width: 500px;
-    height: 320px;
+    width: 305px;
+    height: 321px;
     background: #2B9DC1;
     border-radius: 8px;
     display: flex;
@@ -121,7 +111,7 @@
 }
 
 .option-card img {
-    width: 265px;
+    width: 500px;
     height: 200px;
     margin-top: 20px;
     object-fit: contain;

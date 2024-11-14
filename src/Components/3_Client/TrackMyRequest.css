@@ -1,11 +1,11 @@
-.trackmyrequest-all-container {
+.request-all-container {
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Poppins';
 }
 
-.trackmyrequest-container {
+.request-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,40 +17,30 @@
     background-color: #ffffffb5;
 }
 
-.trackmyrequest-title {
+.request-title {
     font-weight: 700;
     font-size: 64px;
-    color: #004e65;
+    color: #2B9DC1;
 }
 
-.trackmyrequest-1st-container {
-    width: 1200px;
-    height: 600px;
-    margin-top: 20px;
+.request-1st-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
-
-.trackmyrequest-2nd-container {
-    width: 1200px;
-    height: 470px;
-    margin-top: 20px;
-    padding-top: 40px;
-    padding-bottom: 10px;
     align-items: center;
-    background-color: #fff;
+    justify-content: center;
+    background-color: white;
+    width: 1200px;
+    height: 603px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
 }
 
-.trackmyrequest-1st-container-column-row {
+.request-1st-container-column-row {
     display: flex;
     gap: 10px;
 }
 
-.trackmyrequest-1st-container-column-row input {
+.request-1st-container-column-row input {
     text-align: center;
     font-family: 'Poppins';
     font-weight: 400;
@@ -61,67 +51,96 @@
     color: #fff;
 }
 
-.trackmyrequest-1st-container-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0 50px;
-    gap: 50px;
-    background-color: #004e65;
-    border-radius: 10px;
-    width: 1100px;
-    height: 40px;
-    font-weight: 700;
-    color: #fff;
+.blue-logo-icon {
+    display: block;
+    margin: 0 auto 20px;
+    height: 374px;
 }
 
-.trackmyrequest-1st-container-header-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 500px;
+.msg-noreqres1 {
+    color: #2B9DC1;
+    margin-bottom: -20px;
 }
 
-.trackmyrequest-1st-container-header-title-middle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1000px;
+.msg-noreqres2 {
+    color: #2B9DC1;
+    margin-bottom: -2px;
 }
 
-.request-button {
+.request-row {
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins';
-    gap: 50px;
+    gap: 30px;
+}
+
+.requests-table-container {
+    width: 95%;
+    margin: 20px;
+    overflow-x: auto;
+}
+
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.requests-table th {
     background-color: #2B9DC1;
-    border-radius: 10px;
-    width: 1200px;
-    height: 40px;
-    font-weight: 700;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    opacity: 50%;
-    transition: opacity 0.3s ease;
+    color: white;
+    font-weight: 600;
 }
 
-.req-side {
-    width: 500px;
+.requests-table tr:hover {
+    background-color: #f5f5f5;
 }
 
-.req-lineseparator {
-    margin: -40px;
-    font-size: 15px;
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
 }
 
-.req-middle {
-    width: 860px
+.status-badge.pending_review {
+    background-color: #fff3cd;
+    color: #856404;
 }
 
-.request-button:hover {
-    opacity: 100%;
+.status-badge.for_testing {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-badge.for_release {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.loading {
+    color: #2B9DC1;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem;
 }
