@@ -67,16 +67,13 @@ public class UserService {
     }
 
     // Verify the OTP
-    public String verifyOTP(String username, String inputOtp) {
-        User user = userRepository.findByUsername(username);
-
-        System.out.println(user.getUsername());
-
+    public String verifyOTP(String identifier, String inputOtp) {
+        User user = userRepository.findByUsername(identifier);
         if (user == null) {
-            user = userRepository.findByEmail(username);
+            user = userRepository.findByEmail(identifier);
         }
 
-        if (user.getOtp() != null && user.getOtpTimestamp() != null) {
+        if (user != null && user.getOtp() != null && user.getOtpTimestamp() != null) {
             if (user.getOtp().equals(inputOtp) && user.getOtpTimestamp().plusMinutes(5).isAfter(LocalDateTime.now())) {
                 user.setOtp(null);
                 user.setOtpTimestamp(null);
