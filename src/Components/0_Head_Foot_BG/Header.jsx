@@ -1,58 +1,47 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import './Header.css';
-
 import home_icon from '../Assets/Home.png';
-import white_logo_icon from '../Assets/WhiteLogo.png';
+import logo from '../Assets/NMISLogo.png';
 
-
-const Header = ({ onLogout, userId, user_type }) => {
+const Header = ({ onLogout, userId, userType }) => {
     const navigate = useNavigate();
 
-    const handleLogout = useCallback(async () => {
-        try {
-            onLogout();
+    const handleLogout = () => {
+        // Clear local storage and reset user state through the onLogout prop
+        localStorage.removeItem('responseData');
+        onLogout(); // Call the onLogout prop to update the app state
+        navigate('/login'); // Redirect to login page
+    };
+
+    const navigateHome = () => {
+        if (userType && userId) {
+            // Navigate to the home URL once userType and userId are available
+            console.log('Navigating to: ', `/home/${userType}/${userId}`);
+            navigate(`/home/${userType}/${userId}`);
+        } else {
+            console.log('UserType or UserId is missing. Redirecting to login.');
             navigate('/login');
-        } catch (error) {
-            console.error("Logout failed:", error);
         }
-    }, [navigate, onLogout]);
-
-
-    const navigateHome = useCallback(() => {
-        if (userId) {
-            switch (user_type) {
-                case 'client':
-                    navigate(`/home/client/${userId}`);
-                    break;
-                case 'staff':
-                    navigate(`/home/staff/${userId}`);
-                    break;
-                case 'tester':
-                    navigate(`/home/tester/${userId}`);
-                    break;
-                default:
-                    navigate('/login');
-            }
-        }
-        else{
-            navigate ('/login');
-        }
-    }, [navigate, userId, user_type]);
+    };
 
     return (
         <div className='header'>
-            <div className="left-stuff" onClick={navigateHome}>
-                <img src={white_logo_icon} alt="Logo" />
-                <div className="title">NIMS</div>
+            <div className="left-stuff">
+                <img src={logo} alt="Logo" />
+                <div className="title">National Meat Inspection Service</div>
             </div>
 
             <div className="right-stuff">
-                {userId && (
+                {userId && userType ? (
                     <div className="l-o">
                         <button onClick={handleLogout} className="logout-button">
-                            <span className="logout-button-text">Log out</span>
+                            <span><p className='logout-button-text center'>Log out</p></span>
                         </button>
+                    </div>
+                ) : (
+                    <div className="login-prompt">
+                        <p>Please log in.</p>
                     </div>
                 )}
 
@@ -64,6 +53,6 @@ const Header = ({ onLogout, userId, user_type }) => {
             </div>
         </div>
     );
-}
+};
 
 export default Header;
