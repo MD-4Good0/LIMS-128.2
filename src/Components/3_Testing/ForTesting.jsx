@@ -109,7 +109,7 @@ const TestingList = () => {
                                     />
                                     <span>{request.controlNumber}</span>
                                     <span>
-                                        {request.microbial ? (
+                                        {request.microbio ? (
                                             <button className="test-btn" onClick={() => navigate(`/test-details/microbial/${request.controlNumber}`)}>
                                                 Microbio
                                             </button>
