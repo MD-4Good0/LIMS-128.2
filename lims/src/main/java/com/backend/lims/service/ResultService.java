@@ -147,6 +147,16 @@ public class ResultService {
         MicrobioTestResults microbioTestResults = microbioRepository.findBySampleId(sampleId)
                 .orElseThrow(() -> new RuntimeException("MicrobioTestResult not found for sampleId: " + sampleId));
 
+        /* ALTERNATIVE WAY to find the MicrobioTestResults by sampleId. sets a new sampleId if not found
+        MicrobioTestResults microbioTestResults = microbioRepository.findBySampleId(sampleId)
+                .orElseGet(() -> {
+                    MicrobioTestResults newResult = new MicrobioTestResults();
+                    newResult.setSampleId(sampleId);
+                    return newResult;
+                });
+
+         */
+
         // Update fields
         microbioTestResults.setStandardPlateCount(microbioTestDTO.getStandardPlateCount());
         microbioTestResults.setStaphylococcusAureus(microbioTestDTO.getStaphylococcusAureus());
