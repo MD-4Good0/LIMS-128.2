@@ -6,6 +6,9 @@ import com.backend.lims.dto.MicrobioTestDTO;
 import com.backend.lims.dto.MolBioTestDTO;
 import com.backend.lims.model.*;
 import com.backend.lims.service.ResultService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +62,30 @@ public class ResultController {
 
         MolBioTestResults updatedResult = resultService.updateMolBioTestResultData(sampleId, molBioTestDTO);
         return ResponseEntity.ok(updatedResult);
+    }
+
+    @GetMapping("/molBioTestResults")
+    public ResponseEntity<List<MolBioTestResults>> getAllMolBioTestResults() {
+        List<MolBioTestResults> results = resultService.getAllMolBioTestResults();
+        return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/chemElisaTestResults")
+    public ResponseEntity<List<ChemElisaTestResults>> getAllChemElisaTestResults() {
+        List<ChemElisaTestResults> results = resultService.getAllChemElisaTestResults();
+        return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/chemMicrobialTestResults")
+    public ResponseEntity<List<ChemMicrobialTestResults>> getAllChemMicrobialTestResults() {
+        List<ChemMicrobialTestResults> results = resultService.getAllChemMicrobialTestResults();
+        return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/microbioTestResults")
+    public ResponseEntity<List<MicrobioTestResults>> getAllMicrobioTestResults() {
+        List<MicrobioTestResults> results = resultService.getAllMicrobioTestResults();
+        return ResponseEntity.ok(results);
     }
 
 }

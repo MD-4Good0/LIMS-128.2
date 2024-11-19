@@ -315,4 +315,25 @@ public class ResultService {
         // Save updated MolBioTestResult
         return molBioRepository.save(molBioTestResult);
     }
+    
+    @Transactional
+    public List<MolBioTestResults> getAllMolBioTestResults() {
+        return molBioRepository.findAll();
+    }
+
+    @Transactional
+    public List<ChemElisaTestResults> getAllChemElisaTestResults() {
+        return chemElisaRepository.findAll();
+    }
+
+    @Transactional
+    public List<ChemMicrobialTestResults> getAllChemMicrobialTestResults() {
+        return chemMicrobialRepository.findAll();
+    }
+
+    @Transactional
+    public List<MicrobioTestResults> getAllMicrobioTestResults() {
+        return microbioRepository.findAll();
+    }
+
 }
