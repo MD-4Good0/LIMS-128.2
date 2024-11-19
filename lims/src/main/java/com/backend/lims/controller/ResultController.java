@@ -25,6 +25,15 @@ public class ResultController {
         return new ResponseEntity<>(resultService.createResult(result, requestId), HttpStatus.CREATED);
     }
 
+    @PutMapping("/microbioTestResults/{sampleId}")
+    public ResponseEntity<MicrobioTestResults> updateMicrobioTestResultData(
+            @PathVariable Long sampleId,
+            @RequestBody MicrobioTestDTO microbioTestDTO) {
+
+        MicrobioTestResults updatedResult = resultService.updateMicrobioTestResultData(sampleId, microbioTestDTO);
+        return ResponseEntity.ok(updatedResult);
+    }
+
     @PutMapping("/chemMicrobialTestResults/{sampleId}")
     public ResponseEntity<ChemMicrobialTestResults> updateChemMicrobialTestResultData(
             @PathVariable Long sampleId,
@@ -40,15 +49,6 @@ public class ResultController {
             @RequestBody ChemElisaTestDTO chemElisaTestDTO) {
 
         ChemElisaTestResults updatedResult = resultService.updateChemElisaTestResultData(sampleId, chemElisaTestDTO);
-        return ResponseEntity.ok(updatedResult);
-    }
-
-    @PutMapping("/microbioTestResults/{sampleId}")
-    public ResponseEntity<MicrobioTestResults> updateMicrobioTestResultData(
-            @PathVariable Long sampleId,
-            @RequestBody MicrobioTestDTO microbioTestDTO) {
-
-        MicrobioTestResults updatedResult = resultService.updateMicrobioTestResultData(sampleId, microbioTestDTO);
         return ResponseEntity.ok(updatedResult);
     }
 
