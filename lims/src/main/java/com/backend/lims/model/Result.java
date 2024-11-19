@@ -10,6 +10,7 @@ import java.util.List;
 public class Result {
     // Map the details from the request ~> Done in frontend
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long resultId;
     private Long requestId; // Make foreign key
     private Long testerId;
