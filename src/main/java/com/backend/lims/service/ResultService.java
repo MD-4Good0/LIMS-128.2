@@ -42,6 +42,7 @@ public class ResultService {
         result.setRequestId(requestId);
         Result savedResult = resultRepository.save(result);
         Request request = requestRepository.findByRequestId(requestId);
+        savedResult.setCompleteRequest(Boolean.FALSE);
 
         if (request.getMicrobial()) {
             List<ChemMicrobialTestResults> chemMicrobialTestResultsList = new ArrayList<>();
@@ -55,6 +56,9 @@ public class ResultService {
 
             // Attach chemTestResultsList to savedResult and return
             savedResult.setChemMicrobialTestResults(chemMicrobialTestResultsList);
+            savedResult.setCompleteChemMicrobial(Boolean.FALSE);
+        } else {
+            savedResult.setCompleteChemMicrobial(Boolean.TRUE);
         }
 
         if (request.getElisa()) {
@@ -69,6 +73,9 @@ public class ResultService {
 
             // Attach chemTestResultsList to savedResult and return
             savedResult.setChemElisaTestResults(chemElisaTestResultsList);
+            savedResult.setCompleteChemElisa(Boolean.FALSE);
+        } else {
+            savedResult.setCompleteChemElisa(Boolean.TRUE);
         }
 
         if (request.getMolBio()) {
@@ -83,6 +90,9 @@ public class ResultService {
 
             // Attach chemTestResultsList to savedResult and return
             savedResult.setMolBioTestResults(molBioTestResultsList);
+            savedResult.setCompleteMolBio(Boolean.FALSE);
+        } else {
+            savedResult.setCompleteMolBio(Boolean.TRUE);
         }
 
         if (request.getMicrobio()) {
@@ -97,6 +107,9 @@ public class ResultService {
 
             // Attach MicroBioTestResultsList to savedResult and return
             savedResult.setMicrobioTestResults(microbioTestResultsList);
+            savedResult.setCompleteMicrobio(Boolean.FALSE);
+        } else {
+            savedResult.setCompleteMicrobio(Boolean.TRUE);
         }
 
         // Populate ChemTestResults with sampleIds and associate with the saved Result
@@ -118,6 +131,14 @@ public class ResultService {
         chemTestResult.setMacrolides(chemMicrobialTestDTO.getMacrolides());
         chemTestResult.setQuinolones(chemMicrobialTestDTO.getQuinolones());
 
+        Long resultId = chemTestResult.getResult().getResultId();
+
+        Result result = resultRepository.findByResultId(resultId);
+
+        result.setCompleteChemMicrobial(Boolean.TRUE);
+
+        checkCompleteRequest(resultId);
+
         // Save updated ChemTestResult
         return chemMicrobialRepository.save(chemTestResult);
     }
@@ -136,6 +157,14 @@ public class ResultService {
         chemTestResult.setNitrufuranAmoz(chemElisaTestDTO.getNitrufuranAmoz());
         chemTestResult.setStilbenes(chemElisaTestDTO.getStilbenes());
         chemTestResult.setRactopamine(chemElisaTestDTO.getRactopamine());
+
+        Long resultId = chemTestResult.getResult().getResultId();
+
+        Result result = resultRepository.findByResultId(resultId);
+
+        result.setCompleteChemElisa(Boolean.TRUE);
+
+        checkCompleteRequest(resultId);
 
         // Save updated ChemTestResult
         return chemElisaRepository.save(chemTestResult);
@@ -158,6 +187,14 @@ public class ResultService {
         microbioTestResults.seteColiAndeColi0O157(microbioTestDTO.geteColiAndeColi0O157());
         microbioTestResults.setYeastAndMolds(microbioTestDTO.getYeastAndMolds());
 
+        Long resultId = microbioTestResults.getResult().getResultId();
+
+        Result result = resultRepository.findByResultId(resultId);
+
+        result.setCompleteMicrobio(Boolean.TRUE);
+
+        checkCompleteRequest(resultId);
+
         // Save updated MicrobioTestResult
         return microbioRepository.save(microbioTestResults);
     }
@@ -179,7 +216,34 @@ public class ResultService {
         molBioTestResult.setSheep(molBioTestDTO.getSheep());
         molBioTestResult.setSwine(molBioTestDTO.getSwine());
 
+        Long resultId = molBioTestResult.getResult().getResultId();
+
+        Result result = resultRepository.findByResultId(resultId);
+
+        result.setCompleteMolBio(Boolean.TRUE);
+
+        checkCompleteRequest(resultId);
+
         // Save updated MolBioTestResult
         return molBioRepository.save(molBioTestResult);
+    }
+
+    private void checkCompleteRequest(Long resultId) {
+        Result result = resultRepository.findByResultId(resultId);
+
+        if (result.getCompleteChemElisa() == Boolean.TRUE &&
+        result.getCompleteChemMicrobial() == Boolean.TRUE &&
+        result.getCompleteMolBio() == Boolean.TRUE &&
+        result.getCompleteMicrobio() == Boolean.TRUE) {
+            result.setCompleteRequest(Boolean.TRUE);
+            setForRelease(result.getRequestId());
+        }
+
+    }
+
+    private void setForRelease(Long requestId) {
+        Request request = requestRepository.findByRequestId(requestId);
+
+        request.setRequestStatus(Request.RequestStatus.FOR_RELEASE);
     }
 }

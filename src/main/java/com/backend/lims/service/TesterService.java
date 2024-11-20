@@ -34,7 +34,7 @@ public class TesterService {
 		this.testerRepository = testerRepository;
 		this.javaMailSender = javaMailSender;
     }
-    /*
+
     public String addUser(User user, Tester tester) {
     	if (userRepository.findByUsername(user.getUsername()) != null) {
             return "Username already exists. Please choose another one.";
@@ -48,7 +48,6 @@ public class TesterService {
         return "User registered successfully";
     }
 
-     */
 
     public String addChemTester(User user, Tester tester) {
         if (userRepository.findByUsername(user.getUsername()) != null) {

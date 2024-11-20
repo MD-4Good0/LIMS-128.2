@@ -23,14 +23,12 @@ public class TesterController {
         this.testerService = testerService;
     }
 
-    /*
     @PostMapping("/tester")
     public ResponseEntity<String> addUser(@RequestBody UserTesterRequest userTesterRequest) {
     	 User user = userTesterRequest.getUser();
          Tester tester = userTesterRequest.getTester();
     	return ResponseEntity.ok(testerService.addUser(user, tester));
     }
-     */
 
     @PostMapping("/chemtester")
     public ResponseEntity<String> addChemTester(@RequestBody UserTesterRequest userTesterRequest) {

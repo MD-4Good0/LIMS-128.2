@@ -17,6 +17,13 @@ public class Result {
     private Long testerId;
     private String testerUsername;
 
+    // Check result
+    private Boolean completeRequest;
+    private Boolean completeChemElisa;
+    private Boolean completeChemMicrobial;
+    private Boolean completeMolBio;
+    private Boolean completeMicrobio;
+
     @OneToMany(targetEntity = MicrobioTestResults.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     private List<MicrobioTestResults> microbioTestResults;
@@ -36,11 +43,16 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, List<MicrobioTestResults> microbioTestResults, List<ChemMicrobialTestResults> chemMicrobialTestResults, List<ChemElisaTestResults> chemElisaTestResults, List<MolBioTestResults> molBioTestResults) {
+    public Result(Long resultId, Long requestId, Long testerId, String testerUsername, Boolean completeRequest, Boolean completeChemElisa, Boolean completeChemMicrobial, Boolean completeMolBio, Boolean completeMicrobio, List<MicrobioTestResults> microbioTestResults, List<ChemMicrobialTestResults> chemMicrobialTestResults, List<ChemElisaTestResults> chemElisaTestResults, List<MolBioTestResults> molBioTestResults) {
         this.resultId = resultId;
         this.requestId = requestId;
         this.testerId = testerId;
         this.testerUsername = testerUsername;
+        this.completeRequest = completeRequest;
+        this.completeChemElisa = completeChemElisa;
+        this.completeChemMicrobial = completeChemMicrobial;
+        this.completeMolBio = completeMolBio;
+        this.completeMicrobio = completeMicrobio;
         this.microbioTestResults = microbioTestResults;
         this.chemMicrobialTestResults = chemMicrobialTestResults;
         this.chemElisaTestResults = chemElisaTestResults;
@@ -77,6 +89,46 @@ public class Result {
 
     public void setTesterUsername(String testerUsername) {
         this.testerUsername = testerUsername;
+    }
+
+    public Boolean getCompleteRequest() {
+        return completeRequest;
+    }
+
+    public void setCompleteRequest(Boolean completeRequest) {
+        this.completeRequest = completeRequest;
+    }
+
+    public Boolean getCompleteChemElisa() {
+        return completeChemElisa;
+    }
+
+    public void setCompleteChemElisa(Boolean completeChemElisa) {
+        this.completeChemElisa = completeChemElisa;
+    }
+
+    public Boolean getCompleteChemMicrobial() {
+        return completeChemMicrobial;
+    }
+
+    public void setCompleteChemMicrobial(Boolean completeChemMicrobial) {
+        this.completeChemMicrobial = completeChemMicrobial;
+    }
+
+    public Boolean getCompleteMolBio() {
+        return completeMolBio;
+    }
+
+    public void setCompleteMolBio(Boolean completeMolBio) {
+        this.completeMolBio = completeMolBio;
+    }
+
+    public Boolean getCompleteMicrobio() {
+        return completeMicrobio;
+    }
+
+    public void setCompleteMicrobio(Boolean completeMicrobio) {
+        this.completeMicrobio = completeMicrobio;
     }
 
     public List<MicrobioTestResults> getMicrobioTestResults() {
