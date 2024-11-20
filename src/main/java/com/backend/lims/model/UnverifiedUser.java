@@ -1,16 +1,21 @@
 package com.backend.lims.model;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
-import com.backend.lims.model.UnverifiedUser;
-
-import jakarta.persistence.*;
+import com.backend.lims.model.User;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "unverified_users")
+public class UnverifiedUser {
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long userId;
 
@@ -26,8 +31,7 @@ public class User {
     @Column(name = "last_name", length = 30)
     private String lastName;
 
-
-    @Column(name = "contact_number", nullable = false, length = 12)
+    @Column(name = "contact_number", nullable = false, length = 18)
     private String contactNumber;
 
     @Column(name = "email", nullable = false, length = 50)
@@ -41,41 +45,29 @@ public class User {
 
 	@Column(name = "deletion_status", length = 50)
 	private String deletionStatus;
-
-	private String otp;
-
-	private LocalDateTime otpTimestamp;
-
-	public User() {
-		
+	
+	@Column(name = "otp")
+	@JsonProperty("otp")
+	Integer otp;
+	
+	
+	public UnverifiedUser() {
+	}
+	
+	public UnverifiedUser(User user, Integer otp) {
+		this.userId = user.getUserId();
+		this.username = user.getUsername();
+		this.firstName = user.getFirstName();
+		this.middleName = user.getMiddleName();
+		this.lastName =  user.getLastName();
+		this.contactNumber =  user.getContactNumber();
+		this.email =  user.getEmail();
+		this.password =  user.getPassword();
+		this.userType =  user.getUserType();
+		this.otp = otp;
 	}
 
-	public User(UnverifiedUser unvUser) {
-		this.userId = unvUser.getUserId();
-		this.username = unvUser.getUsername();
-		this.firstName = unvUser.getFirstName();
-		this.middleName = unvUser.getMiddleName();
-		this.lastName =  unvUser.getLastName();
-		this.contactNumber =  unvUser.getContactNumber();
-		this.email =  unvUser.getEmail();
-		this.password =  unvUser.getPassword();
-		this.userType =  unvUser.getUserType();
-	}
-
-	public User(Long userId, String username, String firstName, String middleName, String lastName, Integer age, String sex, Date birthday, String address, String contactNumber, String email, String password, String avatar, String userType, String deletionStatus) {
-		this.userId = userId;
-		this.username = username;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.contactNumber = contactNumber;
-		this.email = email;
-		this.password = password;
-		this.userType = userType;
-		this.deletionStatus = deletionStatus;
-	}
-
-	public User(Long userId, String username, String firstName, String middleName, String lastName, String contactNumber, String email, String password, String userType, String deletionStatus, String otp, LocalDateTime otpTimestamp) {
+	public UnverifiedUser(Long userId, String username, String firstName, String middleName, String lastName, Date birthday, String address, String contactNumber, String email, String password, String userType, String deletionStatus, Integer otp) {
 		this.userId = userId;
 		this.username = username;
 		this.firstName = firstName;
@@ -87,7 +79,22 @@ public class User {
 		this.userType = userType;
 		this.deletionStatus = deletionStatus;
 		this.otp = otp;
-		this.otpTimestamp = otpTimestamp;
+	}
+
+	public UnverifiedUser(Long userId, String username, String firstName, String middleName, String lastName,
+						  Date birthday, String address, String contactNumber, String email, String password,
+						  Integer otp, String userType) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.contactNumber = contactNumber;
+		this.email = email;
+		this.password = password;
+		this.otp = otp;
+		this.userType = userType;
 	}
 
 	public Long getUserId() {
@@ -171,19 +178,14 @@ public class User {
 		this.deletionStatus = deletionStatus;
 	}
 
-	public String getOtp() {
+	public Integer getOtp() {
 		return otp;
 	}
 
-	public void setOtp(String otp) {
+	public void setOtp(Integer otp) {
 		this.otp = otp;
 	}
+	
+	
 
-	public LocalDateTime getOtpTimestamp() {
-		return otpTimestamp;
-	}
-
-	public void setOtpTimestamp(LocalDateTime otpTimestamp) {
-		this.otpTimestamp = otpTimestamp;
-	}
 }
