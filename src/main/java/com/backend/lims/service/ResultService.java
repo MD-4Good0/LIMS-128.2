@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,6 +124,8 @@ public class ResultService {
         ChemMicrobialTestResults chemTestResult = chemMicrobialRepository.findBySampleId(sampleId)
                 .orElseThrow(() -> new RuntimeException("ChemTestResult not found for sampleId: " + sampleId));
 
+        //System.out.println("Line 127:" + sampleId);
+
         // Update fields
         chemTestResult.setBetaLactams(chemMicrobialTestDTO.getBetaLactams());
         chemTestResult.setTetracyclines(chemMicrobialTestDTO.getTetracyclines());
@@ -131,6 +134,34 @@ public class ResultService {
         chemTestResult.setMacrolides(chemMicrobialTestDTO.getMacrolides());
         chemTestResult.setQuinolones(chemMicrobialTestDTO.getQuinolones());
 
+        /*
+        // Update fields and set analysis dates conditionally
+        if (chemTestResult.getBetaLactams() != null) {
+            chemTestResult.setBetaLactamsAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getTetracyclines() != null) {
+            chemTestResult.setTetracyclinesAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getSulfonamides() != null) {
+            chemTestResult.setSulfonamidesAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getAminoglycosides() != null) {
+            chemTestResult.setAminoglycosidesAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getMacrolides() != null) {
+            chemTestResult.setMacrolidesAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getQuinolones() != null) {
+            chemTestResult.setQuinolonesAnalysisDate(LocalDateTime.now());
+        }
+
+
+         */
         Long resultId = chemTestResult.getResult().getResultId();
 
         Result result = resultRepository.findByResultId(resultId);
@@ -157,6 +188,40 @@ public class ResultService {
         chemTestResult.setNitrufuranAmoz(chemElisaTestDTO.getNitrufuranAmoz());
         chemTestResult.setStilbenes(chemElisaTestDTO.getStilbenes());
         chemTestResult.setRactopamine(chemElisaTestDTO.getRactopamine());
+
+        /*
+        if (chemTestResult.getChloramphenicol() != null) {
+            chemTestResult.setChloramphenicolAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getNitrofuranAoz() != null) {
+            chemTestResult.setNitrofuranAozAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getBeta_agonists() != null) {
+            chemTestResult.setBeta_agonistsAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getCorticosteroids() != null) {
+            chemTestResult.setCorticosteroidsAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getOlaquindox() != null) {
+            chemTestResult.setOlaquindoxAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getNitrufuranAmoz() != null) {
+            chemTestResult.setNitrufuranAmozAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getStilbenes() != null) {
+            chemTestResult.setStilbenesAnalysisDate(LocalDateTime.now());
+        }
+
+        if (chemTestResult.getRactopamine() != null) {
+            chemTestResult.setRactopamineAnalysisDate(LocalDateTime.now());
+        }
+         */
 
         Long resultId = chemTestResult.getResult().getResultId();
 
@@ -187,6 +252,46 @@ public class ResultService {
         microbioTestResults.seteColiAndeColi0O157(microbioTestDTO.geteColiAndeColi0O157());
         microbioTestResults.setYeastAndMolds(microbioTestDTO.getYeastAndMolds());
 
+        if (microbioTestResults.getStandardPlateCount() != null) {
+            microbioTestResults.setStandardPlateCountAnalysisDate(LocalDateTime.now());
+        }
+
+        /*
+        if (microbioTestResults.getStaphylococcusAureus() != null) {
+            microbioTestResults.setStaphylococcusAureusAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.getSalmonellaSp() != null) {
+            microbioTestResults.setSalmonellaSpAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.getCampylobacter() != null) {
+            microbioTestResults.setCampylobacterAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.getCultureAndSensitivityTest() != null) {
+            microbioTestResults.setCultureAndSensitivityTestAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.getColiformCount() != null) {
+            microbioTestResults.setColiformCountAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.geteColi() != null) {
+            microbioTestResults.seteColiAnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.geteColiAndeColi0O157() != null) {
+            microbioTestResults.seteColiAndeColi0O157AnalysisDate(LocalDateTime.now());
+        }
+
+        if (microbioTestResults.getYeastAndMolds() != null) {
+            microbioTestResults.setYeastAndMoldsAnalysisDate(LocalDateTime.now());
+        }
+
+
+         */
+
         Long resultId = microbioTestResults.getResult().getResultId();
 
         Result result = resultRepository.findByResultId(resultId);
@@ -215,6 +320,45 @@ public class ResultService {
         molBioTestResult.setGoat(molBioTestDTO.getGoat());
         molBioTestResult.setSheep(molBioTestDTO.getSheep());
         molBioTestResult.setSwine(molBioTestDTO.getSwine());
+
+        /*
+        if (molBioTestResult.getDog() != null) {
+            molBioTestResult.setDogAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getCat() != null) {
+            molBioTestResult.setCatAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getChicken() != null) {
+            molBioTestResult.setChickenAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getBuffalo() != null) {
+            molBioTestResult.setBuffaloAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getCattle() != null) {
+            molBioTestResult.setCattleAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getHorse() != null) {
+            molBioTestResult.setHorseAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getGoat() != null) {
+            molBioTestResult.setGoatAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getSheep() != null) {
+            molBioTestResult.setSheepAnalysisDate(LocalDateTime.now());
+        }
+
+        if (molBioTestResult.getSwine() != null) {
+            molBioTestResult.setSwineAnalysisDate(LocalDateTime.now());
+        }
+
+         */
 
         Long resultId = molBioTestResult.getResult().getResultId();
 
