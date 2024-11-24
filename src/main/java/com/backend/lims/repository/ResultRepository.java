@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface ResultRepository extends JpaRepository<Result, Long> {
     Result findByResultId(Long resultId);
+    Result findByRequestId(Long requestId);
 }

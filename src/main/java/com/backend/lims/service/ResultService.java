@@ -391,7 +391,7 @@ public class ResultService {
         request.setRequestStatus(Request.RequestStatus.FOR_RELEASE);
     }
 
-    public Result getFinalResult(Long resultId) {
-        return resultRepository.findByResultId(resultId);
+    public Result getFinalResult(Long requestId) {
+        return resultRepository.findByRequestId(requestId);
     }
 }
