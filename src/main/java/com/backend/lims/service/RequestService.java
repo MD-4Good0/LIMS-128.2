@@ -78,14 +78,14 @@ public class RequestService {
 
     public Request rejectRequest(Long requestId) {
         Request request = requestRepository.findById(requestId).orElseThrow(() -> new RuntimeException("Request not found"));
-        request.setRequestStatus(RequestStatus.REJECTED);
+        request.setRequestStatus(Request.RequestStatus.REJECTED);
         request.setUpdatedAt(LocalDateTime.now());
         return requestRepository.save(request);
     }
 
     public Request approveRelease(Long requestId) {
         Request request = requestRepository.findById(requestId).orElseThrow(() -> new RuntimeException("Request not found"));
-        request.setRequestStatus(RequestStatus.RELEASED);
+        request.setRequestStatus(Request.RequestStatus.RELEASED);
         request.setUpdatedAt(LocalDateTime.now());
         return requestRepository.save(request);
     }

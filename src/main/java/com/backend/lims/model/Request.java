@@ -129,78 +129,7 @@ public class Request {
 	public Request() {
 	}
 
-	public Request(Long requestId,
-				   Client client,
-				   Long representativeId,
-				   String representativeName,
-				   String contactNumber,
-				   String emailAddress,
-				   String companyName,
-				   String clientClassification,
-				   String ltoNumber,
-				   List<Sample> sample,
-				   String lotBatchNo,
-				   String sampleSource,
-				   String sampleProvince,
-				   String sampleAddress,
-				   String sampleCategory,
-				   LocalDate productionDate,
-				   LocalDate expiryDate,
-				   LocalDate samplingDate,
-				   String samplerName,
-				   TestingPurpose testingPurpose,
-				   //
-				   Boolean isMicrobio,
-				   Boolean isChem,
-				   Boolean isMolBio,
-				   //
-				   Boolean microbial,
-				   Boolean betaLactams,
-				   Boolean tetracyclines,
-				   Boolean sulfonamides,
-				   Boolean aminoglycosides,
-				   Boolean macrolides,
-				   Boolean quinolones,
-				   //
-				   Boolean elisa,
-				   Boolean chloramphenicol,
-				   Boolean nitrofuranAoz,
-				   Boolean beta_agonists,
-				   Boolean corticosteroids,
-				   Boolean olaquindox,
-				   Boolean nitrufuranAmoz,
-				   Boolean stilbenes,
-				   Boolean ractopamine,
-				   //
-				   Boolean standardPlateCount,
-				   Boolean staphylococcusAureus,
-				   Boolean salmonellaSp,
-				   Boolean campylobacter,
-				   Boolean cultureAndSensitivityTest,
-				   String gramPositiveAst,
-				   String gramNegativeAst,
-				   Boolean coliformCount,
-				   Boolean eColi,
-				   Boolean eColiAndeColi0O157,
-				   Boolean yeastAndMolds,
-				   //
-				   Boolean speciesIdentification,
-				   Boolean dog,
-				   Boolean cat,
-				   Boolean chicken,
-				   Boolean buffalo,
-				   Boolean cattle,
-				   Boolean horse,
-				   Boolean goat,
-				   Boolean sheep,
-				   Boolean swine,
-				   //
-				   String controlNumber,
-				   LocalDate submissionDate,
-				   LocalDateTime createdAt,
-				   LocalDateTime updatedAt,
-				   String otherTestingPurpose)
-	{
+	public Request(Long requestId, Client client, Long representativeId, String representativeName, String contactNumber, String emailAddress, String companyName, String clientClassification, String ltoNumber, List<Sample> sample, String lotBatchNo, String sampleSource, String sampleProvince, String sampleAddress, String sampleCategory, LocalDate productionDate, LocalDate expiryDate, LocalDate samplingDate, String samplerName, TestingPurpose testingPurpose, Boolean isMicrobio, Boolean isChem, Boolean isMolBio, Boolean microbial, Boolean betaLactams, Boolean tetracyclines, Boolean sulfonamides, Boolean aminoglycosides, Boolean macrolides, Boolean quinolones, Boolean elisa, Boolean chloramphenicol, Boolean nitrofuranAoz, Boolean beta_agonists, Boolean corticosteroids, Boolean olaquindox, Boolean nitrufuranAmoz, Boolean stilbenes, Boolean ractopamine, Boolean standardPlateCount, Boolean staphylococcusAureus, Boolean salmonellaSp, Boolean campylobacter, Boolean cultureAndSensitivityTest, String gramPositiveAst, String gramNegativeAst, Boolean coliformCount, Boolean eColi, Boolean eColiAndeColi0O157, Boolean yeastAndMolds, Boolean speciesIdentification, Boolean dog, Boolean cat, Boolean chicken, Boolean buffalo, Boolean cattle, Boolean horse, Boolean goat, Boolean sheep, Boolean swine, RequestStatus requestStatus, String controlNumber, LocalDate submissionDate, LocalDateTime createdAt, LocalDateTime updatedAt, String otherTestingPurpose) {
 		this.requestId = requestId;
 		this.client = client;
 		this.representativeId = representativeId;
@@ -221,7 +150,6 @@ public class Request {
 		this.samplingDate = samplingDate;
 		this.samplerName = samplerName;
 		this.testingPurpose = testingPurpose;
-		this.otherTestingPurpose = otherTestingPurpose;
 		this.isMicrobio = isMicrobio;
 		this.isChem = isChem;
 		this.isMolBio = isMolBio;
@@ -262,10 +190,12 @@ public class Request {
 		this.goat = goat;
 		this.sheep = sheep;
 		this.swine = swine;
+		this.requestStatus = requestStatus;
 		this.controlNumber = controlNumber;
 		this.submissionDate = submissionDate;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.otherTestingPurpose = otherTestingPurpose;
 	}
 
 	public Long getRequestId() {
