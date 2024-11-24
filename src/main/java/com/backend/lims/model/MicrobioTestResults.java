@@ -1,5 +1,6 @@
 package com.backend.lims.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
@@ -32,6 +33,7 @@ public class MicrobioTestResults {
     private LocalDateTime yeastAndMoldsAnalysisDate;
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
+    @JsonIgnore
     private Result result;
 
     public MicrobioTestResults() {

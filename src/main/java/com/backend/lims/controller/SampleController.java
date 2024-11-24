@@ -25,6 +25,7 @@ public class SampleController {
         return sampleService.getSamplesByRequestId(requestId);
     }
 
+    // How do I track which sample Ids for the request
     @GetMapping("/request/ids/{requestId}")
     public List<Long> getSampleIdsByRequestId(@PathVariable Long requestId) {
         return sampleService.getSampleIdsByRequestId(requestId);

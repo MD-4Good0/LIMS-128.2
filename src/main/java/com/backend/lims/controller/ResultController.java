@@ -61,4 +61,11 @@ public class ResultController {
         return ResponseEntity.ok(updatedResult);
     }
 
+    @GetMapping("/getResult/{resultId}")
+    public ResponseEntity<Result> getResult(@PathVariable Long resultId) {
+        Result finalResult = resultService.getFinalResult(resultId);
+        return ResponseEntity.ok(finalResult);
+    }
+
+
 }

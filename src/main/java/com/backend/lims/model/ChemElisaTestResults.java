@@ -1,5 +1,6 @@
 package com.backend.lims.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -31,6 +32,7 @@ public class ChemElisaTestResults {
     private LocalDateTime ractopamineAnalysisDate;
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
+    @JsonIgnore
     private Result result;
 
     public ChemElisaTestResults() {

@@ -1,5 +1,6 @@
 package com.backend.lims.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ public class Sample {
 
     @ManyToOne
     @JoinColumn(name = "fkRequestId", referencedColumnName = "requestId")
+    @JsonIgnore
     private Request request;
 
     public Sample() {
