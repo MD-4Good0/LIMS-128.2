@@ -134,6 +134,14 @@ public class ResultService {
         chemTestResult.setMacrolides(chemMicrobialTestDTO.getMacrolides());
         chemTestResult.setQuinolones(chemMicrobialTestDTO.getQuinolones());
 
+        // Update analysis dates
+        chemTestResult.setBetaLactamsAnalysisDate(chemMicrobialTestDTO.getBetaLactamsAnalysisDate());
+        chemTestResult.setTetracyclinesAnalysisDate(chemMicrobialTestDTO.getTetracyclinesAnalysisDate());
+        chemTestResult.setSulfonamidesAnalysisDate(chemMicrobialTestDTO.getSulfonamidesAnalysisDate());
+        chemTestResult.setAminoglycosidesAnalysisDate(chemMicrobialTestDTO.getAminoglycosidesAnalysisDate());
+        chemTestResult.setMacrolidesAnalysisDate(chemMicrobialTestDTO.getMacrolidesAnalysisDate());
+        chemTestResult.setQuinolonesAnalysisDate(chemMicrobialTestDTO.getQuinolonesAnalysisDate());
+
         /*
         // Update fields and set analysis dates conditionally
         if (chemTestResult.getBetaLactams() != null) {
@@ -188,6 +196,17 @@ public class ResultService {
         chemTestResult.setNitrufuranAmoz(chemElisaTestDTO.getNitrufuranAmoz());
         chemTestResult.setStilbenes(chemElisaTestDTO.getStilbenes());
         chemTestResult.setRactopamine(chemElisaTestDTO.getRactopamine());
+
+        // Update analysis dates
+        chemTestResult.setChloramphenicolAnalysisDate(chemElisaTestDTO.getChloramphenicolAnalysisDate());
+        chemTestResult.setNitrofuranAozAnalysisDate(chemElisaTestDTO.getNitrofuranAozAnalysisDate());
+        chemTestResult.setBeta_agonistsAnalysisDate(chemElisaTestDTO.getBeta_agonistsAnalysisDate());
+        chemTestResult.setCorticosteroidsAnalysisDate(chemElisaTestDTO.getCorticosteroidsAnalysisDate());
+        chemTestResult.setOlaquindoxAnalysisDate(chemElisaTestDTO.getOlaquindoxAnalysisDate());
+        chemTestResult.setNitrufuranAmozAnalysisDate(chemElisaTestDTO.getNitrufuranAmozAnalysisDate());
+        chemTestResult.setStilbenesAnalysisDate(chemElisaTestDTO.getStilbenesAnalysisDate());
+        chemTestResult.setRactopamineAnalysisDate(chemElisaTestDTO.getRactopamineAnalysisDate());
+
 
         /*
         if (chemTestResult.getChloramphenicol() != null) {
@@ -252,11 +271,23 @@ public class ResultService {
         microbioTestResults.seteColiAndeColi0O157(microbioTestDTO.geteColiAndeColi0O157());
         microbioTestResults.setYeastAndMolds(microbioTestDTO.getYeastAndMolds());
 
+        // Update analysis dates
+        microbioTestResults.setStandardPlateCountAnalysisDate(microbioTestDTO.getStandardPlateCountAnalysisDate());
+        microbioTestResults.setStaphylococcusAureusAnalysisDate(microbioTestDTO.getStaphylococcusAureusAnalysisDate());
+        microbioTestResults.setSalmonellaSpAnalysisDate(microbioTestDTO.getSalmonellaSpAnalysisDate());
+        microbioTestResults.setCampylobacterAnalysisDate(microbioTestDTO.getCampylobacterAnalysisDate());
+        microbioTestResults.setCultureAndSensitivityTestAnalysisDate(microbioTestDTO.getCultureAndSensitivityTestAnalysisDate());
+        microbioTestResults.setColiformCountAnalysisDate(microbioTestDTO.getColiformCountAnalysisDate());
+        microbioTestResults.seteColiAnalysisDate(microbioTestDTO.geteColiAnalysisDate());
+        microbioTestResults.seteColiAndeColi0O157AnalysisDate(microbioTestDTO.geteColiAndeColi0O157AnalysisDate());
+        microbioTestResults.setYeastAndMoldsAnalysisDate(microbioTestDTO.getYeastAndMoldsAnalysisDate());
+
+        /*
         if (microbioTestResults.getStandardPlateCount() != null) {
             microbioTestResults.setStandardPlateCountAnalysisDate(LocalDateTime.now());
         }
 
-        /*
+
         if (microbioTestResults.getStaphylococcusAureus() != null) {
             microbioTestResults.setStaphylococcusAureusAnalysisDate(LocalDateTime.now());
         }
@@ -320,6 +351,18 @@ public class ResultService {
         molBioTestResult.setGoat(molBioTestDTO.getGoat());
         molBioTestResult.setSheep(molBioTestDTO.getSheep());
         molBioTestResult.setSwine(molBioTestDTO.getSwine());
+
+        // Update analysis dates
+        molBioTestResult.setDogAnalysisDate(molBioTestDTO.getDogAnalysisDate());
+        molBioTestResult.setCatAnalysisDate(molBioTestDTO.getCatAnalysisDate());
+        molBioTestResult.setChickenAnalysisDate(molBioTestDTO.getChickenAnalysisDate());
+        molBioTestResult.setBuffaloAnalysisDate(molBioTestDTO.getBuffaloAnalysisDate());
+        molBioTestResult.setCattleAnalysisDate(molBioTestDTO.getCattleAnalysisDate());
+        molBioTestResult.setHorseAnalysisDate(molBioTestDTO.getHorseAnalysisDate());
+        molBioTestResult.setGoatAnalysisDate(molBioTestDTO.getGoatAnalysisDate());
+        molBioTestResult.setSheepAnalysisDate(molBioTestDTO.getSheepAnalysisDate());
+        molBioTestResult.setSwineAnalysisDate(molBioTestDTO.getSwineAnalysisDate());
+
 
         /*
         if (molBioTestResult.getDog() != null) {

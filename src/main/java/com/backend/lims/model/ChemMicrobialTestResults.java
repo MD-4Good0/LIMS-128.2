@@ -3,6 +3,8 @@ package com.backend.lims.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,12 +23,12 @@ public class ChemMicrobialTestResults {
     private String quinolones;
 
     // LocalDateTime fields for analysis dates of antibiotics
-    private LocalDateTime betaLactamsAnalysisDate;
-    private LocalDateTime tetracyclinesAnalysisDate;
-    private LocalDateTime sulfonamidesAnalysisDate;
-    private LocalDateTime aminoglycosidesAnalysisDate;
-    private LocalDateTime macrolidesAnalysisDate;
-    private LocalDateTime quinolonesAnalysisDate;
+    private LocalDate betaLactamsAnalysisDate;
+    private LocalDate tetracyclinesAnalysisDate;
+    private LocalDate sulfonamidesAnalysisDate;
+    private LocalDate aminoglycosidesAnalysisDate;
+    private LocalDate macrolidesAnalysisDate;
+    private LocalDate quinolonesAnalysisDate;
 
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
@@ -36,7 +38,7 @@ public class ChemMicrobialTestResults {
     public ChemMicrobialTestResults() {
     }
 
-    public ChemMicrobialTestResults(Long chemMicrobialResultId, Long sampleId, String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDateTime betaLactamsAnalysisDate, LocalDateTime tetracyclinesAnalysisDate, LocalDateTime sulfonamidesAnalysisDate, LocalDateTime aminoglycosidesAnalysisDate, LocalDateTime macrolidesAnalysisDate, LocalDateTime quinolonesAnalysisDate, Result result) {
+    public ChemMicrobialTestResults(Long chemMicrobialResultId, Long sampleId, String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate, Result result) {
         this.chemMicrobialResultId = chemMicrobialResultId;
         this.sampleId = sampleId;
         this.betaLactams = betaLactams;
@@ -118,51 +120,51 @@ public class ChemMicrobialTestResults {
         this.quinolones = quinolones;
     }
 
-    public LocalDateTime getBetaLactamsAnalysisDate() {
+    public LocalDate getBetaLactamsAnalysisDate() {
         return betaLactamsAnalysisDate;
     }
 
-    public void setBetaLactamsAnalysisDate(LocalDateTime betaLactamsAnalysisDate) {
+    public void setBetaLactamsAnalysisDate(LocalDate betaLactamsAnalysisDate) {
         this.betaLactamsAnalysisDate = betaLactamsAnalysisDate;
     }
 
-    public LocalDateTime getTetracyclinesAnalysisDate() {
+    public LocalDate getTetracyclinesAnalysisDate() {
         return tetracyclinesAnalysisDate;
     }
 
-    public void setTetracyclinesAnalysisDate(LocalDateTime tetracyclinesAnalysisDate) {
+    public void setTetracyclinesAnalysisDate(LocalDate tetracyclinesAnalysisDate) {
         this.tetracyclinesAnalysisDate = tetracyclinesAnalysisDate;
     }
 
-    public LocalDateTime getSulfonamidesAnalysisDate() {
+    public LocalDate getSulfonamidesAnalysisDate() {
         return sulfonamidesAnalysisDate;
     }
 
-    public void setSulfonamidesAnalysisDate(LocalDateTime sulfonamidesAnalysisDate) {
+    public void setSulfonamidesAnalysisDate(LocalDate sulfonamidesAnalysisDate) {
         this.sulfonamidesAnalysisDate = sulfonamidesAnalysisDate;
     }
 
-    public LocalDateTime getAminoglycosidesAnalysisDate() {
+    public LocalDate getAminoglycosidesAnalysisDate() {
         return aminoglycosidesAnalysisDate;
     }
 
-    public void setAminoglycosidesAnalysisDate(LocalDateTime aminoglycosidesAnalysisDate) {
+    public void setAminoglycosidesAnalysisDate(LocalDate aminoglycosidesAnalysisDate) {
         this.aminoglycosidesAnalysisDate = aminoglycosidesAnalysisDate;
     }
 
-    public LocalDateTime getMacrolidesAnalysisDate() {
+    public LocalDate getMacrolidesAnalysisDate() {
         return macrolidesAnalysisDate;
     }
 
-    public void setMacrolidesAnalysisDate(LocalDateTime macrolidesAnalysisDate) {
+    public void setMacrolidesAnalysisDate(LocalDate macrolidesAnalysisDate) {
         this.macrolidesAnalysisDate = macrolidesAnalysisDate;
     }
 
-    public LocalDateTime getQuinolonesAnalysisDate() {
+    public LocalDate getQuinolonesAnalysisDate() {
         return quinolonesAnalysisDate;
     }
 
-    public void setQuinolonesAnalysisDate(LocalDateTime quinolonesAnalysisDate) {
+    public void setQuinolonesAnalysisDate(LocalDate quinolonesAnalysisDate) {
         this.quinolonesAnalysisDate = quinolonesAnalysisDate;
     }
 

@@ -1,5 +1,7 @@
 package com.backend.lims.dto;
 
+import java.time.LocalDate;
+
 public class MicrobioTestDTO {
     private String standardPlateCount;
     private String staphylococcusAureus;
@@ -11,10 +13,20 @@ public class MicrobioTestDTO {
     private String eColiAndeColi0O157;
     private String yeastAndMolds;
 
+    private LocalDate standardPlateCountAnalysisDate;
+    private LocalDate staphylococcusAureusAnalysisDate;
+    private LocalDate salmonellaSpAnalysisDate;
+    private LocalDate campylobacterAnalysisDate;
+    private LocalDate cultureAndSensitivityTestAnalysisDate;
+    private LocalDate coliformCountAnalysisDate;
+    private LocalDate eColiAnalysisDate;
+    private LocalDate eColiAndeColi0O157AnalysisDate;
+    private LocalDate yeastAndMoldsAnalysisDate;
+
     public MicrobioTestDTO() {
     }
 
-    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds) {
+    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate) {
         this.standardPlateCount = standardPlateCount;
         this.staphylococcusAureus = staphylococcusAureus;
         this.salmonellaSp = salmonellaSp;
@@ -24,6 +36,15 @@ public class MicrobioTestDTO {
         this.eColi = eColi;
         this.eColiAndeColi0O157 = eColiAndeColi0O157;
         this.yeastAndMolds = yeastAndMolds;
+        this.standardPlateCountAnalysisDate = standardPlateCountAnalysisDate;
+        this.staphylococcusAureusAnalysisDate = staphylococcusAureusAnalysisDate;
+        this.salmonellaSpAnalysisDate = salmonellaSpAnalysisDate;
+        this.campylobacterAnalysisDate = campylobacterAnalysisDate;
+        this.cultureAndSensitivityTestAnalysisDate = cultureAndSensitivityTestAnalysisDate;
+        this.coliformCountAnalysisDate = coliformCountAnalysisDate;
+        this.eColiAnalysisDate = eColiAnalysisDate;
+        this.eColiAndeColi0O157AnalysisDate = eColiAndeColi0O157AnalysisDate;
+        this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
     }
 
     public String getStandardPlateCount() {
@@ -96,5 +117,77 @@ public class MicrobioTestDTO {
 
     public void setYeastAndMolds(String yeastAndMolds) {
         this.yeastAndMolds = yeastAndMolds;
+    }
+
+    public LocalDate getStandardPlateCountAnalysisDate() {
+        return standardPlateCountAnalysisDate;
+    }
+
+    public void setStandardPlateCountAnalysisDate(LocalDate standardPlateCountAnalysisDate) {
+        this.standardPlateCountAnalysisDate = standardPlateCountAnalysisDate;
+    }
+
+    public LocalDate getStaphylococcusAureusAnalysisDate() {
+        return staphylococcusAureusAnalysisDate;
+    }
+
+    public void setStaphylococcusAureusAnalysisDate(LocalDate staphylococcusAureusAnalysisDate) {
+        this.staphylococcusAureusAnalysisDate = staphylococcusAureusAnalysisDate;
+    }
+
+    public LocalDate getSalmonellaSpAnalysisDate() {
+        return salmonellaSpAnalysisDate;
+    }
+
+    public void setSalmonellaSpAnalysisDate(LocalDate salmonellaSpAnalysisDate) {
+        this.salmonellaSpAnalysisDate = salmonellaSpAnalysisDate;
+    }
+
+    public LocalDate getCampylobacterAnalysisDate() {
+        return campylobacterAnalysisDate;
+    }
+
+    public void setCampylobacterAnalysisDate(LocalDate campylobacterAnalysisDate) {
+        this.campylobacterAnalysisDate = campylobacterAnalysisDate;
+    }
+
+    public LocalDate getCultureAndSensitivityTestAnalysisDate() {
+        return cultureAndSensitivityTestAnalysisDate;
+    }
+
+    public void setCultureAndSensitivityTestAnalysisDate(LocalDate cultureAndSensitivityTestAnalysisDate) {
+        this.cultureAndSensitivityTestAnalysisDate = cultureAndSensitivityTestAnalysisDate;
+    }
+
+    public LocalDate getColiformCountAnalysisDate() {
+        return coliformCountAnalysisDate;
+    }
+
+    public void setColiformCountAnalysisDate(LocalDate coliformCountAnalysisDate) {
+        this.coliformCountAnalysisDate = coliformCountAnalysisDate;
+    }
+
+    public LocalDate geteColiAnalysisDate() {
+        return eColiAnalysisDate;
+    }
+
+    public void seteColiAnalysisDate(LocalDate eColiAnalysisDate) {
+        this.eColiAnalysisDate = eColiAnalysisDate;
+    }
+
+    public LocalDate geteColiAndeColi0O157AnalysisDate() {
+        return eColiAndeColi0O157AnalysisDate;
+    }
+
+    public void seteColiAndeColi0O157AnalysisDate(LocalDate eColiAndeColi0O157AnalysisDate) {
+        this.eColiAndeColi0O157AnalysisDate = eColiAndeColi0O157AnalysisDate;
+    }
+
+    public LocalDate getYeastAndMoldsAnalysisDate() {
+        return yeastAndMoldsAnalysisDate;
+    }
+
+    public void setYeastAndMoldsAnalysisDate(LocalDate yeastAndMoldsAnalysisDate) {
+        this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
     }
 }

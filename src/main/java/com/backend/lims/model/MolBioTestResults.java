@@ -3,6 +3,8 @@ package com.backend.lims.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,15 +25,15 @@ public class MolBioTestResults {
     private String swine;
 
     // LocalDateTime fields for analysis dates of animals
-    private LocalDateTime dogAnalysisDate;
-    private LocalDateTime catAnalysisDate;
-    private LocalDateTime chickenAnalysisDate;
-    private LocalDateTime buffaloAnalysisDate;
-    private LocalDateTime cattleAnalysisDate;
-    private LocalDateTime horseAnalysisDate;
-    private LocalDateTime goatAnalysisDate;
-    private LocalDateTime sheepAnalysisDate;
-    private LocalDateTime swineAnalysisDate;
+    private LocalDate dogAnalysisDate;
+    private LocalDate catAnalysisDate;
+    private LocalDate chickenAnalysisDate;
+    private LocalDate buffaloAnalysisDate;
+    private LocalDate cattleAnalysisDate;
+    private LocalDate horseAnalysisDate;
+    private LocalDate goatAnalysisDate;
+    private LocalDate sheepAnalysisDate;
+    private LocalDate swineAnalysisDate;
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     @JsonIgnore
@@ -40,7 +42,7 @@ public class MolBioTestResults {
     public MolBioTestResults() {
     }
 
-    public MolBioTestResults(Long molBioResultId, Long sampleId, String dog, String cat, String chicken, String buffalo, String cattle, String horse, String goat, String sheep, String swine, LocalDateTime dogAnalysisDate, LocalDateTime catAnalysisDate, LocalDateTime chickenAnalysisDate, LocalDateTime buffaloAnalysisDate, LocalDateTime cattleAnalysisDate, LocalDateTime horseAnalysisDate, LocalDateTime goatAnalysisDate, LocalDateTime sheepAnalysisDate, LocalDateTime swineAnalysisDate, Result result) {
+    public MolBioTestResults(Long molBioResultId, Long sampleId, String dog, String cat, String chicken, String buffalo, String cattle, String horse, String goat, String sheep, String swine, LocalDate dogAnalysisDate, LocalDate catAnalysisDate, LocalDate chickenAnalysisDate, LocalDate buffaloAnalysisDate, LocalDate cattleAnalysisDate, LocalDate horseAnalysisDate, LocalDate goatAnalysisDate, LocalDate sheepAnalysisDate, LocalDate swineAnalysisDate, Result result) {
         this.molBioResultId = molBioResultId;
         this.sampleId = sampleId;
         this.dog = dog;
@@ -152,75 +154,75 @@ public class MolBioTestResults {
         this.swine = swine;
     }
 
-    public LocalDateTime getDogAnalysisDate() {
+    public LocalDate getDogAnalysisDate() {
         return dogAnalysisDate;
     }
 
-    public void setDogAnalysisDate(LocalDateTime dogAnalysisDate) {
+    public void setDogAnalysisDate(LocalDate dogAnalysisDate) {
         this.dogAnalysisDate = dogAnalysisDate;
     }
 
-    public LocalDateTime getCatAnalysisDate() {
+    public LocalDate getCatAnalysisDate() {
         return catAnalysisDate;
     }
 
-    public void setCatAnalysisDate(LocalDateTime catAnalysisDate) {
+    public void setCatAnalysisDate(LocalDate catAnalysisDate) {
         this.catAnalysisDate = catAnalysisDate;
     }
 
-    public LocalDateTime getChickenAnalysisDate() {
+    public LocalDate getChickenAnalysisDate() {
         return chickenAnalysisDate;
     }
 
-    public void setChickenAnalysisDate(LocalDateTime chickenAnalysisDate) {
+    public void setChickenAnalysisDate(LocalDate chickenAnalysisDate) {
         this.chickenAnalysisDate = chickenAnalysisDate;
     }
 
-    public LocalDateTime getBuffaloAnalysisDate() {
+    public LocalDate getBuffaloAnalysisDate() {
         return buffaloAnalysisDate;
     }
 
-    public void setBuffaloAnalysisDate(LocalDateTime buffaloAnalysisDate) {
+    public void setBuffaloAnalysisDate(LocalDate buffaloAnalysisDate) {
         this.buffaloAnalysisDate = buffaloAnalysisDate;
     }
 
-    public LocalDateTime getCattleAnalysisDate() {
+    public LocalDate getCattleAnalysisDate() {
         return cattleAnalysisDate;
     }
 
-    public void setCattleAnalysisDate(LocalDateTime cattleAnalysisDate) {
+    public void setCattleAnalysisDate(LocalDate cattleAnalysisDate) {
         this.cattleAnalysisDate = cattleAnalysisDate;
     }
 
-    public LocalDateTime getHorseAnalysisDate() {
+    public LocalDate getHorseAnalysisDate() {
         return horseAnalysisDate;
     }
 
-    public void setHorseAnalysisDate(LocalDateTime horseAnalysisDate) {
+    public void setHorseAnalysisDate(LocalDate horseAnalysisDate) {
         this.horseAnalysisDate = horseAnalysisDate;
     }
 
-    public LocalDateTime getGoatAnalysisDate() {
+    public LocalDate getGoatAnalysisDate() {
         return goatAnalysisDate;
     }
 
-    public void setGoatAnalysisDate(LocalDateTime goatAnalysisDate) {
+    public void setGoatAnalysisDate(LocalDate goatAnalysisDate) {
         this.goatAnalysisDate = goatAnalysisDate;
     }
 
-    public LocalDateTime getSheepAnalysisDate() {
+    public LocalDate getSheepAnalysisDate() {
         return sheepAnalysisDate;
     }
 
-    public void setSheepAnalysisDate(LocalDateTime sheepAnalysisDate) {
+    public void setSheepAnalysisDate(LocalDate sheepAnalysisDate) {
         this.sheepAnalysisDate = sheepAnalysisDate;
     }
 
-    public LocalDateTime getSwineAnalysisDate() {
+    public LocalDate getSwineAnalysisDate() {
         return swineAnalysisDate;
     }
 
-    public void setSwineAnalysisDate(LocalDateTime swineAnalysisDate) {
+    public void setSwineAnalysisDate(LocalDate swineAnalysisDate) {
         this.swineAnalysisDate = swineAnalysisDate;
     }
 

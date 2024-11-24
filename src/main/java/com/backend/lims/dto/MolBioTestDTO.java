@@ -1,5 +1,7 @@
 package com.backend.lims.dto;
 
+import java.time.LocalDate;
+
 public class MolBioTestDTO {
     private String dog;
     private String cat;
@@ -11,10 +13,20 @@ public class MolBioTestDTO {
     private String sheep;
     private String swine;
 
+    private LocalDate dogAnalysisDate;
+    private LocalDate catAnalysisDate;
+    private LocalDate chickenAnalysisDate;
+    private LocalDate buffaloAnalysisDate;
+    private LocalDate cattleAnalysisDate;
+    private LocalDate horseAnalysisDate;
+    private LocalDate goatAnalysisDate;
+    private LocalDate sheepAnalysisDate;
+    private LocalDate swineAnalysisDate;
+
     public MolBioTestDTO() {
     }
 
-    public MolBioTestDTO(String dog, String cat, String chicken, String buffalo, String cattle, String horse, String goat, String sheep, String swine) {
+    public MolBioTestDTO(String dog, String cat, String chicken, String buffalo, String cattle, String horse, String goat, String sheep, String swine, LocalDate dogAnalysisDate, LocalDate catAnalysisDate, LocalDate chickenAnalysisDate, LocalDate buffaloAnalysisDate, LocalDate cattleAnalysisDate, LocalDate horseAnalysisDate, LocalDate goatAnalysisDate, LocalDate sheepAnalysisDate, LocalDate swineAnalysisDate) {
         this.dog = dog;
         this.cat = cat;
         this.chicken = chicken;
@@ -24,6 +36,15 @@ public class MolBioTestDTO {
         this.goat = goat;
         this.sheep = sheep;
         this.swine = swine;
+        this.dogAnalysisDate = dogAnalysisDate;
+        this.catAnalysisDate = catAnalysisDate;
+        this.chickenAnalysisDate = chickenAnalysisDate;
+        this.buffaloAnalysisDate = buffaloAnalysisDate;
+        this.cattleAnalysisDate = cattleAnalysisDate;
+        this.horseAnalysisDate = horseAnalysisDate;
+        this.goatAnalysisDate = goatAnalysisDate;
+        this.sheepAnalysisDate = sheepAnalysisDate;
+        this.swineAnalysisDate = swineAnalysisDate;
     }
 
     public String getDog() {
@@ -96,5 +117,77 @@ public class MolBioTestDTO {
 
     public void setSwine(String swine) {
         this.swine = swine;
+    }
+
+    public LocalDate getDogAnalysisDate() {
+        return dogAnalysisDate;
+    }
+
+    public void setDogAnalysisDate(LocalDate dogAnalysisDate) {
+        this.dogAnalysisDate = dogAnalysisDate;
+    }
+
+    public LocalDate getCatAnalysisDate() {
+        return catAnalysisDate;
+    }
+
+    public void setCatAnalysisDate(LocalDate catAnalysisDate) {
+        this.catAnalysisDate = catAnalysisDate;
+    }
+
+    public LocalDate getChickenAnalysisDate() {
+        return chickenAnalysisDate;
+    }
+
+    public void setChickenAnalysisDate(LocalDate chickenAnalysisDate) {
+        this.chickenAnalysisDate = chickenAnalysisDate;
+    }
+
+    public LocalDate getBuffaloAnalysisDate() {
+        return buffaloAnalysisDate;
+    }
+
+    public void setBuffaloAnalysisDate(LocalDate buffaloAnalysisDate) {
+        this.buffaloAnalysisDate = buffaloAnalysisDate;
+    }
+
+    public LocalDate getCattleAnalysisDate() {
+        return cattleAnalysisDate;
+    }
+
+    public void setCattleAnalysisDate(LocalDate cattleAnalysisDate) {
+        this.cattleAnalysisDate = cattleAnalysisDate;
+    }
+
+    public LocalDate getHorseAnalysisDate() {
+        return horseAnalysisDate;
+    }
+
+    public void setHorseAnalysisDate(LocalDate horseAnalysisDate) {
+        this.horseAnalysisDate = horseAnalysisDate;
+    }
+
+    public LocalDate getGoatAnalysisDate() {
+        return goatAnalysisDate;
+    }
+
+    public void setGoatAnalysisDate(LocalDate goatAnalysisDate) {
+        this.goatAnalysisDate = goatAnalysisDate;
+    }
+
+    public LocalDate getSheepAnalysisDate() {
+        return sheepAnalysisDate;
+    }
+
+    public void setSheepAnalysisDate(LocalDate sheepAnalysisDate) {
+        this.sheepAnalysisDate = sheepAnalysisDate;
+    }
+
+    public LocalDate getSwineAnalysisDate() {
+        return swineAnalysisDate;
+    }
+
+    public void setSwineAnalysisDate(LocalDate swineAnalysisDate) {
+        this.swineAnalysisDate = swineAnalysisDate;
     }
 }

@@ -1,5 +1,7 @@
 package com.backend.lims.dto;
 
+import java.time.LocalDate;
+
 public class ChemElisaTestDTO {
     // Enzyme-Linked ImmunoSorbent
     private String chloramphenicol;
@@ -11,10 +13,19 @@ public class ChemElisaTestDTO {
     private String stilbenes;
     private String ractopamine;
 
+    private LocalDate chloramphenicolAnalysisDate;
+    private LocalDate nitrofuranAozAnalysisDate;
+    private LocalDate beta_agonistsAnalysisDate;
+    private LocalDate corticosteroidsAnalysisDate;
+    private LocalDate olaquindoxAnalysisDate;
+    private LocalDate nitrufuranAmozAnalysisDate;
+    private LocalDate stilbenesAnalysisDate;
+    private LocalDate ractopamineAnalysisDate;
+
     public ChemElisaTestDTO() {
     }
 
-    public ChemElisaTestDTO(String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine) {
+    public ChemElisaTestDTO(String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine, LocalDate chloramphenicolAnalysisDate, LocalDate nitrofuranAozAnalysisDate, LocalDate beta_agonistsAnalysisDate, LocalDate corticosteroidsAnalysisDate, LocalDate olaquindoxAnalysisDate, LocalDate nitrufuranAmozAnalysisDate, LocalDate stilbenesAnalysisDate, LocalDate ractopamineAnalysisDate) {
         this.chloramphenicol = chloramphenicol;
         this.nitrofuranAoz = nitrofuranAoz;
         this.beta_agonists = beta_agonists;
@@ -23,6 +34,14 @@ public class ChemElisaTestDTO {
         this.nitrufuranAmoz = nitrufuranAmoz;
         this.stilbenes = stilbenes;
         this.ractopamine = ractopamine;
+        this.chloramphenicolAnalysisDate = chloramphenicolAnalysisDate;
+        this.nitrofuranAozAnalysisDate = nitrofuranAozAnalysisDate;
+        this.beta_agonistsAnalysisDate = beta_agonistsAnalysisDate;
+        this.corticosteroidsAnalysisDate = corticosteroidsAnalysisDate;
+        this.olaquindoxAnalysisDate = olaquindoxAnalysisDate;
+        this.nitrufuranAmozAnalysisDate = nitrufuranAmozAnalysisDate;
+        this.stilbenesAnalysisDate = stilbenesAnalysisDate;
+        this.ractopamineAnalysisDate = ractopamineAnalysisDate;
     }
 
     public String getChloramphenicol() {
@@ -87,5 +106,69 @@ public class ChemElisaTestDTO {
 
     public void setRactopamine(String ractopamine) {
         this.ractopamine = ractopamine;
+    }
+
+    public LocalDate getChloramphenicolAnalysisDate() {
+        return chloramphenicolAnalysisDate;
+    }
+
+    public void setChloramphenicolAnalysisDate(LocalDate chloramphenicolAnalysisDate) {
+        this.chloramphenicolAnalysisDate = chloramphenicolAnalysisDate;
+    }
+
+    public LocalDate getNitrofuranAozAnalysisDate() {
+        return nitrofuranAozAnalysisDate;
+    }
+
+    public void setNitrofuranAozAnalysisDate(LocalDate nitrofuranAozAnalysisDate) {
+        this.nitrofuranAozAnalysisDate = nitrofuranAozAnalysisDate;
+    }
+
+    public LocalDate getBeta_agonistsAnalysisDate() {
+        return beta_agonistsAnalysisDate;
+    }
+
+    public void setBeta_agonistsAnalysisDate(LocalDate beta_agonistsAnalysisDate) {
+        this.beta_agonistsAnalysisDate = beta_agonistsAnalysisDate;
+    }
+
+    public LocalDate getCorticosteroidsAnalysisDate() {
+        return corticosteroidsAnalysisDate;
+    }
+
+    public void setCorticosteroidsAnalysisDate(LocalDate corticosteroidsAnalysisDate) {
+        this.corticosteroidsAnalysisDate = corticosteroidsAnalysisDate;
+    }
+
+    public LocalDate getOlaquindoxAnalysisDate() {
+        return olaquindoxAnalysisDate;
+    }
+
+    public void setOlaquindoxAnalysisDate(LocalDate olaquindoxAnalysisDate) {
+        this.olaquindoxAnalysisDate = olaquindoxAnalysisDate;
+    }
+
+    public LocalDate getNitrufuranAmozAnalysisDate() {
+        return nitrufuranAmozAnalysisDate;
+    }
+
+    public void setNitrufuranAmozAnalysisDate(LocalDate nitrufuranAmozAnalysisDate) {
+        this.nitrufuranAmozAnalysisDate = nitrufuranAmozAnalysisDate;
+    }
+
+    public LocalDate getStilbenesAnalysisDate() {
+        return stilbenesAnalysisDate;
+    }
+
+    public void setStilbenesAnalysisDate(LocalDate stilbenesAnalysisDate) {
+        this.stilbenesAnalysisDate = stilbenesAnalysisDate;
+    }
+
+    public LocalDate getRactopamineAnalysisDate() {
+        return ractopamineAnalysisDate;
+    }
+
+    public void setRactopamineAnalysisDate(LocalDate ractopamineAnalysisDate) {
+        this.ractopamineAnalysisDate = ractopamineAnalysisDate;
     }
 }

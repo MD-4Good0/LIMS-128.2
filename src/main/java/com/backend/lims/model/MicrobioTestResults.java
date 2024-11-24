@@ -3,6 +3,8 @@ package com.backend.lims.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,15 +24,15 @@ public class MicrobioTestResults {
     private String eColiAndeColi0O157;
     private String yeastAndMolds;
 
-    private LocalDateTime standardPlateCountAnalysisDate;
-    private LocalDateTime staphylococcusAureusAnalysisDate;
-    private LocalDateTime salmonellaSpAnalysisDate;
-    private LocalDateTime campylobacterAnalysisDate;
-    private LocalDateTime cultureAndSensitivityTestAnalysisDate;
-    private LocalDateTime coliformCountAnalysisDate;
-    private LocalDateTime eColiAnalysisDate;
-    private LocalDateTime eColiAndeColi0O157AnalysisDate;
-    private LocalDateTime yeastAndMoldsAnalysisDate;
+    private LocalDate standardPlateCountAnalysisDate;
+    private LocalDate staphylococcusAureusAnalysisDate;
+    private LocalDate salmonellaSpAnalysisDate;
+    private LocalDate campylobacterAnalysisDate;
+    private LocalDate cultureAndSensitivityTestAnalysisDate;
+    private LocalDate coliformCountAnalysisDate;
+    private LocalDate eColiAnalysisDate;
+    private LocalDate eColiAndeColi0O157AnalysisDate;
+    private LocalDate yeastAndMoldsAnalysisDate;
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     @JsonIgnore
@@ -39,7 +41,7 @@ public class MicrobioTestResults {
     public MicrobioTestResults() {
     }
 
-    public MicrobioTestResults(Long microbioResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDateTime standardPlateCountAnalysisDate, LocalDateTime staphylococcusAureusAnalysisDate, LocalDateTime salmonellaSpAnalysisDate, LocalDateTime campylobacterAnalysisDate, LocalDateTime cultureAndSensitivityTestAnalysisDate, LocalDateTime coliformCountAnalysisDate, LocalDateTime eColiAnalysisDate, LocalDateTime eColiAndeColi0O157AnalysisDate, LocalDateTime yeastAndMoldsAnalysisDate, Result result) {
+    public MicrobioTestResults(Long microbioResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate, Result result) {
         this.microbioResultId = microbioResultId;
         this.sampleId = sampleId;
         this.standardPlateCount = standardPlateCount;
@@ -151,75 +153,75 @@ public class MicrobioTestResults {
         this.yeastAndMolds = yeastAndMolds;
     }
 
-    public LocalDateTime getStandardPlateCountAnalysisDate() {
+    public LocalDate getStandardPlateCountAnalysisDate() {
         return standardPlateCountAnalysisDate;
     }
 
-    public void setStandardPlateCountAnalysisDate(LocalDateTime standardPlateCountAnalysisDate) {
+    public void setStandardPlateCountAnalysisDate(LocalDate standardPlateCountAnalysisDate) {
         this.standardPlateCountAnalysisDate = standardPlateCountAnalysisDate;
     }
 
-    public LocalDateTime getStaphylococcusAureusAnalysisDate() {
+    public LocalDate getStaphylococcusAureusAnalysisDate() {
         return staphylococcusAureusAnalysisDate;
     }
 
-    public void setStaphylococcusAureusAnalysisDate(LocalDateTime staphylococcusAureusAnalysisDate) {
+    public void setStaphylococcusAureusAnalysisDate(LocalDate staphylococcusAureusAnalysisDate) {
         this.staphylococcusAureusAnalysisDate = staphylococcusAureusAnalysisDate;
     }
 
-    public LocalDateTime getSalmonellaSpAnalysisDate() {
+    public LocalDate getSalmonellaSpAnalysisDate() {
         return salmonellaSpAnalysisDate;
     }
 
-    public void setSalmonellaSpAnalysisDate(LocalDateTime salmonellaSpAnalysisDate) {
+    public void setSalmonellaSpAnalysisDate(LocalDate salmonellaSpAnalysisDate) {
         this.salmonellaSpAnalysisDate = salmonellaSpAnalysisDate;
     }
 
-    public LocalDateTime getCampylobacterAnalysisDate() {
+    public LocalDate getCampylobacterAnalysisDate() {
         return campylobacterAnalysisDate;
     }
 
-    public void setCampylobacterAnalysisDate(LocalDateTime campylobacterAnalysisDate) {
+    public void setCampylobacterAnalysisDate(LocalDate campylobacterAnalysisDate) {
         this.campylobacterAnalysisDate = campylobacterAnalysisDate;
     }
 
-    public LocalDateTime getCultureAndSensitivityTestAnalysisDate() {
+    public LocalDate getCultureAndSensitivityTestAnalysisDate() {
         return cultureAndSensitivityTestAnalysisDate;
     }
 
-    public void setCultureAndSensitivityTestAnalysisDate(LocalDateTime cultureAndSensitivityTestAnalysisDate) {
+    public void setCultureAndSensitivityTestAnalysisDate(LocalDate cultureAndSensitivityTestAnalysisDate) {
         this.cultureAndSensitivityTestAnalysisDate = cultureAndSensitivityTestAnalysisDate;
     }
 
-    public LocalDateTime getColiformCountAnalysisDate() {
+    public LocalDate getColiformCountAnalysisDate() {
         return coliformCountAnalysisDate;
     }
 
-    public void setColiformCountAnalysisDate(LocalDateTime coliformCountAnalysisDate) {
+    public void setColiformCountAnalysisDate(LocalDate coliformCountAnalysisDate) {
         this.coliformCountAnalysisDate = coliformCountAnalysisDate;
     }
 
-    public LocalDateTime geteColiAnalysisDate() {
+    public LocalDate geteColiAnalysisDate() {
         return eColiAnalysisDate;
     }
 
-    public void seteColiAnalysisDate(LocalDateTime eColiAnalysisDate) {
+    public void seteColiAnalysisDate(LocalDate eColiAnalysisDate) {
         this.eColiAnalysisDate = eColiAnalysisDate;
     }
 
-    public LocalDateTime geteColiAndeColi0O157AnalysisDate() {
+    public LocalDate geteColiAndeColi0O157AnalysisDate() {
         return eColiAndeColi0O157AnalysisDate;
     }
 
-    public void seteColiAndeColi0O157AnalysisDate(LocalDateTime eColiAndeColi0O157AnalysisDate) {
+    public void seteColiAndeColi0O157AnalysisDate(LocalDate eColiAndeColi0O157AnalysisDate) {
         this.eColiAndeColi0O157AnalysisDate = eColiAndeColi0O157AnalysisDate;
     }
 
-    public LocalDateTime getYeastAndMoldsAnalysisDate() {
+    public LocalDate getYeastAndMoldsAnalysisDate() {
         return yeastAndMoldsAnalysisDate;
     }
 
-    public void setYeastAndMoldsAnalysisDate(LocalDateTime yeastAndMoldsAnalysisDate) {
+    public void setYeastAndMoldsAnalysisDate(LocalDate yeastAndMoldsAnalysisDate) {
         this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
     }
 

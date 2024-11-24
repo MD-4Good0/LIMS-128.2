@@ -19,7 +19,7 @@ public class Request {
 	}
 
 	public enum RequestStatus {
-		PENDING_REVIEW, FOR_TESTING, FOR_RELEASE, REJECTED
+		PENDING_REVIEW, FOR_TESTING, FOR_RELEASE, REJECTED, RELEASED
 	}
 
 	// Client Information

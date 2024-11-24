@@ -1,5 +1,7 @@
 package com.backend.lims.dto;
 
+import java.time.LocalDate;
+
 public class ChemMicrobialTestDTO {
     private String betaLactams;
     private String tetracyclines;
@@ -8,16 +10,29 @@ public class ChemMicrobialTestDTO {
     private String macrolides;
     private String quinolones;
 
+    private LocalDate betaLactamsAnalysisDate;
+    private LocalDate tetracyclinesAnalysisDate;
+    private LocalDate sulfonamidesAnalysisDate;
+    private LocalDate aminoglycosidesAnalysisDate;
+    private LocalDate macrolidesAnalysisDate;
+    private LocalDate quinolonesAnalysisDate;
+
     public ChemMicrobialTestDTO() {
     }
 
-    public ChemMicrobialTestDTO(String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones) {
+    public ChemMicrobialTestDTO(String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate) {
         this.betaLactams = betaLactams;
         this.tetracyclines = tetracyclines;
         this.sulfonamides = sulfonamides;
         this.aminoglycosides = aminoglycosides;
         this.macrolides = macrolides;
         this.quinolones = quinolones;
+        this.betaLactamsAnalysisDate = betaLactamsAnalysisDate;
+        this.tetracyclinesAnalysisDate = tetracyclinesAnalysisDate;
+        this.sulfonamidesAnalysisDate = sulfonamidesAnalysisDate;
+        this.aminoglycosidesAnalysisDate = aminoglycosidesAnalysisDate;
+        this.macrolidesAnalysisDate = macrolidesAnalysisDate;
+        this.quinolonesAnalysisDate = quinolonesAnalysisDate;
     }
 
     public String getBetaLactams() {
@@ -66,5 +81,53 @@ public class ChemMicrobialTestDTO {
 
     public void setQuinolones(String quinolones) {
         this.quinolones = quinolones;
+    }
+
+    public LocalDate getBetaLactamsAnalysisDate() {
+        return betaLactamsAnalysisDate;
+    }
+
+    public void setBetaLactamsAnalysisDate(LocalDate betaLactamsAnalysisDate) {
+        this.betaLactamsAnalysisDate = betaLactamsAnalysisDate;
+    }
+
+    public LocalDate getTetracyclinesAnalysisDate() {
+        return tetracyclinesAnalysisDate;
+    }
+
+    public void setTetracyclinesAnalysisDate(LocalDate tetracyclinesAnalysisDate) {
+        this.tetracyclinesAnalysisDate = tetracyclinesAnalysisDate;
+    }
+
+    public LocalDate getSulfonamidesAnalysisDate() {
+        return sulfonamidesAnalysisDate;
+    }
+
+    public void setSulfonamidesAnalysisDate(LocalDate sulfonamidesAnalysisDate) {
+        this.sulfonamidesAnalysisDate = sulfonamidesAnalysisDate;
+    }
+
+    public LocalDate getAminoglycosidesAnalysisDate() {
+        return aminoglycosidesAnalysisDate;
+    }
+
+    public void setAminoglycosidesAnalysisDate(LocalDate aminoglycosidesAnalysisDate) {
+        this.aminoglycosidesAnalysisDate = aminoglycosidesAnalysisDate;
+    }
+
+    public LocalDate getMacrolidesAnalysisDate() {
+        return macrolidesAnalysisDate;
+    }
+
+    public void setMacrolidesAnalysisDate(LocalDate macrolidesAnalysisDate) {
+        this.macrolidesAnalysisDate = macrolidesAnalysisDate;
+    }
+
+    public LocalDate getQuinolonesAnalysisDate() {
+        return quinolonesAnalysisDate;
+    }
+
+    public void setQuinolonesAnalysisDate(LocalDate quinolonesAnalysisDate) {
+        this.quinolonesAnalysisDate = quinolonesAnalysisDate;
     }
 }

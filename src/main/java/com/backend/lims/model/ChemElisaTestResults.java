@@ -2,6 +2,8 @@ package com.backend.lims.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,15 +23,15 @@ public class ChemElisaTestResults {
     private String stilbenes;
     private String ractopamine;
 
-    // LocalDateTime fields for analysis dates of additional substances
-    private LocalDateTime chloramphenicolAnalysisDate;
-    private LocalDateTime nitrofuranAozAnalysisDate;
-    private LocalDateTime beta_agonistsAnalysisDate;
-    private LocalDateTime corticosteroidsAnalysisDate;
-    private LocalDateTime olaquindoxAnalysisDate;
-    private LocalDateTime nitrufuranAmozAnalysisDate;
-    private LocalDateTime stilbenesAnalysisDate;
-    private LocalDateTime ractopamineAnalysisDate;
+    // LocalDate fields for analysis dates of additional substances
+    private LocalDate chloramphenicolAnalysisDate;
+    private LocalDate nitrofuranAozAnalysisDate;
+    private LocalDate beta_agonistsAnalysisDate;
+    private LocalDate corticosteroidsAnalysisDate;
+    private LocalDate olaquindoxAnalysisDate;
+    private LocalDate nitrufuranAmozAnalysisDate;
+    private LocalDate stilbenesAnalysisDate;
+    private LocalDate ractopamineAnalysisDate;
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     @JsonIgnore
@@ -38,7 +40,7 @@ public class ChemElisaTestResults {
     public ChemElisaTestResults() {
     }
 
-    public ChemElisaTestResults(Long chemElisaResultId, Long sampleId, String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine, LocalDateTime chloramphenicolAnalysisDate, LocalDateTime nitrofuranAozAnalysisDate, LocalDateTime beta_agonistsAnalysisDate, LocalDateTime corticosteroidsAnalysisDate, LocalDateTime olaquindoxAnalysisDate, LocalDateTime nitrufuranAmozAnalysisDate, LocalDateTime stilbenesAnalysisDate, LocalDateTime ractopamineAnalysisDate, Result result) {
+    public ChemElisaTestResults(Long chemElisaResultId, Long sampleId, String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine, LocalDate chloramphenicolAnalysisDate, LocalDate nitrofuranAozAnalysisDate, LocalDate beta_agonistsAnalysisDate, LocalDate corticosteroidsAnalysisDate, LocalDate olaquindoxAnalysisDate, LocalDate nitrufuranAmozAnalysisDate, LocalDate stilbenesAnalysisDate, LocalDate ractopamineAnalysisDate, Result result) {
         this.chemElisaResultId = chemElisaResultId;
         this.sampleId = sampleId;
         this.chloramphenicol = chloramphenicol;
@@ -140,67 +142,67 @@ public class ChemElisaTestResults {
         this.ractopamine = ractopamine;
     }
 
-    public LocalDateTime getChloramphenicolAnalysisDate() {
+    public LocalDate getChloramphenicolAnalysisDate() {
         return chloramphenicolAnalysisDate;
     }
 
-    public void setChloramphenicolAnalysisDate(LocalDateTime chloramphenicolAnalysisDate) {
+    public void setChloramphenicolAnalysisDate(LocalDate chloramphenicolAnalysisDate) {
         this.chloramphenicolAnalysisDate = chloramphenicolAnalysisDate;
     }
 
-    public LocalDateTime getNitrofuranAozAnalysisDate() {
+    public LocalDate getNitrofuranAozAnalysisDate() {
         return nitrofuranAozAnalysisDate;
     }
 
-    public void setNitrofuranAozAnalysisDate(LocalDateTime nitrofuranAozAnalysisDate) {
+    public void setNitrofuranAozAnalysisDate(LocalDate nitrofuranAozAnalysisDate) {
         this.nitrofuranAozAnalysisDate = nitrofuranAozAnalysisDate;
     }
 
-    public LocalDateTime getBeta_agonistsAnalysisDate() {
+    public LocalDate getBeta_agonistsAnalysisDate() {
         return beta_agonistsAnalysisDate;
     }
 
-    public void setBeta_agonistsAnalysisDate(LocalDateTime beta_agonistsAnalysisDate) {
+    public void setBeta_agonistsAnalysisDate(LocalDate beta_agonistsAnalysisDate) {
         this.beta_agonistsAnalysisDate = beta_agonistsAnalysisDate;
     }
 
-    public LocalDateTime getCorticosteroidsAnalysisDate() {
+    public LocalDate getCorticosteroidsAnalysisDate() {
         return corticosteroidsAnalysisDate;
     }
 
-    public void setCorticosteroidsAnalysisDate(LocalDateTime corticosteroidsAnalysisDate) {
+    public void setCorticosteroidsAnalysisDate(LocalDate corticosteroidsAnalysisDate) {
         this.corticosteroidsAnalysisDate = corticosteroidsAnalysisDate;
     }
 
-    public LocalDateTime getOlaquindoxAnalysisDate() {
+    public LocalDate getOlaquindoxAnalysisDate() {
         return olaquindoxAnalysisDate;
     }
 
-    public void setOlaquindoxAnalysisDate(LocalDateTime olaquindoxAnalysisDate) {
+    public void setOlaquindoxAnalysisDate(LocalDate olaquindoxAnalysisDate) {
         this.olaquindoxAnalysisDate = olaquindoxAnalysisDate;
     }
 
-    public LocalDateTime getNitrufuranAmozAnalysisDate() {
+    public LocalDate getNitrufuranAmozAnalysisDate() {
         return nitrufuranAmozAnalysisDate;
     }
 
-    public void setNitrufuranAmozAnalysisDate(LocalDateTime nitrufuranAmozAnalysisDate) {
+    public void setNitrufuranAmozAnalysisDate(LocalDate nitrufuranAmozAnalysisDate) {
         this.nitrufuranAmozAnalysisDate = nitrufuranAmozAnalysisDate;
     }
 
-    public LocalDateTime getStilbenesAnalysisDate() {
+    public LocalDate getStilbenesAnalysisDate() {
         return stilbenesAnalysisDate;
     }
 
-    public void setStilbenesAnalysisDate(LocalDateTime stilbenesAnalysisDate) {
+    public void setStilbenesAnalysisDate(LocalDate stilbenesAnalysisDate) {
         this.stilbenesAnalysisDate = stilbenesAnalysisDate;
     }
 
-    public LocalDateTime getRactopamineAnalysisDate() {
+    public LocalDate getRactopamineAnalysisDate() {
         return ractopamineAnalysisDate;
     }
 
-    public void setRactopamineAnalysisDate(LocalDateTime ractopamineAnalysisDate) {
+    public void setRactopamineAnalysisDate(LocalDate ractopamineAnalysisDate) {
         this.ractopamineAnalysisDate = ractopamineAnalysisDate;
     }
 
