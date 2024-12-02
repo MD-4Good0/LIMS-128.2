@@ -38,4 +38,76 @@ public interface MicrobioRepository extends JpaRepository<MicrobioTestResults, L
 
     @Query("SELECT COALESCE(m.yeastAndMolds, 'UNKNOWN'), COUNT(m.yeastAndMolds) FROM MicrobioTestResults m GROUP BY m.yeastAndMolds")
     List<Object[]> countUniqueYeastAndMolds();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.standardPlateCountAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.standardPlateCountAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.standardPlateCountAnalysisDate), EXTRACT(MONTH FROM m.standardPlateCountAnalysisDate)")
+    List<Object[]> countStandardPlateCountByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.staphylococcusAureusAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.staphylococcusAureusAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.staphylococcusAureusAnalysisDate), EXTRACT(MONTH FROM m.staphylococcusAureusAnalysisDate)")
+    List<Object[]> countStaphylococcusAureusByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.salmonellaSpAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.salmonellaSpAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.salmonellaSpAnalysisDate), EXTRACT(MONTH FROM m.salmonellaSpAnalysisDate)")
+    List<Object[]> countSalmonellaSpByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.campylobacterAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.campylobacterAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.campylobacterAnalysisDate), EXTRACT(MONTH FROM m.campylobacterAnalysisDate)")
+    List<Object[]> countCampylobacterByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.cultureAndSensitivityTestAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.cultureAndSensitivityTestAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.cultureAndSensitivityTestAnalysisDate), EXTRACT(MONTH FROM m.cultureAndSensitivityTestAnalysisDate)")
+    List<Object[]> countCultureAndSensitivityTestByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.coliformCountAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.coliformCountAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.coliformCountAnalysisDate), EXTRACT(MONTH FROM m.coliformCountAnalysisDate)")
+    List<Object[]> countColiformCountByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.eColiAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.eColiAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.eColiAnalysisDate), EXTRACT(MONTH FROM m.eColiAnalysisDate)")
+    List<Object[]> countEColiByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.eColiAndeColi0O157AnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.eColiAndeColi0O157AnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.eColiAndeColi0O157AnalysisDate), EXTRACT(MONTH FROM m.eColiAndeColi0O157AnalysisDate)")
+    List<Object[]> countEColiAndEColi0O157ByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.yeastAndMoldsAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.yeastAndMoldsAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM MicrobioTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.yeastAndMoldsAnalysisDate), EXTRACT(MONTH FROM m.yeastAndMoldsAnalysisDate)")
+    List<Object[]> countYeastAndMoldsByMonthAndYear();
 }

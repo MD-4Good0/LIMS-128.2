@@ -13,6 +13,16 @@ public class MolBioTestReportDTO {
     private Map<Object, Long> sheepCounts;
     private Map<Object, Long> swineCounts;
 
+    private Map<String, Long> dogCountsByMonthAndYear;
+    private Map<String, Long> catCountsByMonthAndYear;
+    private Map<String, Long> chickenCountsByMonthAndYear;
+    private Map<String, Long> buffaloCountsByMonthAndYear;
+    private Map<String, Long> cattleCountsByMonthAndYear;
+    private Map<String, Long> horseCountsByMonthAndYear;
+    private Map<String, Long> goatCountsByMonthAndYear;
+    private Map<String, Long> sheepCountsByMonthAndYear;
+    private Map<String, Long> swineCountsByMonthAndYear;
+
     public Map<Object, Long> getDogCounts() {
         return dogCounts;
     }
@@ -83,5 +93,77 @@ public class MolBioTestReportDTO {
 
     public void setSwineCounts(Map<Object, Long> swineCounts) {
         this.swineCounts = swineCounts;
+    }
+
+    public Map<String, Long> getDogCountsByMonthAndYear() {
+        return dogCountsByMonthAndYear;
+    }
+
+    public void setDogCountsByMonthAndYear(Map<String, Long> dogCountsByMonthAndYear) {
+        this.dogCountsByMonthAndYear = dogCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getCatCountsByMonthAndYear() {
+        return catCountsByMonthAndYear;
+    }
+
+    public void setCatCountsByMonthAndYear(Map<String, Long> catCountsByMonthAndYear) {
+        this.catCountsByMonthAndYear = catCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getChickenCountsByMonthAndYear() {
+        return chickenCountsByMonthAndYear;
+    }
+
+    public void setChickenCountsByMonthAndYear(Map<String, Long> chickenCountsByMonthAndYear) {
+        this.chickenCountsByMonthAndYear = chickenCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getBuffaloCountsByMonthAndYear() {
+        return buffaloCountsByMonthAndYear;
+    }
+
+    public void setBuffaloCountsByMonthAndYear(Map<String, Long> buffaloCountsByMonthAndYear) {
+        this.buffaloCountsByMonthAndYear = buffaloCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getCattleCountsByMonthAndYear() {
+        return cattleCountsByMonthAndYear;
+    }
+
+    public void setCattleCountsByMonthAndYear(Map<String, Long> cattleCountsByMonthAndYear) {
+        this.cattleCountsByMonthAndYear = cattleCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getHorseCountsByMonthAndYear() {
+        return horseCountsByMonthAndYear;
+    }
+
+    public void setHorseCountsByMonthAndYear(Map<String, Long> horseCountsByMonthAndYear) {
+        this.horseCountsByMonthAndYear = horseCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getGoatCountsByMonthAndYear() {
+        return goatCountsByMonthAndYear;
+    }
+
+    public void setGoatCountsByMonthAndYear(Map<String, Long> goatCountsByMonthAndYear) {
+        this.goatCountsByMonthAndYear = goatCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getSheepCountsByMonthAndYear() {
+        return sheepCountsByMonthAndYear;
+    }
+
+    public void setSheepCountsByMonthAndYear(Map<String, Long> sheepCountsByMonthAndYear) {
+        this.sheepCountsByMonthAndYear = sheepCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getSwineCountsByMonthAndYear() {
+        return swineCountsByMonthAndYear;
+    }
+
+    public void setSwineCountsByMonthAndYear(Map<String, Long> swineCountsByMonthAndYear) {
+        this.swineCountsByMonthAndYear = swineCountsByMonthAndYear;
     }
 }

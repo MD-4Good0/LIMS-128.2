@@ -36,4 +36,68 @@ public interface ChemElisaRepository extends JpaRepository<ChemElisaTestResults,
     @Query("SELECT COALESCE(c.ractopamine, 'UNKNOWN'), COUNT(c.ractopamine) FROM ChemElisaTestResults c GROUP BY c.ractopamine")
     List<Object[]> countUniqueRactopamine();
 
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.chloramphenicolAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.chloramphenicolAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.chloramphenicolAnalysisDate), EXTRACT(MONTH FROM m.chloramphenicolAnalysisDate)")
+    List<Object[]> countChloramphenicolByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.nitrofuranAozAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.nitrofuranAozAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.nitrofuranAozAnalysisDate), EXTRACT(MONTH FROM m.nitrofuranAozAnalysisDate)")
+    List<Object[]> countNitrofuranAozByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.beta_agonistsAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.beta_agonistsAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.beta_agonistsAnalysisDate), EXTRACT(MONTH FROM m.beta_agonistsAnalysisDate)")
+    List<Object[]> countBetaAgonistsByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.corticosteroidsAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.corticosteroidsAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.corticosteroidsAnalysisDate), EXTRACT(MONTH FROM m.corticosteroidsAnalysisDate)")
+    List<Object[]> countCorticosteroidsByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.olaquindoxAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.olaquindoxAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.olaquindoxAnalysisDate), EXTRACT(MONTH FROM m.olaquindoxAnalysisDate)")
+    List<Object[]> countOlaquindoxByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.nitrufuranAmozAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.nitrufuranAmozAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.nitrufuranAmozAnalysisDate), EXTRACT(MONTH FROM m.nitrufuranAmozAnalysisDate)")
+    List<Object[]> countNitrufuranAmozByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.stilbenesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.stilbenesAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.stilbenesAnalysisDate), EXTRACT(MONTH FROM m.stilbenesAnalysisDate)")
+    List<Object[]> countStilbenesByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.ractopamineAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM m.ractopamineAnalysisDate), 0), " +
+            "   COUNT(m) " +
+            "FROM ChemElisaTestResults m " +
+            "GROUP BY EXTRACT(YEAR FROM m.ractopamineAnalysisDate), EXTRACT(MONTH FROM m.ractopamineAnalysisDate)")
+    List<Object[]> countRactopamineByMonthAndYear();
+
 }
