@@ -12,28 +12,28 @@ import java.util.Optional;
 public interface ChemElisaRepository extends JpaRepository<ChemElisaTestResults, Long> {
     Optional<ChemElisaTestResults> findBySampleId(Long sampleId);
 
-    @Query("SELECT COALESCE(c.chloramphenicol, 'UNKNOWN'), COUNT(c.chloramphenicol) FROM ChemElisaTestResults c GROUP BY c.chloramphenicol")
+    @Query("SELECT COALESCE(c.chloramphenicolRemarks, 'UNKNOWN'), COUNT(c.chloramphenicolRemarks) FROM ChemElisaTestResults c GROUP BY c.chloramphenicolRemarks")
     List<Object[]> countUniqueChloramphenicol();
 
-    @Query("SELECT COALESCE(c.nitrofuranAoz, 'UNKNOWN'), COUNT(c.nitrofuranAoz) FROM ChemElisaTestResults c GROUP BY c.nitrofuranAoz")
+    @Query("SELECT COALESCE(c.nitrofuranAozRemarks, 'UNKNOWN'), COUNT(c.nitrofuranAozRemarks) FROM ChemElisaTestResults c GROUP BY c.nitrofuranAozRemarks")
     List<Object[]> countUniqueNitrofuranAoz();
 
-    @Query("SELECT COALESCE(c.beta_agonists, 'UNKNOWN'), COUNT(c.beta_agonists) FROM ChemElisaTestResults c GROUP BY c.beta_agonists")
+    @Query("SELECT COALESCE(c.beta_agonistsRemarks, 'UNKNOWN'), COUNT(c.beta_agonistsRemarks) FROM ChemElisaTestResults c GROUP BY c.beta_agonistsRemarks")
     List<Object[]> countUniqueBetaAgonists();
 
-    @Query("SELECT COALESCE(c.corticosteroids, 'UNKNOWN'), COUNT(c.corticosteroids) FROM ChemElisaTestResults c GROUP BY c.corticosteroids")
+    @Query("SELECT COALESCE(c.corticosteroidsRemarks, 'UNKNOWN'), COUNT(c.corticosteroidsRemarks) FROM ChemElisaTestResults c GROUP BY c.corticosteroidsRemarks")
     List<Object[]> countUniqueCorticosteroids();
 
-    @Query("SELECT COALESCE(c.olaquindox, 'UNKNOWN'), COUNT(c.olaquindox) FROM ChemElisaTestResults c GROUP BY c.olaquindox")
+    @Query("SELECT COALESCE(c.olaquindoxRemarks, 'UNKNOWN'), COUNT(c.olaquindoxRemarks) FROM ChemElisaTestResults c GROUP BY c.olaquindoxRemarks")
     List<Object[]> countUniqueOlaquindox();
 
-    @Query("SELECT COALESCE(c.nitrufuranAmoz, 'UNKNOWN'), COUNT(c.nitrufuranAmoz) FROM ChemElisaTestResults c GROUP BY c.nitrufuranAmoz")
+    @Query("SELECT COALESCE(c.nitrufuranAmozRemarks, 'UNKNOWN'), COUNT(c.nitrufuranAmozRemarks) FROM ChemElisaTestResults c GROUP BY c.nitrufuranAmozRemarks")
     List<Object[]> countUniqueNitrufuranAmoz();
 
-    @Query("SELECT COALESCE(c.stilbenes, 'UNKNOWN'), COUNT(c.stilbenes) FROM ChemElisaTestResults c GROUP BY c.stilbenes")
+    @Query("SELECT COALESCE(c.stilbenesRemarks, 'UNKNOWN'), COUNT(c.stilbenesRemarks) FROM ChemElisaTestResults c GROUP BY c.stilbenesRemarks")
     List<Object[]> countUniqueStilbenes();
 
-    @Query("SELECT COALESCE(c.ractopamine, 'UNKNOWN'), COUNT(c.ractopamine) FROM ChemElisaTestResults c GROUP BY c.ractopamine")
+    @Query("SELECT COALESCE(c.ractopamineRemarks, 'UNKNOWN'), COUNT(c.ractopamineRemarks) FROM ChemElisaTestResults c GROUP BY c.ractopamineRemarks")
     List<Object[]> countUniqueRactopamine();
 
     @Query("SELECT " +

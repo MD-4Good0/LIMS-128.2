@@ -12,22 +12,22 @@ import java.util.Optional;
 public interface ChemMicrobialRepository extends JpaRepository<ChemMicrobialTestResults, Long> {
     Optional<ChemMicrobialTestResults> findBySampleId(Long sampleId);
 
-    @Query("SELECT COALESCE(c.betaLactams, 'UNKNOWN'), COUNT(c.betaLactams) FROM ChemMicrobialTestResults c GROUP BY c.betaLactams")
+    @Query("SELECT COALESCE(c.betaLactamsRemarks, 'UNKNOWN'), COUNT(c.betaLactamsRemarks) FROM ChemMicrobialTestResults c GROUP BY c.betaLactamsRemarks")
     List<Object[]> countUniqueBetaLactams();
 
-    @Query("SELECT COALESCE(c.tetracyclines, 'UNKNOWN'), COUNT(c.tetracyclines) FROM ChemMicrobialTestResults c GROUP BY c.tetracyclines")
+    @Query("SELECT COALESCE(c.tetracyclinesRemarks, 'UNKNOWN'), COUNT(c.tetracyclinesRemarks) FROM ChemMicrobialTestResults c GROUP BY c.tetracyclinesRemarks")
     List<Object[]> countUniqueTetracyclines();
 
-    @Query("SELECT COALESCE(c.sulfonamides, 'UNKNOWN'), COUNT(c.sulfonamides) FROM ChemMicrobialTestResults c GROUP BY c.sulfonamides")
+    @Query("SELECT COALESCE(c.sulfonamidesRemarks, 'UNKNOWN'), COUNT(c.sulfonamidesRemarks) FROM ChemMicrobialTestResults c GROUP BY c.sulfonamidesRemarks")
     List<Object[]> countUniqueSulfonamides();
 
-    @Query("SELECT COALESCE(c.aminoglycosides, 'UNKNOWN'), COUNT(c.aminoglycosides) FROM ChemMicrobialTestResults c GROUP BY c.aminoglycosides")
+    @Query("SELECT COALESCE(c.aminoglycosidesRemarks, 'UNKNOWN'), COUNT(c.aminoglycosidesRemarks) FROM ChemMicrobialTestResults c GROUP BY c.aminoglycosidesRemarks")
     List<Object[]> countUniqueAminoglycosides();
 
-    @Query("SELECT COALESCE(c.macrolides, 'UNKNOWN'), COUNT(c.macrolides) FROM ChemMicrobialTestResults c GROUP BY c.macrolides")
+    @Query("SELECT COALESCE(c.macrolidesRemarks, 'UNKNOWN'), COUNT(c.macrolidesRemarks) FROM ChemMicrobialTestResults c GROUP BY c.macrolidesRemarks")
     List<Object[]> countUniqueMacrolides();
 
-    @Query("SELECT COALESCE(c.quinolones, 'UNKNOWN'), COUNT(c.quinolones) FROM ChemMicrobialTestResults c GROUP BY c.quinolones")
+    @Query("SELECT COALESCE(c.quinolonesRemarks, 'UNKNOWN'), COUNT(c.quinolonesRemarks) FROM ChemMicrobialTestResults c GROUP BY c.quinolonesRemarks")
     List<Object[]> countUniqueQuinolones();
 
     @Query("SELECT " +

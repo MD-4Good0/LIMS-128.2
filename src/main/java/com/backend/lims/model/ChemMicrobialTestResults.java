@@ -14,6 +14,7 @@ public class ChemMicrobialTestResults {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long chemMicrobialResultId;
     private Long sampleId;
+
     // Microbial Inhibition
     private String betaLactams;
     private String tetracyclines;
@@ -30,6 +31,14 @@ public class ChemMicrobialTestResults {
     private LocalDate macrolidesAnalysisDate;
     private LocalDate quinolonesAnalysisDate;
 
+    // Test Remarks ~> Positive/Negative
+    private String betaLactamsRemarks;
+    private String tetracyclinesRemarks;
+    private String sulfonamidesRemarks;
+    private String aminoglycosidesRemarks;
+    private String macrolidesRemarks;
+    private String quinolonesRemarks;
+
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     @JsonIgnore
@@ -38,7 +47,7 @@ public class ChemMicrobialTestResults {
     public ChemMicrobialTestResults() {
     }
 
-    public ChemMicrobialTestResults(Long chemMicrobialResultId, Long sampleId, String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate, Result result) {
+    public ChemMicrobialTestResults(Long chemMicrobialResultId, Long sampleId, String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate, String betaLactamsRemarks, String tetracyclinesRemarks, String sulfonamidesRemarks, String aminoglycosidesRemarks, String macrolidesRemarks, String quinolonesRemarks, Result result) {
         this.chemMicrobialResultId = chemMicrobialResultId;
         this.sampleId = sampleId;
         this.betaLactams = betaLactams;
@@ -53,6 +62,12 @@ public class ChemMicrobialTestResults {
         this.aminoglycosidesAnalysisDate = aminoglycosidesAnalysisDate;
         this.macrolidesAnalysisDate = macrolidesAnalysisDate;
         this.quinolonesAnalysisDate = quinolonesAnalysisDate;
+        this.betaLactamsRemarks = betaLactamsRemarks;
+        this.tetracyclinesRemarks = tetracyclinesRemarks;
+        this.sulfonamidesRemarks = sulfonamidesRemarks;
+        this.aminoglycosidesRemarks = aminoglycosidesRemarks;
+        this.macrolidesRemarks = macrolidesRemarks;
+        this.quinolonesRemarks = quinolonesRemarks;
         this.result = result;
     }
 
@@ -166,6 +181,54 @@ public class ChemMicrobialTestResults {
 
     public void setQuinolonesAnalysisDate(LocalDate quinolonesAnalysisDate) {
         this.quinolonesAnalysisDate = quinolonesAnalysisDate;
+    }
+
+    public String getBetaLactamsRemarks() {
+        return betaLactamsRemarks;
+    }
+
+    public void setBetaLactamsRemarks(String betaLactamsRemarks) {
+        this.betaLactamsRemarks = betaLactamsRemarks;
+    }
+
+    public String getTetracyclinesRemarks() {
+        return tetracyclinesRemarks;
+    }
+
+    public void setTetracyclinesRemarks(String tetracyclinesRemarks) {
+        this.tetracyclinesRemarks = tetracyclinesRemarks;
+    }
+
+    public String getSulfonamidesRemarks() {
+        return sulfonamidesRemarks;
+    }
+
+    public void setSulfonamidesRemarks(String sulfonamidesRemarks) {
+        this.sulfonamidesRemarks = sulfonamidesRemarks;
+    }
+
+    public String getAminoglycosidesRemarks() {
+        return aminoglycosidesRemarks;
+    }
+
+    public void setAminoglycosidesRemarks(String aminoglycosidesRemarks) {
+        this.aminoglycosidesRemarks = aminoglycosidesRemarks;
+    }
+
+    public String getMacrolidesRemarks() {
+        return macrolidesRemarks;
+    }
+
+    public void setMacrolidesRemarks(String macrolidesRemarks) {
+        this.macrolidesRemarks = macrolidesRemarks;
+    }
+
+    public String getQuinolonesRemarks() {
+        return quinolonesRemarks;
+    }
+
+    public void setQuinolonesRemarks(String quinolonesRemarks) {
+        this.quinolonesRemarks = quinolonesRemarks;
     }
 
     public Result getResult() {

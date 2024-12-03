@@ -22,10 +22,19 @@ public class ChemElisaTestDTO {
     private LocalDate stilbenesAnalysisDate;
     private LocalDate ractopamineAnalysisDate;
 
+    private String chloramphenicolRemarks;
+    private String nitrofuranAozRemarks;
+    private String beta_agonistsRemarks;
+    private String corticosteroidsRemarks;
+    private String olaquindoxRemarks;
+    private String nitrufuranAmozRemarks;
+    private String stilbenesRemarks;
+    private String ractopamineRemarks;
+
     public ChemElisaTestDTO() {
     }
 
-    public ChemElisaTestDTO(String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine, LocalDate chloramphenicolAnalysisDate, LocalDate nitrofuranAozAnalysisDate, LocalDate beta_agonistsAnalysisDate, LocalDate corticosteroidsAnalysisDate, LocalDate olaquindoxAnalysisDate, LocalDate nitrufuranAmozAnalysisDate, LocalDate stilbenesAnalysisDate, LocalDate ractopamineAnalysisDate) {
+    public ChemElisaTestDTO(String chloramphenicol, String nitrofuranAoz, String beta_agonists, String corticosteroids, String olaquindox, String nitrufuranAmoz, String stilbenes, String ractopamine, LocalDate chloramphenicolAnalysisDate, LocalDate nitrofuranAozAnalysisDate, LocalDate beta_agonistsAnalysisDate, LocalDate corticosteroidsAnalysisDate, LocalDate olaquindoxAnalysisDate, LocalDate nitrufuranAmozAnalysisDate, LocalDate stilbenesAnalysisDate, LocalDate ractopamineAnalysisDate, String chloramphenicolRemarks, String nitrofuranAozRemarks, String beta_agonistsRemarks, String corticosteroidsRemarks, String olaquindoxRemarks, String nitrufuranAmozRemarks, String stilbenesRemarks, String ractopamineRemarks) {
         this.chloramphenicol = chloramphenicol;
         this.nitrofuranAoz = nitrofuranAoz;
         this.beta_agonists = beta_agonists;
@@ -42,6 +51,14 @@ public class ChemElisaTestDTO {
         this.nitrufuranAmozAnalysisDate = nitrufuranAmozAnalysisDate;
         this.stilbenesAnalysisDate = stilbenesAnalysisDate;
         this.ractopamineAnalysisDate = ractopamineAnalysisDate;
+        this.chloramphenicolRemarks = chloramphenicolRemarks;
+        this.nitrofuranAozRemarks = nitrofuranAozRemarks;
+        this.beta_agonistsRemarks = beta_agonistsRemarks;
+        this.corticosteroidsRemarks = corticosteroidsRemarks;
+        this.olaquindoxRemarks = olaquindoxRemarks;
+        this.nitrufuranAmozRemarks = nitrufuranAmozRemarks;
+        this.stilbenesRemarks = stilbenesRemarks;
+        this.ractopamineRemarks = ractopamineRemarks;
     }
 
     public String getChloramphenicol() {
@@ -170,5 +187,69 @@ public class ChemElisaTestDTO {
 
     public void setRactopamineAnalysisDate(LocalDate ractopamineAnalysisDate) {
         this.ractopamineAnalysisDate = ractopamineAnalysisDate;
+    }
+
+    public String getChloramphenicolRemarks() {
+        return chloramphenicolRemarks;
+    }
+
+    public void setChloramphenicolRemarks(String chloramphenicolRemarks) {
+        this.chloramphenicolRemarks = chloramphenicolRemarks;
+    }
+
+    public String getNitrofuranAozRemarks() {
+        return nitrofuranAozRemarks;
+    }
+
+    public void setNitrofuranAozRemarks(String nitrofuranAozRemarks) {
+        this.nitrofuranAozRemarks = nitrofuranAozRemarks;
+    }
+
+    public String getBeta_agonistsRemarks() {
+        return beta_agonistsRemarks;
+    }
+
+    public void setBeta_agonistsRemarks(String beta_agonistsRemarks) {
+        this.beta_agonistsRemarks = beta_agonistsRemarks;
+    }
+
+    public String getCorticosteroidsRemarks() {
+        return corticosteroidsRemarks;
+    }
+
+    public void setCorticosteroidsRemarks(String corticosteroidsRemarks) {
+        this.corticosteroidsRemarks = corticosteroidsRemarks;
+    }
+
+    public String getOlaquindoxRemarks() {
+        return olaquindoxRemarks;
+    }
+
+    public void setOlaquindoxRemarks(String olaquindoxRemarks) {
+        this.olaquindoxRemarks = olaquindoxRemarks;
+    }
+
+    public String getNitrufuranAmozRemarks() {
+        return nitrufuranAmozRemarks;
+    }
+
+    public void setNitrufuranAmozRemarks(String nitrufuranAmozRemarks) {
+        this.nitrufuranAmozRemarks = nitrufuranAmozRemarks;
+    }
+
+    public String getStilbenesRemarks() {
+        return stilbenesRemarks;
+    }
+
+    public void setStilbenesRemarks(String stilbenesRemarks) {
+        this.stilbenesRemarks = stilbenesRemarks;
+    }
+
+    public String getRactopamineRemarks() {
+        return ractopamineRemarks;
+    }
+
+    public void setRactopamineRemarks(String ractopamineRemarks) {
+        this.ractopamineRemarks = ractopamineRemarks;
     }
 }

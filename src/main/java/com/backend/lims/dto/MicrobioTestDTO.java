@@ -23,10 +23,20 @@ public class MicrobioTestDTO {
     private LocalDate eColiAndeColi0O157AnalysisDate;
     private LocalDate yeastAndMoldsAnalysisDate;
 
+    private String standardPlateCountRemarks;
+    private String staphylococcusAureusRemarks;
+    private String salmonellaSpRemarks;
+    private String campylobacterRemarks;
+    private String cultureAndSensitivityTestRemarks;
+    private String coliformCountRemarks;
+    private String eColiRemarks;
+    private String eColiAndeColi0O157Remarks;
+    private String yeastAndMoldsRemarks;
+
     public MicrobioTestDTO() {
     }
 
-    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate) {
+    public MicrobioTestDTO(String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate, String standardPlateCountRemarks, String staphylococcusAureusRemarks, String salmonellaSpRemarks, String campylobacterRemarks, String cultureAndSensitivityTestRemarks, String coliformCountRemarks, String eColiRemarks, String eColiAndeColi0O157Remarks, String yeastAndMoldsRemarks) {
         this.standardPlateCount = standardPlateCount;
         this.staphylococcusAureus = staphylococcusAureus;
         this.salmonellaSp = salmonellaSp;
@@ -45,6 +55,15 @@ public class MicrobioTestDTO {
         this.eColiAnalysisDate = eColiAnalysisDate;
         this.eColiAndeColi0O157AnalysisDate = eColiAndeColi0O157AnalysisDate;
         this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
+        this.standardPlateCountRemarks = standardPlateCountRemarks;
+        this.staphylococcusAureusRemarks = staphylococcusAureusRemarks;
+        this.salmonellaSpRemarks = salmonellaSpRemarks;
+        this.campylobacterRemarks = campylobacterRemarks;
+        this.cultureAndSensitivityTestRemarks = cultureAndSensitivityTestRemarks;
+        this.coliformCountRemarks = coliformCountRemarks;
+        this.eColiRemarks = eColiRemarks;
+        this.eColiAndeColi0O157Remarks = eColiAndeColi0O157Remarks;
+        this.yeastAndMoldsRemarks = yeastAndMoldsRemarks;
     }
 
     public String getStandardPlateCount() {
@@ -189,5 +208,77 @@ public class MicrobioTestDTO {
 
     public void setYeastAndMoldsAnalysisDate(LocalDate yeastAndMoldsAnalysisDate) {
         this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
+    }
+
+    public String getStandardPlateCountRemarks() {
+        return standardPlateCountRemarks;
+    }
+
+    public void setStandardPlateCountRemarks(String standardPlateCountRemarks) {
+        this.standardPlateCountRemarks = standardPlateCountRemarks;
+    }
+
+    public String getStaphylococcusAureusRemarks() {
+        return staphylococcusAureusRemarks;
+    }
+
+    public void setStaphylococcusAureusRemarks(String staphylococcusAureusRemarks) {
+        this.staphylococcusAureusRemarks = staphylococcusAureusRemarks;
+    }
+
+    public String getSalmonellaSpRemarks() {
+        return salmonellaSpRemarks;
+    }
+
+    public void setSalmonellaSpRemarks(String salmonellaSpRemarks) {
+        this.salmonellaSpRemarks = salmonellaSpRemarks;
+    }
+
+    public String getCampylobacterRemarks() {
+        return campylobacterRemarks;
+    }
+
+    public void setCampylobacterRemarks(String campylobacterRemarks) {
+        this.campylobacterRemarks = campylobacterRemarks;
+    }
+
+    public String getCultureAndSensitivityTestRemarks() {
+        return cultureAndSensitivityTestRemarks;
+    }
+
+    public void setCultureAndSensitivityTestRemarks(String cultureAndSensitivityTestRemarks) {
+        this.cultureAndSensitivityTestRemarks = cultureAndSensitivityTestRemarks;
+    }
+
+    public String getColiformCountRemarks() {
+        return coliformCountRemarks;
+    }
+
+    public void setColiformCountRemarks(String coliformCountRemarks) {
+        this.coliformCountRemarks = coliformCountRemarks;
+    }
+
+    public String geteColiRemarks() {
+        return eColiRemarks;
+    }
+
+    public void seteColiRemarks(String eColiRemarks) {
+        this.eColiRemarks = eColiRemarks;
+    }
+
+    public String geteColiAndeColi0O157Remarks() {
+        return eColiAndeColi0O157Remarks;
+    }
+
+    public void seteColiAndeColi0O157Remarks(String eColiAndeColi0O157Remarks) {
+        this.eColiAndeColi0O157Remarks = eColiAndeColi0O157Remarks;
+    }
+
+    public String getYeastAndMoldsRemarks() {
+        return yeastAndMoldsRemarks;
+    }
+
+    public void setYeastAndMoldsRemarks(String yeastAndMoldsRemarks) {
+        this.yeastAndMoldsRemarks = yeastAndMoldsRemarks;
     }
 }

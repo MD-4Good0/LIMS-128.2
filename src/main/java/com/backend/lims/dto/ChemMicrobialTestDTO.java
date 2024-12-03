@@ -17,10 +17,17 @@ public class ChemMicrobialTestDTO {
     private LocalDate macrolidesAnalysisDate;
     private LocalDate quinolonesAnalysisDate;
 
+    private String betaLactamsRemarks;
+    private String tetracyclinesRemarks;
+    private String sulfonamidesRemarks;
+    private String aminoglycosidesRemarks;
+    private String macrolidesRemarks;
+    private String quinolonesRemarks;
+
     public ChemMicrobialTestDTO() {
     }
 
-    public ChemMicrobialTestDTO(String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate) {
+    public ChemMicrobialTestDTO(String betaLactams, String tetracyclines, String sulfonamides, String aminoglycosides, String macrolides, String quinolones, LocalDate betaLactamsAnalysisDate, LocalDate tetracyclinesAnalysisDate, LocalDate sulfonamidesAnalysisDate, LocalDate aminoglycosidesAnalysisDate, LocalDate macrolidesAnalysisDate, LocalDate quinolonesAnalysisDate, String betaLactamsRemarks, String tetracyclinesRemarks, String sulfonamidesRemarks, String aminoglycosidesRemarks, String macrolidesRemarks, String quinolonesRemarks) {
         this.betaLactams = betaLactams;
         this.tetracyclines = tetracyclines;
         this.sulfonamides = sulfonamides;
@@ -33,6 +40,12 @@ public class ChemMicrobialTestDTO {
         this.aminoglycosidesAnalysisDate = aminoglycosidesAnalysisDate;
         this.macrolidesAnalysisDate = macrolidesAnalysisDate;
         this.quinolonesAnalysisDate = quinolonesAnalysisDate;
+        this.betaLactamsRemarks = betaLactamsRemarks;
+        this.tetracyclinesRemarks = tetracyclinesRemarks;
+        this.sulfonamidesRemarks = sulfonamidesRemarks;
+        this.aminoglycosidesRemarks = aminoglycosidesRemarks;
+        this.macrolidesRemarks = macrolidesRemarks;
+        this.quinolonesRemarks = quinolonesRemarks;
     }
 
     public String getBetaLactams() {
@@ -129,5 +142,53 @@ public class ChemMicrobialTestDTO {
 
     public void setQuinolonesAnalysisDate(LocalDate quinolonesAnalysisDate) {
         this.quinolonesAnalysisDate = quinolonesAnalysisDate;
+    }
+
+    public String getBetaLactamsRemarks() {
+        return betaLactamsRemarks;
+    }
+
+    public void setBetaLactamsRemarks(String betaLactamsRemarks) {
+        this.betaLactamsRemarks = betaLactamsRemarks;
+    }
+
+    public String getTetracyclinesRemarks() {
+        return tetracyclinesRemarks;
+    }
+
+    public void setTetracyclinesRemarks(String tetracyclinesRemarks) {
+        this.tetracyclinesRemarks = tetracyclinesRemarks;
+    }
+
+    public String getSulfonamidesRemarks() {
+        return sulfonamidesRemarks;
+    }
+
+    public void setSulfonamidesRemarks(String sulfonamidesRemarks) {
+        this.sulfonamidesRemarks = sulfonamidesRemarks;
+    }
+
+    public String getAminoglycosidesRemarks() {
+        return aminoglycosidesRemarks;
+    }
+
+    public void setAminoglycosidesRemarks(String aminoglycosidesRemarks) {
+        this.aminoglycosidesRemarks = aminoglycosidesRemarks;
+    }
+
+    public String getMacrolidesRemarks() {
+        return macrolidesRemarks;
+    }
+
+    public void setMacrolidesRemarks(String macrolidesRemarks) {
+        this.macrolidesRemarks = macrolidesRemarks;
+    }
+
+    public String getQuinolonesRemarks() {
+        return quinolonesRemarks;
+    }
+
+    public void setQuinolonesRemarks(String quinolonesRemarks) {
+        this.quinolonesRemarks = quinolonesRemarks;
     }
 }

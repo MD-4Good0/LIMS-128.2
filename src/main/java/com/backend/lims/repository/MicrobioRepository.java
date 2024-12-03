@@ -12,31 +12,31 @@ import java.util.Optional;
 public interface MicrobioRepository extends JpaRepository<MicrobioTestResults, Long> {
     Optional<MicrobioTestResults> findBySampleId(Long sampleId);
 
-    @Query("SELECT COALESCE(m.standardPlateCount, 'UNKNOWN'), COUNT(m.standardPlateCount) FROM MicrobioTestResults m GROUP BY m.standardPlateCount")
+    @Query("SELECT COALESCE(m.standardPlateCountRemarks, 'UNKNOWN'), COUNT(m.standardPlateCountRemarks) FROM MicrobioTestResults m GROUP BY m.standardPlateCountRemarks")
     List<Object[]> countUniqueStandardPlateCount();
 
-    @Query("SELECT COALESCE(m.staphylococcusAureus, 'UNKNOWN'), COUNT(m.staphylococcusAureus) FROM MicrobioTestResults m GROUP BY m.staphylococcusAureus")
+    @Query("SELECT COALESCE(m.staphylococcusAureusRemarks, 'UNKNOWN'), COUNT(m.staphylococcusAureusRemarks) FROM MicrobioTestResults m GROUP BY m.staphylococcusAureusRemarks")
     List<Object[]> countUniqueStaphylococcusAureus();
 
-    @Query("SELECT COALESCE(m.salmonellaSp, 'UNKNOWN'), COUNT(m.salmonellaSp) FROM MicrobioTestResults m GROUP BY m.salmonellaSp")
+    @Query("SELECT COALESCE(m.salmonellaSpRemarks, 'UNKNOWN'), COUNT(m.salmonellaSpRemarks) FROM MicrobioTestResults m GROUP BY m.salmonellaSpRemarks")
     List<Object[]> countUniqueSalmonellaSp();
 
-    @Query("SELECT COALESCE(m.campylobacter, 'UNKNOWN'), COUNT(m.campylobacter) FROM MicrobioTestResults m GROUP BY m.campylobacter")
+    @Query("SELECT COALESCE(m.campylobacterRemarks, 'UNKNOWN'), COUNT(m.campylobacterRemarks) FROM MicrobioTestResults m GROUP BY m.campylobacterRemarks")
     List<Object[]> countUniqueCampylobacter();
 
-    @Query("SELECT COALESCE(m.cultureAndSensitivityTest, 'UNKNOWN'), COUNT(m.cultureAndSensitivityTest) FROM MicrobioTestResults m GROUP BY m.cultureAndSensitivityTest")
+    @Query("SELECT COALESCE(m.cultureAndSensitivityTestRemarks, 'UNKNOWN'), COUNT(m.cultureAndSensitivityTestRemarks) FROM MicrobioTestResults m GROUP BY m.cultureAndSensitivityTestRemarks")
     List<Object[]> countUniqueCultureAndSensitivityTest();
 
-    @Query("SELECT COALESCE(m.coliformCount, 'UNKNOWN'), COUNT(m.coliformCount) FROM MicrobioTestResults m GROUP BY m.coliformCount")
+    @Query("SELECT COALESCE(m.coliformCountRemarks, 'UNKNOWN'), COUNT(m.coliformCountRemarks) FROM MicrobioTestResults m GROUP BY m.coliformCountRemarks")
     List<Object[]> countUniqueColiformCount();
 
-    @Query("SELECT COALESCE(m.eColi, 'UNKNOWN'), COUNT(m.eColi) FROM MicrobioTestResults m GROUP BY m.eColi")
+    @Query("SELECT COALESCE(m.eColiRemarks, 'UNKNOWN'), COUNT(m.eColiRemarks) FROM MicrobioTestResults m GROUP BY m.eColiRemarks")
     List<Object[]> countUniqueEColi();
 
-    @Query("SELECT COALESCE(m.eColiAndeColi0O157, 'UNKNOWN'), COUNT(m.eColiAndeColi0O157) FROM MicrobioTestResults m GROUP BY m.eColiAndeColi0O157")
+    @Query("SELECT COALESCE(m.eColiAndeColi0O157Remarks, 'UNKNOWN'), COUNT(m.eColiAndeColi0O157Remarks) FROM MicrobioTestResults m GROUP BY m.eColiAndeColi0O157Remarks")
     List<Object[]> countUniqueEColiAndeColi0O157();
 
-    @Query("SELECT COALESCE(m.yeastAndMolds, 'UNKNOWN'), COUNT(m.yeastAndMolds) FROM MicrobioTestResults m GROUP BY m.yeastAndMolds")
+    @Query("SELECT COALESCE(m.yeastAndMoldsRemarks, 'UNKNOWN'), COUNT(m.yeastAndMoldsRemarks) FROM MicrobioTestResults m GROUP BY m.yeastAndMoldsRemarks")
     List<Object[]> countUniqueYeastAndMolds();
 
     @Query("SELECT " +

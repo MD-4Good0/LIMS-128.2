@@ -14,6 +14,8 @@ public class MicrobioTestResults {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long microbioResultId;
     private Long sampleId;
+
+    // Test Results ~> 100mg or smthng
     private String standardPlateCount;
     private String staphylococcusAureus;
     private String salmonellaSp;
@@ -24,6 +26,7 @@ public class MicrobioTestResults {
     private String eColiAndeColi0O157;
     private String yeastAndMolds;
 
+    // Analyte Dates
     private LocalDate standardPlateCountAnalysisDate;
     private LocalDate staphylococcusAureusAnalysisDate;
     private LocalDate salmonellaSpAnalysisDate;
@@ -33,6 +36,18 @@ public class MicrobioTestResults {
     private LocalDate eColiAnalysisDate;
     private LocalDate eColiAndeColi0O157AnalysisDate;
     private LocalDate yeastAndMoldsAnalysisDate;
+
+    // Test Remarks ~> Positive/Negative
+    private String standardPlateCountRemarks;
+    private String staphylococcusAureusRemarks;
+    private String salmonellaSpRemarks;
+    private String campylobacterRemarks;
+    private String cultureAndSensitivityTestRemarks;
+    private String coliformCountRemarks;
+    private String eColiRemarks;
+    private String eColiAndeColi0O157Remarks;
+    private String yeastAndMoldsRemarks;
+
     @ManyToOne
     @JoinColumn(name = "fkResultId", referencedColumnName = "resultId")
     @JsonIgnore
@@ -41,7 +56,7 @@ public class MicrobioTestResults {
     public MicrobioTestResults() {
     }
 
-    public MicrobioTestResults(Long microbioResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate, Result result) {
+    public MicrobioTestResults(Long microbioResultId, Long sampleId, String standardPlateCount, String staphylococcusAureus, String salmonellaSp, String campylobacter, String cultureAndSensitivityTest, String coliformCount, String eColi, String eColiAndeColi0O157, String yeastAndMolds, LocalDate standardPlateCountAnalysisDate, LocalDate staphylococcusAureusAnalysisDate, LocalDate salmonellaSpAnalysisDate, LocalDate campylobacterAnalysisDate, LocalDate cultureAndSensitivityTestAnalysisDate, LocalDate coliformCountAnalysisDate, LocalDate eColiAnalysisDate, LocalDate eColiAndeColi0O157AnalysisDate, LocalDate yeastAndMoldsAnalysisDate, String standardPlateCountRemarks, String staphylococcusAureusRemarks, String salmonellaSpRemarks, String campylobacterRemarks, String cultureAndSensitivityTestRemarks, String coliformCountRemarks, String eColiRemarks, String eColiAndeColi0O157Remarks, String yeastAndMoldsRemarks, Result result) {
         this.microbioResultId = microbioResultId;
         this.sampleId = sampleId;
         this.standardPlateCount = standardPlateCount;
@@ -62,6 +77,15 @@ public class MicrobioTestResults {
         this.eColiAnalysisDate = eColiAnalysisDate;
         this.eColiAndeColi0O157AnalysisDate = eColiAndeColi0O157AnalysisDate;
         this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
+        this.standardPlateCountRemarks = standardPlateCountRemarks;
+        this.staphylococcusAureusRemarks = staphylococcusAureusRemarks;
+        this.salmonellaSpRemarks = salmonellaSpRemarks;
+        this.campylobacterRemarks = campylobacterRemarks;
+        this.cultureAndSensitivityTestRemarks = cultureAndSensitivityTestRemarks;
+        this.coliformCountRemarks = coliformCountRemarks;
+        this.eColiRemarks = eColiRemarks;
+        this.eColiAndeColi0O157Remarks = eColiAndeColi0O157Remarks;
+        this.yeastAndMoldsRemarks = yeastAndMoldsRemarks;
         this.result = result;
     }
 
@@ -223,6 +247,78 @@ public class MicrobioTestResults {
 
     public void setYeastAndMoldsAnalysisDate(LocalDate yeastAndMoldsAnalysisDate) {
         this.yeastAndMoldsAnalysisDate = yeastAndMoldsAnalysisDate;
+    }
+
+    public String getStandardPlateCountRemarks() {
+        return standardPlateCountRemarks;
+    }
+
+    public void setStandardPlateCountRemarks(String standardPlateCountRemarks) {
+        this.standardPlateCountRemarks = standardPlateCountRemarks;
+    }
+
+    public String getStaphylococcusAureusRemarks() {
+        return staphylococcusAureusRemarks;
+    }
+
+    public void setStaphylococcusAureusRemarks(String staphylococcusAureusRemarks) {
+        this.staphylococcusAureusRemarks = staphylococcusAureusRemarks;
+    }
+
+    public String getSalmonellaSpRemarks() {
+        return salmonellaSpRemarks;
+    }
+
+    public void setSalmonellaSpRemarks(String salmonellaSpRemarks) {
+        this.salmonellaSpRemarks = salmonellaSpRemarks;
+    }
+
+    public String getCampylobacterRemarks() {
+        return campylobacterRemarks;
+    }
+
+    public void setCampylobacterRemarks(String campylobacterRemarks) {
+        this.campylobacterRemarks = campylobacterRemarks;
+    }
+
+    public String getCultureAndSensitivityTestRemarks() {
+        return cultureAndSensitivityTestRemarks;
+    }
+
+    public void setCultureAndSensitivityTestRemarks(String cultureAndSensitivityTestRemarks) {
+        this.cultureAndSensitivityTestRemarks = cultureAndSensitivityTestRemarks;
+    }
+
+    public String getColiformCountRemarks() {
+        return coliformCountRemarks;
+    }
+
+    public void setColiformCountRemarks(String coliformCountRemarks) {
+        this.coliformCountRemarks = coliformCountRemarks;
+    }
+
+    public String geteColiRemarks() {
+        return eColiRemarks;
+    }
+
+    public void seteColiRemarks(String eColiRemarks) {
+        this.eColiRemarks = eColiRemarks;
+    }
+
+    public String geteColiAndeColi0O157Remarks() {
+        return eColiAndeColi0O157Remarks;
+    }
+
+    public void seteColiAndeColi0O157Remarks(String eColiAndeColi0O157Remarks) {
+        this.eColiAndeColi0O157Remarks = eColiAndeColi0O157Remarks;
+    }
+
+    public String getYeastAndMoldsRemarks() {
+        return yeastAndMoldsRemarks;
+    }
+
+    public void setYeastAndMoldsRemarks(String yeastAndMoldsRemarks) {
+        this.yeastAndMoldsRemarks = yeastAndMoldsRemarks;
     }
 
     public Result getResult() {
