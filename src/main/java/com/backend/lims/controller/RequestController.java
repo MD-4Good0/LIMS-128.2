@@ -44,6 +44,11 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getSpecificPendingRequest(requestId), HttpStatus.OK);
     }
 
+    @GetMapping("/ctrlnumber/{requestId}")
+    public String getCtrlNumber(@PathVariable Long requestId) {
+        return requestService.getControlNumber(requestId);
+    }
+
     // Approve request (For testing)
     @PutMapping("/approve/{requestId}")
     public ResponseEntity<Request> approveRequest(@PathVariable Long requestId) {

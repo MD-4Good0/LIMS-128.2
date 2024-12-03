@@ -97,4 +97,9 @@ public class RequestService {
     private String generateControlNumber(Long requestId) {
         return "CTRL-" + requestId + "-" + LocalDate.now().getYear();
     }
+
+    public String getControlNumber(Long requestId){
+        Request request = requestRepository.findByRequestId(requestId);
+        return request.getControlNumber();
+    }
 }
