@@ -29,4 +29,53 @@ public interface ChemMicrobialRepository extends JpaRepository<ChemMicrobialTest
 
     @Query("SELECT COALESCE(c.quinolones, 'UNKNOWN'), COUNT(c.quinolones) FROM ChemMicrobialTestResults c GROUP BY c.quinolones")
     List<Object[]> countUniqueQuinolones();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.betaLactamsAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.betaLactamsAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.betaLactamsAnalysisDate), EXTRACT(MONTH FROM c.betaLactamsAnalysisDate)")
+    List<Object[]> countBetaLactamsByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.tetracyclinesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.tetracyclinesAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.tetracyclinesAnalysisDate), EXTRACT(MONTH FROM c.tetracyclinesAnalysisDate)")
+    List<Object[]> countTetracyclinesByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.sulfonamidesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.sulfonamidesAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.sulfonamidesAnalysisDate), EXTRACT(MONTH FROM c.sulfonamidesAnalysisDate)")
+    List<Object[]> countSulfonamidesByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.aminoglycosidesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.aminoglycosidesAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.aminoglycosidesAnalysisDate), EXTRACT(MONTH FROM c.aminoglycosidesAnalysisDate)")
+    List<Object[]> countAminoglycosidesByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.macrolidesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.macrolidesAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.macrolidesAnalysisDate), EXTRACT(MONTH FROM c.macrolidesAnalysisDate)")
+    List<Object[]> countMacrolidesByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.quinolonesAnalysisDate), 0), " +
+            "   COALESCE(EXTRACT(MONTH FROM c.quinolonesAnalysisDate), 0), " +
+            "   COUNT(c) " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM c.quinolonesAnalysisDate), EXTRACT(MONTH FROM c.quinolonesAnalysisDate)")
+    List<Object[]> countQuinolonesByMonthAndYear();
+
 }

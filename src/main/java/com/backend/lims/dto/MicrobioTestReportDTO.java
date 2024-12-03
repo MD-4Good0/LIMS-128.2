@@ -13,6 +13,16 @@ public class MicrobioTestReportDTO {
     private Map<Object, Long> eColiAndeColi0O157;
     private Map<Object, Long> yeastAndMolds;
 
+    private Map<String, Long> standardPlateCountCountsByMonthAndYear;
+    private Map<String, Long> staphylococcusAureusCountsByMonthAndYear;
+    private Map<String, Long> salmonellaSpCountsByMonthAndYear;
+    private Map<String, Long> campylobacterCountsByMonthAndYear;
+    private Map<String, Long> cultureAndSensitivityTestCountsByMonthAndYear;
+    private Map<String, Long> coliformCountCountsByMonthAndYear;
+    private Map<String, Long> eColiCountsByMonthAndYear;
+    private Map<String, Long> eColiAndEColi0O157CountsByMonthAndYear;
+    private Map<String, Long> yeastAndMoldsCountsByMonthAndYear;
+
     public Map<Object, Long> getStandardPlateCount() {
         return standardPlateCount;
     }
@@ -83,5 +93,77 @@ public class MicrobioTestReportDTO {
 
     public void setYeastAndMolds(Map<Object, Long> yeastAndMolds) {
         this.yeastAndMolds = yeastAndMolds;
+    }
+
+    public Map<String, Long> getStandardPlateCountCountsByMonthAndYear() {
+        return standardPlateCountCountsByMonthAndYear;
+    }
+
+    public void setStandardPlateCountCountsByMonthAndYear(Map<String, Long> standardPlateCountCountsByMonthAndYear) {
+        this.standardPlateCountCountsByMonthAndYear = standardPlateCountCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getStaphylococcusAureusCountsByMonthAndYear() {
+        return staphylococcusAureusCountsByMonthAndYear;
+    }
+
+    public void setStaphylococcusAureusCountsByMonthAndYear(Map<String, Long> staphylococcusAureusCountsByMonthAndYear) {
+        this.staphylococcusAureusCountsByMonthAndYear = staphylococcusAureusCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getSalmonellaSpCountsByMonthAndYear() {
+        return salmonellaSpCountsByMonthAndYear;
+    }
+
+    public void setSalmonellaSpCountsByMonthAndYear(Map<String, Long> salmonellaSpCountsByMonthAndYear) {
+        this.salmonellaSpCountsByMonthAndYear = salmonellaSpCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getCampylobacterCountsByMonthAndYear() {
+        return campylobacterCountsByMonthAndYear;
+    }
+
+    public void setCampylobacterCountsByMonthAndYear(Map<String, Long> campylobacterCountsByMonthAndYear) {
+        this.campylobacterCountsByMonthAndYear = campylobacterCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getCultureAndSensitivityTestCountsByMonthAndYear() {
+        return cultureAndSensitivityTestCountsByMonthAndYear;
+    }
+
+    public void setCultureAndSensitivityTestCountsByMonthAndYear(Map<String, Long> cultureAndSensitivityTestCountsByMonthAndYear) {
+        this.cultureAndSensitivityTestCountsByMonthAndYear = cultureAndSensitivityTestCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getColiformCountCountsByMonthAndYear() {
+        return coliformCountCountsByMonthAndYear;
+    }
+
+    public void setColiformCountCountsByMonthAndYear(Map<String, Long> coliformCountCountsByMonthAndYear) {
+        this.coliformCountCountsByMonthAndYear = coliformCountCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> geteColiCountsByMonthAndYear() {
+        return eColiCountsByMonthAndYear;
+    }
+
+    public void seteColiCountsByMonthAndYear(Map<String, Long> eColiCountsByMonthAndYear) {
+        this.eColiCountsByMonthAndYear = eColiCountsByMonthAndYear;
+    }
+
+    public Map<String, Long> geteColiAndEColi0O157CountsByMonthAndYear() {
+        return eColiAndEColi0O157CountsByMonthAndYear;
+    }
+
+    public void seteColiAndEColi0O157CountsByMonthAndYear(Map<String, Long> eColiAndEColi0O157CountsByMonthAndYear) {
+        this.eColiAndEColi0O157CountsByMonthAndYear = eColiAndEColi0O157CountsByMonthAndYear;
+    }
+
+    public Map<String, Long> getYeastAndMoldsCountsByMonthAndYear() {
+        return yeastAndMoldsCountsByMonthAndYear;
+    }
+
+    public void setYeastAndMoldsCountsByMonthAndYear(Map<String, Long> yeastAndMoldsCountsByMonthAndYear) {
+        this.yeastAndMoldsCountsByMonthAndYear = yeastAndMoldsCountsByMonthAndYear;
     }
 }
