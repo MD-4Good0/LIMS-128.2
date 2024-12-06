@@ -5,10 +5,7 @@ import com.backend.lims.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -62,5 +59,35 @@ public class UserController {
         }
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not allowed");
+    }
+
+    @GetMapping("/check-user")
+    public ResponseEntity<String> checkIfUserExists(@RequestParam String identifier) {
+        String response = userService.checkIfUserExists(identifier);
+        if ("User does not exist.".equals(response)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/verify-otp-password")
+    public ResponseEntity<String> verifyOtp(@RequestParam String email, @RequestParam String otp) {
+        String response = userService.verifyOtpForPasswordReset(email, otp);
+        if ("Invalid OTP.".equals(response) || "Invalid or expired OTP.".equals(response)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(
+            @RequestParam String email,
+            @RequestParam String newPassword
+    ) {
+        String response = userService.changePassword(email, newPassword);
+        if ("User does not exist.".equals(response)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+        return ResponseEntity.ok(response);
     }
 }

@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -103,129 +101,64 @@ public class UserService {
         return "Invalid credentials";
     }
 
-    /*
-    public String clientLogin(String identifier, String password) {
-        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        User user = userRepository.findByUsername(identifier);
+    public String checkIfUserExists(String identifier) {
+        User user = userRepository.findByEmail(identifier);
 
-        // If no user is found with the username, try to find by email
         if (user == null) {
             user = userRepository.findByEmail(identifier);
         }
 
-        if (user != null && bcrypt.matches(password, user.getPassword())) {
-            if ("CLIENT".equalsIgnoreCase(user.getUserType())) {
-                // Check if the user is marked as deleted
-                if ("deleted".equalsIgnoreCase(user.getDeletionStatus())) {
-                    return "Login denied: Account has been deleted.";
-                }
-
-                // This is a patient account, allow login
-                loggedInClients.add(user);
-                return "Login successful";
-            } else {
-                // This is not a dentist account, deny login and print an error message
-                return "Login denied: Not a client account.";
-            }
-        }
-
-        // If the user is not found or the password doesn't match, deny login
-        return "Login denied: Invalid credentials.";
-    }
-
-    public String testerLogin(String identifier, String password) {
-        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        User user = userRepository.findByUsername(identifier);
-
-        // If no user is found with the username, try to find by email
-        if (user == null) {
-            user = userRepository.findByEmail(identifier);
-        }
-
-        if (user != null && bcrypt.matches(password, user.getPassword())) {
-            if ("TESTER".equalsIgnoreCase(user.getUserType())) {
-                // Check if the user is marked as deleted
-                if ("deleted".equalsIgnoreCase(user.getDeletionStatus())) {
-                    return "Login denied: Account has been deleted.";
-                }
-
-                // This is a patient account, allow login
-                loggedInTesters.add(user);
-                return "Login successful";
-            } else {
-                // This is not a dentist account, deny login and print an error message
-                return "Login denied: Not a tester account.";
-            }
-        }
-
-        // If the user is not found or the password doesn't match, deny login
-        return "Login denied: Invalid credentials.";
-    }
-
-    public String staffLogin(String identifier, String password) {
-        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        User user = userRepository.findByUsername(identifier);
-
-        // If no user is found with the username, try to find by email
-        if (user == null) {
-            user = userRepository.findByEmail(identifier);
-        }
-
-        if (user != null && bcrypt.matches(password, user.getPassword())) {
-            if ("STAFF".equalsIgnoreCase(user.getUserType())) {
-                // Check if the user is marked as deleted
-                if ("deleted".equalsIgnoreCase(user.getDeletionStatus())) {
-                    return "Login denied: Account has been deleted.";
-                }
-
-                // This is a patient account, allow login
-                loggedInStaff.add(user);
-                return "Login successful";
-            } else {
-                // This is not a dentist account, deny login and print an error message
-                return "Login denied: Not a tester account.";
-            }
-        }
-
-        // If the user is not found or the password doesn't match, deny login
-        return "Login denied: Invalid credentials.";
-    }
-
-    public String login(String identifier, String password) {
-        User user = userRepository.findByUsername(identifier);
-
-        // If no user is found with the username, try to find by email
-        if (user == null) {
-            user = userRepository.findByEmail(identifier);
-        }
-
-        // Assumed that user exists
         if (user != null) {
-            if ("CLIENT".equalsIgnoreCase(user.getUserType())) { // User is a client
-                String result = clientLogin(identifier, password); // Call clientLogin function
-                if (result.equals("Login successful")) {
-                    return user.getUserType().toLowerCase() + "/" + user.getUserId().toString(); // Return username upon successful login
-                }
-                return result; // Return the result from patientService
-            } else if ("TESTER".equalsIgnoreCase(user.getUserType())) {
-                String result = testerLogin(identifier, password);
-                if (result.equals("Login successful")) {
-                    return user.getUserType().toLowerCase() + "/" + user.getUserId().toString(); // Return username upon successful login
-                }
-                return result; // Return the result from dentistService
-            } else if ("STAFF".equalsIgnoreCase(user.getUserType())) {
-                String result = staffLogin(identifier, password);
-                if (result.equals("Login successful")) {
-                    return user.getUserType().toLowerCase() + "/" + user.getUserId().toString(); // Return username upon successful login
-                }
-                return result; // Return the result from dentistService
-            } else {
-                return "Invalid user type";
-            }
-        } else {
-            return "User not found";
+            sendOtpForPasswordReset(user.getEmail());
+            return "User found.";
         }
+        return "User does not exist.";
     }
 
-     */
+    public void sendOtpForPasswordReset(String identifier) {
+        User user = userRepository.findByEmail(identifier);
+
+        // Generate OTP and save to the user record
+        String otp = generateOTP();
+        user.setOtp(otp);
+        user.setOtpTimestamp(LocalDateTime.now());
+        userRepository.save(user);
+
+        // Send OTP to user's email
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(user.getEmail());
+        message.setSubject("Password Reset OTP");
+        message.setText("Your OTP for password reset is: " + otp + ". It will expire in 5 minutes.");
+        javaMailSender.send(message);
+    }
+
+    public String verifyOtpForPasswordReset(String identifier, String inputOtp) {
+        User user = userRepository.findByEmail(identifier);
+        if (user == null || user.getOtp() == null || user.getOtpTimestamp() == null) {
+            return "Invalid OTP.";
+        }
+
+        if (user.getOtp().equals(inputOtp) && user.getOtpTimestamp().plusMinutes(5).isAfter(LocalDateTime.now())) {
+            // Invalidate OTP after successful verification
+            user.setOtp(null);
+            user.setOtpTimestamp(null);
+            userRepository.save(user);
+            return "OTP verified.";
+        }
+
+        return "Invalid or expired OTP.";
+    }
+
+    public String changePassword(String identifier, String newPassword) {
+        User user = userRepository.findByEmail(identifier);
+        if (user == null) {
+            return "User does not exist.";
+        }
+
+        // Update password
+        user.setPassword(bcrypt.encode(newPassword));
+        userRepository.save(user);
+
+        return "Password changed successfully.";
+    }
 }

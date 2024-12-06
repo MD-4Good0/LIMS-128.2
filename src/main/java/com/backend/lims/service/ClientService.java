@@ -126,7 +126,6 @@ public class ClientService {
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         User user = userRepository.findByUsername(username);
 
-
         if(user != null && bcrypt.matches(oldPassword, user.getPassword())) {
             String encryptedPassword = bcrypt.encode(newPassword);
             user.setPassword(encryptedPassword);
