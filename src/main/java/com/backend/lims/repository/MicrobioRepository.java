@@ -110,4 +110,86 @@ public interface MicrobioRepository extends JpaRepository<MicrobioTestResults, L
             "FROM MicrobioTestResults m " +
             "GROUP BY EXTRACT(YEAR FROM m.yeastAndMoldsAnalysisDate), EXTRACT(MONTH FROM m.yeastAndMoldsAnalysisDate)")
     List<Object[]> countYeastAndMoldsByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.standardPlateCountAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.standardPlateCountAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.standardPlateCountRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.standardPlateCountRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.standardPlateCountAnalysisDate), EXTRACT(MONTH FROM m.standardPlateCountAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countStandardPlatePosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.salmonellaSpAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.salmonellaSpAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.salmonellaSpRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.salmonellaSpRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.salmonellaSpAnalysisDate), EXTRACT(MONTH FROM m.salmonellaSpAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countSalmonellaSpPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.campylobacterAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.campylobacterAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.campylobacterRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.campylobacterRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.campylobacterAnalysisDate), EXTRACT(MONTH FROM m.campylobacterAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countCampylobacterPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.cultureAndSensitivityTestAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.cultureAndSensitivityTestAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.cultureAndSensitivityTestRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.cultureAndSensitivityTestRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.cultureAndSensitivityTestAnalysisDate), EXTRACT(MONTH FROM m.cultureAndSensitivityTestAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countCultureAndSensitivityPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.coliformCountAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.coliformCountAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.coliformCountRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.coliformCountRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.coliformCountAnalysisDate), EXTRACT(MONTH FROM m.coliformCountAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countColiformPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.eColiAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.eColiAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.eColiRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.eColiRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.eColiAnalysisDate), EXTRACT(MONTH FROM m.eColiAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> counteColiPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.eColiAndeColi0O157AnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.eColiAndeColi0O157AnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.eColiAndeColi0O157Remarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.eColiAndeColi0O157Remarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.eColiAndeColi0O157AnalysisDate), EXTRACT(MONTH FROM m.eColiAndeColi0O157AnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> counteColiandeColiPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM m.yeastAndMoldsAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM m.yeastAndMoldsAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN m.yeastAndMoldsRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN m.yeastAndMoldsRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM MicrobioTestResults m  " +
+            "GROUP BY EXTRACT(YEAR FROM m.yeastAndMoldsAnalysisDate), EXTRACT(MONTH FROM m.yeastAndMoldsAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countYeastAndMoldsPosNegByMonthAndYear();
+
+
 }

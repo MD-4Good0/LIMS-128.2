@@ -23,6 +23,88 @@ public class MolBioTestReportDTO {
     private Map<String, Long> sheepCountsByMonthAndYear;
     private Map<String, Long> swineCountsByMonthAndYear;
 
+    private Map<String, Map<String, Integer>> dogPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> catPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> chickenPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> buffaloPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> cattlePosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> horsePosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> goatPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> sheepPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> swinePosNegCountsByMonthAndYear;
+
+    public Map<String, Map<String, Integer>> getDogPosNegCountsByMonthAndYear() {
+        return dogPosNegCountsByMonthAndYear;
+    }
+
+    public void setDogPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> dogPosNegCountsByMonthAndYear) {
+        this.dogPosNegCountsByMonthAndYear = dogPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getCatPosNegCountsByMonthAndYear() {
+        return catPosNegCountsByMonthAndYear;
+    }
+
+    public void setCatPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> catPosNegCountsByMonthAndYear) {
+        this.catPosNegCountsByMonthAndYear = catPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getSwinePosNegCountsByMonthAndYear() {
+        return swinePosNegCountsByMonthAndYear;
+    }
+
+    public void setSwinePosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> swinePosNegCountsByMonthAndYear) {
+        this.swinePosNegCountsByMonthAndYear = swinePosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getSheepPosNegCountsByMonthAndYear() {
+        return sheepPosNegCountsByMonthAndYear;
+    }
+
+    public void setSheepPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> sheepPosNegCountsByMonthAndYear) {
+        this.sheepPosNegCountsByMonthAndYear = sheepPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getGoatPosNegCountsByMonthAndYear() {
+        return goatPosNegCountsByMonthAndYear;
+    }
+
+    public void setGoatPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> goatPosNegCountsByMonthAndYear) {
+        this.goatPosNegCountsByMonthAndYear = goatPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getHorsePosNegCountsByMonthAndYear() {
+        return horsePosNegCountsByMonthAndYear;
+    }
+
+    public void setHorsePosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> horsePosNegCountsByMonthAndYear) {
+        this.horsePosNegCountsByMonthAndYear = horsePosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getCattlePosNegCountsByMonthAndYear() {
+        return cattlePosNegCountsByMonthAndYear;
+    }
+
+    public void setCattlePosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> cattlePosNegCountsByMonthAndYear) {
+        this.cattlePosNegCountsByMonthAndYear = cattlePosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getBuffaloPosNegCountsByMonthAndYear() {
+        return buffaloPosNegCountsByMonthAndYear;
+    }
+
+    public void setBuffaloPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> buffaloPosNegCountsByMonthAndYear) {
+        this.buffaloPosNegCountsByMonthAndYear = buffaloPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getChickenPosNegCountsByMonthAndYear() {
+        return chickenPosNegCountsByMonthAndYear;
+    }
+
+    public void setChickenPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> chickenPosNegCountsByMonthAndYear) {
+        this.chickenPosNegCountsByMonthAndYear = chickenPosNegCountsByMonthAndYear;
+    }
+
     public Map<Object, Long> getDogCounts() {
         return dogCounts;
     }

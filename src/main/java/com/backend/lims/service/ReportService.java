@@ -27,7 +27,6 @@ public class ReportService {
         this.molBioRepository = molBioRepository;
     }
 
-    @Autowired
 
     public ChemMicrobialTestReportDTO generateChemMicrobialReport() {
         ChemMicrobialTestReportDTO report = new ChemMicrobialTestReportDTO();
@@ -40,7 +39,14 @@ public class ReportService {
         report.setMacrolidesCounts(convertToMap(chemMicrobialRepository.countUniqueMacrolides()));
         report.setQuinolonesCounts(convertToMap(chemMicrobialRepository.countUniqueQuinolones()));
 
-// Set counts by month and year for each substance
+        report.setBetaLactamsPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countBetaLactamsPosNegByMonthAndYear()));
+        report.setTetracyclinesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countTetracyclinesPosNegByMonthAndYear()));
+        report.setSulfonamidesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countSulfonamidesPosNegByMonthAndYear()));
+        report.setAminoglycosidesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countAminoglycosidesPosNegByMonthAndYear()));
+        report.setMacrolidesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countMacrolidesPosNegByMonthAndYear()));
+        report.setQuinolonesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemMicrobialRepository.countQuinolonesPosNegByMonthAndYear()));
+
+        // Set counts by month and year for each substance
         report.setBetaLactamsCountsByMonthAndYear(convertToMonthYearMap(chemMicrobialRepository.countBetaLactamsByMonthAndYear()));
         report.setTetracyclinesCountsByMonthAndYear(convertToMonthYearMap(chemMicrobialRepository.countTetracyclinesByMonthAndYear()));
         report.setSulfonamidesCountsByMonthAndYear(convertToMonthYearMap(chemMicrobialRepository.countSulfonamidesByMonthAndYear()));
@@ -63,6 +69,15 @@ public class ReportService {
         report.setNitrufuranAmozCounts(convertToMap(chemElisaRepository.countUniqueNitrufuranAmoz()));
         report.setStilbenesCounts(convertToMap(chemElisaRepository.countUniqueStilbenes()));
         report.setRactopamineCounts(convertToMap(chemElisaRepository.countUniqueRactopamine()));
+
+        report.setChloramphenicolPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countChloramphenicolPosNegByMonthAndYear()));
+        report.setNitrofuranAozPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countNitrofuranAozPosNegByMonthAndYear()));
+        report.setBetaAgonistsPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countBetaAgonistsPosNegCount()));
+        report.setCorticosteroidsPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countCorticosteroidsPosNegByMonthAndYear()));
+        report.setOlaquindoxPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countOlaquindoxPosNegByMonthAndYear()));
+        report.setNitrofuranAmozPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countNitrofuranAmozPosNegByMonthAndYear()));
+        report.setStilbenesPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countStilbenesPosNegByMonthAndYear()));
+        report.setRactopaminePosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(chemElisaRepository.countRactopaminePosNegByMonthAndYear()));
 
         report.setChloramphenicolCountsByMonthAndYear(convertToMonthYearMap(chemElisaRepository.countChloramphenicolByMonthAndYear()));
         report.setNitrofuranAozCountsByMonthAndYear(convertToMonthYearMap(chemElisaRepository.countNitrofuranAozByMonthAndYear()));
@@ -89,6 +104,16 @@ public class ReportService {
         report.setSheepCounts(convertToMap(molBioRepository.countUniqueSheep()));
         report.setSwineCounts(convertToMap(molBioRepository.countUniqueSwine()));
 
+        report.setDogPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countDogPosNegByMonthAndYear()));
+        report.setCatPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countCatPosNegByMonthAndYear()));
+        report.setChickenPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countChickenPosNegByMonthAndYear()));
+        report.setBuffaloPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countBuffaloPosNegByMonthAndYear()));
+        report.setCattlePosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countCattlePosNegByMonthAndYear()));
+        report.setHorsePosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countHorsePosNegByMonthAndYear()));
+        report.setGoatPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countGoatPosNegByMonthAndYear()));
+        report.setSheepPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countSheepPosNegByMonthAndYear()));
+        report.setSwinePosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(molBioRepository.countSwinePosNegByMonthAndYear()));
+
         report.setDogCountsByMonthAndYear(convertToMonthYearMap(molBioRepository.countDogByMonthAndYear()));
         report.setCatCountsByMonthAndYear(convertToMonthYearMap(molBioRepository.countCatByMonthAndYear()));
         report.setChickenCountsByMonthAndYear(convertToMonthYearMap(molBioRepository.countChickenByMonthAndYear()));
@@ -114,6 +139,15 @@ public class ReportService {
         report.setEColi(convertToMap(microbioRepository.countUniqueEColi()));
         report.setEColiAndeColi0O157(convertToMap(microbioRepository.countUniqueEColiAndeColi0O157()));
         report.setYeastAndMolds(convertToMap(microbioRepository.countUniqueYeastAndMolds()));
+
+        report.setStandardPlatePosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countStandardPlatePosNegByMonthAndYear()));
+        report.setSalmonellaSpPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countSalmonellaSpPosNegByMonthAndYear()));
+        report.setCampylobacterPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countCampylobacterPosNegByMonthAndYear()));
+        report.setCultureAndSensitivityPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countCultureAndSensitivityPosNegByMonthAndYear()));
+        report.setColiformPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countColiformPosNegByMonthAndYear()));
+        report.setEColiPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.counteColiPosNegByMonthAndYear()));
+        report.setEColiAndEColiO157PosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.counteColiandeColiPosNegByMonthAndYear()));
+        report.setYeastAndMoldsPosNegCountsByMonthAndYear(convertToPosNegMonthYearMap(microbioRepository.countYeastAndMoldsPosNegByMonthAndYear()));
 
         report.setStandardPlateCountCountsByMonthAndYear(
                 convertToMonthYearMap(microbioRepository.countStandardPlateCountByMonthAndYear()));
@@ -169,6 +203,23 @@ public class ReportService {
         }
         return map;
     }
+
+    private Map<String, Map<String, Integer>> convertToPosNegMonthYearMap(List<Object[]> queryResults) {
+        Map<String, Map<String, Integer>> resultMap = new HashMap<>();
+        for (Object[] row : queryResults) {
+            String yearMonth = String.format("%04d-%02d", ((Number) row[0]).intValue(), ((Number) row[1]).intValue());
+            int positiveCount = ((Number) row[2]).intValue();
+            int negativeCount = ((Number) row[3]).intValue();
+
+            Map<String, Integer> counts = new HashMap<>();
+            counts.put("positive", positiveCount);
+            counts.put("negative", negativeCount);
+
+            resultMap.put(yearMonth, counts);
+        }
+        return resultMap;
+    }
+
 
     /*
     private Map<String, Long> convertToMonthYearMap(List<Object[]> results) {

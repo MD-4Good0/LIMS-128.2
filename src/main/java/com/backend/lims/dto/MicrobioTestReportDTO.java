@@ -23,6 +23,104 @@ public class MicrobioTestReportDTO {
     private Map<String, Long> eColiAndEColi0O157CountsByMonthAndYear;
     private Map<String, Long> yeastAndMoldsCountsByMonthAndYear;
 
+    private Map<String, Map<String, Integer>> StandardPlatePosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> StaphylococcusPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> SalmonellaSpPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> CampylobacterPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> CultureAndSensitivityPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> ColiformPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> EColiPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> EColiAndEColiO157PosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> yeastAndMoldsPosNegCountsByMonthAndYear;
+
+    public Map<String, Map<String, Integer>> getStandardPlatePosNegCountsByMonthAndYear() {
+        return StandardPlatePosNegCountsByMonthAndYear;
+    }
+
+    public void setStandardPlatePosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> standardPlatePosNegCountsByMonthAndYear) {
+        StandardPlatePosNegCountsByMonthAndYear = standardPlatePosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getStaphylococcusPosNegCountsByMonthAndYear() {
+        return StaphylococcusPosNegCountsByMonthAndYear;
+    }
+
+    public void setStaphylococcusPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> staphylococcusPosNegCountsByMonthAndYear) {
+        StaphylococcusPosNegCountsByMonthAndYear = staphylococcusPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getSalmonellaSpPosNegCountsByMonthAndYear() {
+        return SalmonellaSpPosNegCountsByMonthAndYear;
+    }
+
+    public void setSalmonellaSpPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> salmonellaSpPosNegCountsByMonthAndYear) {
+        SalmonellaSpPosNegCountsByMonthAndYear = salmonellaSpPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getCampylobacterPosNegCountsByMonthAndYear() {
+        return CampylobacterPosNegCountsByMonthAndYear;
+    }
+
+    public void setCampylobacterPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> campylobacterPosNegCountsByMonthAndYear) {
+        CampylobacterPosNegCountsByMonthAndYear = campylobacterPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getCultureAndSensitivityPosNegCountsByMonthAndYear() {
+        return CultureAndSensitivityPosNegCountsByMonthAndYear;
+    }
+
+    public void setCultureAndSensitivityPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> cultureAndSensitivityTestPosNegCountsByMonthAndYear) {
+        CultureAndSensitivityPosNegCountsByMonthAndYear = cultureAndSensitivityTestPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getColiformPosNegCountsByMonthAndYear() {
+        return ColiformPosNegCountsByMonthAndYear;
+    }
+
+    public void setColiformPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> coliformPosNegCountsByMonthAndYear) {
+        ColiformPosNegCountsByMonthAndYear = coliformPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getEColiPosNegCountsByMonthAndYear() {
+        return EColiPosNegCountsByMonthAndYear;
+    }
+
+    public void setEColiPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> EColiPosNegCountsByMonthAndYear) {
+        this.EColiPosNegCountsByMonthAndYear = EColiPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getEColiAndEColiO157PosNegCountsByMonthAndYear() {
+        return EColiAndEColiO157PosNegCountsByMonthAndYear;
+    }
+
+    public void setEColiAndEColiO157PosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> EColiAndEColiO157PosNegCountsByMonthAndYear) {
+        this.EColiAndEColiO157PosNegCountsByMonthAndYear = EColiAndEColiO157PosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getYeastAndMoldsPosNegCountsByMonthAndYear() {
+        return yeastAndMoldsPosNegCountsByMonthAndYear;
+    }
+
+    public void setYeastAndMoldsPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> yeastAndMoldsPosNegCountsByMonthAndYear) {
+        this.yeastAndMoldsPosNegCountsByMonthAndYear = yeastAndMoldsPosNegCountsByMonthAndYear;
+    }
+
+    public Map<Object, Long> geteColiAndeColi0O157() {
+        return eColiAndeColi0O157;
+    }
+
+    public void seteColiAndeColi0O157(Map<Object, Long> eColiAndeColi0O157) {
+        this.eColiAndeColi0O157 = eColiAndeColi0O157;
+    }
+
+    public Map<Object, Long> geteColi() {
+        return eColi;
+    }
+
+    public void seteColi(Map<Object, Long> eColi) {
+        this.eColi = eColi;
+    }
+
     public Map<Object, Long> getStandardPlateCount() {
         return standardPlateCount;
     }

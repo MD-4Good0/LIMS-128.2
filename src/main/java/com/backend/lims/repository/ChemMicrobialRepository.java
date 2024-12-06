@@ -78,4 +78,64 @@ public interface ChemMicrobialRepository extends JpaRepository<ChemMicrobialTest
             "GROUP BY EXTRACT(YEAR FROM c.quinolonesAnalysisDate), EXTRACT(MONTH FROM c.quinolonesAnalysisDate)")
     List<Object[]> countQuinolonesByMonthAndYear();
 
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.betaLactamsAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.betaLactamsAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.betaLactamsRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.betaLactamsRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.betaLactamsAnalysisDate), EXTRACT(MONTH FROM  c.betaLactamsAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countBetaLactamsPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.tetracyclinesAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.tetracyclinesAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.tetracyclinesRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.tetracyclinesRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.tetracyclinesAnalysisDate), EXTRACT(MONTH FROM  c.tetracyclinesAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countTetracyclinesPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.sulfonamidesAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.sulfonamidesAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.sulfonamidesRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.sulfonamidesRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.sulfonamidesAnalysisDate), EXTRACT(MONTH FROM  c.sulfonamidesAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countSulfonamidesPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.aminoglycosidesAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.aminoglycosidesAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.aminoglycosidesRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.aminoglycosidesRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.aminoglycosidesAnalysisDate), EXTRACT(MONTH FROM  c.aminoglycosidesAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countAminoglycosidesPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.macrolidesAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.macrolidesAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.macrolidesRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.macrolidesRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.macrolidesAnalysisDate), EXTRACT(MONTH FROM  c.macrolidesAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countMacrolidesPosNegByMonthAndYear();
+
+    @Query("SELECT " +
+            "   COALESCE(EXTRACT(YEAR FROM c.quinolonesAnalysisDate), 0) AS year, " +
+            "   COALESCE(EXTRACT(MONTH FROM c.quinolonesAnalysisDate), 0) AS month, " +
+            "   SUM(CASE WHEN c.quinolonesRemarks = 'positive' THEN 1 ELSE 0 END) AS positiveCount, " +
+            "   SUM(CASE WHEN c.quinolonesRemarks = 'negative' THEN 1 ELSE 0 END) AS negativeCount " +
+            "FROM ChemMicrobialTestResults c " +
+            "GROUP BY EXTRACT(YEAR FROM  c.quinolonesAnalysisDate), EXTRACT(MONTH FROM  c.quinolonesAnalysisDate) " +
+            "ORDER BY year, month")
+    List<Object[]> countQuinolonesPosNegByMonthAndYear();
+
 }

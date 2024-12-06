@@ -16,6 +16,61 @@ public class ChemMicrobialTestReportDTO {
     private Map<String, Long> macrolidesCountsByMonthAndYear;
     private Map<String, Long> quinolonesCountsByMonthAndYear;
 
+    private Map<String, Map<String, Integer>> BetaLactamsPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> TetracyclinesPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> SulfonamidesPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> AminoglycosidesPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> MacrolidesPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> QuinolonesPosNegCountsByMonthAndYear;
+
+    public Map<String, Map<String, Integer>> getBetaLactamsPosNegCountsByMonthAndYear() {
+        return BetaLactamsPosNegCountsByMonthAndYear;
+    }
+
+    public void setBetaLactamsPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> betaLactamsPosNegCountsByMonthAndYear) {
+        BetaLactamsPosNegCountsByMonthAndYear = betaLactamsPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getTetracyclinesPosNegCountsByMonthAndYear() {
+        return TetracyclinesPosNegCountsByMonthAndYear;
+    }
+
+    public void setTetracyclinesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> tetracyclinesPosNegCountsByMonthAndYear) {
+        TetracyclinesPosNegCountsByMonthAndYear = tetracyclinesPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getSulfonamidesPosNegCountsByMonthAndYear() {
+        return SulfonamidesPosNegCountsByMonthAndYear;
+    }
+
+    public void setSulfonamidesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> sulfonamidesPosNegCountsByMonthAndYear) {
+        SulfonamidesPosNegCountsByMonthAndYear = sulfonamidesPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getAminoglycosidesPosNegCountsByMonthAndYear() {
+        return AminoglycosidesPosNegCountsByMonthAndYear;
+    }
+
+    public void setAminoglycosidesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> aminoglycosidesPosNegCountsByMonthAndYear) {
+        AminoglycosidesPosNegCountsByMonthAndYear = aminoglycosidesPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getMacrolidesPosNegCountsByMonthAndYear() {
+        return MacrolidesPosNegCountsByMonthAndYear;
+    }
+
+    public void setMacrolidesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> macrolidesPosNegCountsByMonthAndYear) {
+        MacrolidesPosNegCountsByMonthAndYear = macrolidesPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getQuinolonesPosNegCountsByMonthAndYear() {
+        return QuinolonesPosNegCountsByMonthAndYear;
+    }
+
+    public void setQuinolonesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> quinolonesPosNegCountsByMonthAndYear) {
+        QuinolonesPosNegCountsByMonthAndYear = quinolonesPosNegCountsByMonthAndYear;
+    }
+
     public Map<Object, Long> getBetaLactamsCounts() {
         return betaLactamsCounts;
     }

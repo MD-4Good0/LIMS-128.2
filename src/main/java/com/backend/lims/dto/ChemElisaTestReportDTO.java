@@ -21,6 +21,79 @@ public class ChemElisaTestReportDTO {
     private Map<String, Long> stilbenesCountsByMonthAndYear;
     private Map<String, Long> ractopamineCountsByMonthAndYear;
 
+    private Map<String, Map<String, Integer>> ChloramphenicolPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> NitrofuranAozPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> BetaAgonistsPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> CorticosteroidsPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> OlaquindoxPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> NitrofuranAmozPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> StilbenesPosNegCountsByMonthAndYear;
+    private Map<String, Map<String, Integer>> RactopaminePosNegCountsByMonthAndYear;
+
+    public Map<String, Map<String, Integer>> getChloramphenicolPosNegCountsByMonthAndYear() {
+        return ChloramphenicolPosNegCountsByMonthAndYear;
+    }
+
+    public void setChloramphenicolPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> chloramphenicolPosNegCountsByMonthAndYear) {
+        ChloramphenicolPosNegCountsByMonthAndYear = chloramphenicolPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getNitrofuranAozPosNegCountsByMonthAndYear() {
+        return NitrofuranAozPosNegCountsByMonthAndYear;
+    }
+
+    public void setNitrofuranAozPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> nitrofuranAozPosNegCountsByMonthAndYear) {
+        NitrofuranAozPosNegCountsByMonthAndYear = nitrofuranAozPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getBetaAgonistsPosNegCountsByMonthAndYear() {
+        return BetaAgonistsPosNegCountsByMonthAndYear;
+    }
+
+    public void setBetaAgonistsPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> betaAgonistsPosNegCountsByMonthAndYear) {
+        BetaAgonistsPosNegCountsByMonthAndYear = betaAgonistsPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getCorticosteroidsPosNegCountsByMonthAndYear() {
+        return CorticosteroidsPosNegCountsByMonthAndYear;
+    }
+
+    public void setCorticosteroidsPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> corticosteroidsPosNegCountsByMonthAndYear) {
+        CorticosteroidsPosNegCountsByMonthAndYear = corticosteroidsPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getOlaquindoxPosNegCountsByMonthAndYear() {
+        return OlaquindoxPosNegCountsByMonthAndYear;
+    }
+
+    public void setOlaquindoxPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> olaquindoxPosNegCountsByMonthAndYear) {
+        OlaquindoxPosNegCountsByMonthAndYear = olaquindoxPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getNitrofuranAmozPosNegCountsByMonthAndYear() {
+        return NitrofuranAmozPosNegCountsByMonthAndYear;
+    }
+
+    public void setNitrofuranAmozPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> nitrofuranAmozPosNegCountsByMonthAndYear) {
+        NitrofuranAmozPosNegCountsByMonthAndYear = nitrofuranAmozPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getStilbenesPosNegCountsByMonthAndYear() {
+        return StilbenesPosNegCountsByMonthAndYear;
+    }
+
+    public void setStilbenesPosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> stilbenesPosNegCountsByMonthAndYear) {
+        StilbenesPosNegCountsByMonthAndYear = stilbenesPosNegCountsByMonthAndYear;
+    }
+
+    public Map<String, Map<String, Integer>> getRactopaminePosNegCountsByMonthAndYear() {
+        return RactopaminePosNegCountsByMonthAndYear;
+    }
+
+    public void setRactopaminePosNegCountsByMonthAndYear(Map<String, Map<String, Integer>> ractopaminePosNegCountsByMonthAndYear) {
+        RactopaminePosNegCountsByMonthAndYear = ractopaminePosNegCountsByMonthAndYear;
+    }
+
     public Map<Object, Long> getChloramphenicolCounts() {
         return chloramphenicolCounts;
     }
