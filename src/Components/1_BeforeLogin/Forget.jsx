@@ -22,7 +22,7 @@ const Forget = () => {
 
     const handleResetPassword = async () => {  // Added function to handle password reset
         try {
-            const response = await axios.post("http://localhost:8080/changePass/client", null, {
+            const response = await axios.post( `${process.env.REACT_APP_API_URL}changePass/client`, null, {
                 params: {
                     username: email,  // Assuming email is used as username
                     oldPassword: oldPassword,   // Use the old password from state

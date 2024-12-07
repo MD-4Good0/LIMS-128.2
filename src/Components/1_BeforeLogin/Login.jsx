@@ -7,6 +7,7 @@ import eyeOpen from '../Assets/EyeOpen.png';
 import eyeClose from '../Assets/EyeClose.png';
 
 const Login = () => {
+    console.log('APP URL:', process.env.REACT_APP_API_URL)
     const navigate = useNavigate();
     const [identifier, setIdentifier] = useState('');
     const [password, setPassword] = useState('');

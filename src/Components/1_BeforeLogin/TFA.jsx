@@ -41,7 +41,8 @@ const TFA = ({ onLogin }) => {
       try {
           const response = await fetch(`${process.env.REACT_APP_API_URL}verify-otp?username=${username}&otp=${verificationCode}`, {
               method: 'POST'
-          });
+          }); 
+          console.log("Bobo ka")
   
           if (response.ok) {
             const responseData = await response.text();

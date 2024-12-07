@@ -14,7 +14,7 @@ const ControlNumber = () => {
         // Fetch the control number from the backend
         const fetchControlNumber = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/requests/ctrlnumber/${requestId}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}requests/ctrlnumber/${requestId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch control number');
                 }

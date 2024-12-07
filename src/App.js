@@ -35,6 +35,7 @@ import PageGuide from "./PageGuide";
     import PageTestResultsMicrobio from "./PageTestResultsMicrobio";
     import PageTestResultsMolBio from "./PageTestResultsMolBio";
 import PageTFAVerify from "./PageTFA-Verify-Reg";
+import PageForgetEmail from "./PageForgetPasswordEmail";
 
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
@@ -108,7 +109,7 @@ function App() {
                     path="/forget" 
                     element={
                         <PublicRoute isLoggedIn={isLoggedIn} userType={userType} userId={userId}>
-                            <PageForget />
+                            <PageForgetEmail />
                         </PublicRoute>
                     } 
                 />

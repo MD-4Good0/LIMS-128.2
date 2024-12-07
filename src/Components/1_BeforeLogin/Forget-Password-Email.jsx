@@ -1,89 +1,103 @@
 import React, { useState, useEffect } from 'react';
-import './TFA-Verify-Reg.css';
+import './TFA.css';
 // import Userfront from "@userfront/core";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Userfront.init("jb7ywq8b");
 
-const TFAVerification = () => {
+const ForgetPasswordEmail = () => {
     const navigate = useNavigate(); // Initialize useNavigate hook
-    const [storedEmail, setStoredEmail] = useState(sessionStorage.getItem('userEmail') || '');
+    //const [storedEmail, setStoredEmail] = useState(sessionStorage.getItem('userEmail') || '');
+    //const [storedUsername, setStoredUsername] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
+    const [error, setError] = useState(null);
+    const { username } = useParams();
 
     // Clear sessionStorage item on component mount
     useEffect(() => {
         sessionStorage.removeItem('userEmail');
     }, []);
 
+    /*
     const handleEmailChange = (event) => {
         setStoredEmail(event.target.value);
     };
+    */
+
+    /*
+    const handleUsernameChange = (event) => {
+        setStoredUsername(event.target.value);
+    };
+    */
 
     const handleVerificationCodeChange = (event) => {
         setVerificationCode(event.target.value);
     };
 
     const handleSubmit = async (event) => {
-      event.preventDefault(); // Prevent the default form submission behavior
-      
-      try {
-          const response = await fetch(`${process.env.REACT_APP_API_URL}clientverify?email=${storedEmail}&otp=${verificationCode}`, {
-              method: 'POST'
-          });
-  
-          if (response.ok) {
-              // Successful verification
-              console.log('Successful verification.');
-              navigate('/registered');
-          } else {
-              // Unsuccessful verification
-              console.log('Unsuccessful verification.');
-          }
-      } catch (error) {
-          console.error('Error verifying user:', error);
-      }
-  };
+        event.preventDefault();
+    
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}check-user?identifier=${verificationCode}`, {
+                method: 'GET',
+            });
+    
+            if (response.ok) {
+                const data = await response.json(); // Parse JSON if the backend returns JSON
+                console.log('User exists:', data.message);
+                alert('Verification code sent to your email.');
+            } else {
+                const errorText = await response.text();
+                console.error('Error response:', errorText);
+                alert('No user exists with this email.');
+            }
+        } catch (error) {
+            console.error('Error identifying user:', error);
+            alert('Error identifying user. Please try again.');
+        }
+    };
 
     return (
-        <div className='tfa-vr-all-container'>
-            <div className='tfa-vr-all-left'>
-            <form className="vr-verification" onSubmit={handleSubmit}>
-                <div className='tfa-vr-container'>
-                    <div className='t-vr-c-container'>
-                        <p className="t-vr-c-c-title">
-                            Two-Factor
+        <div className='tfa-all-container'>
+            <div className='tfa-all-left'>
+            <form className="verification" onSubmit={handleSubmit}>
+                <div className='tfa-container'>
+                    <div className='t-c-container'>
+                        <p className="t-c-c-title">
+                            Forget your
                         </p>
-                        <p className="t-vr-c-c-title">
-                            Authentication
+                        <p className="t-c-c-title">
+                            Password?
                         </p>
-                        <p className="t-vr-c-c-text">
-                        Enter the code from your provided email below.
+                        <p className="t-c-c-text">
+                        Enter your email to reset your account's password.
                         </p>
                         
                     </div>
-                    <div className="tfa-vr-email">     
-                        <div className="tfa-vr-input">
+                    <div className="tfa-email">
+                        {/*<div className="tfa-input">
                             <input 
                                 className="font-link"
-                                type="email" 
-                                value={storedEmail}
-                                placeholder="Email"
-                                onChange={handleEmailChange}
+                                type="text" 
+                                value={storedUsername}
+                                placeholder="Username"
+                                onChange={handleUsernameChange}
                             />
-                        </div>          
-                        <div className="tfa-vr-input">
+                        </div>   
+                        */}                                    
+                        <div className="tfa-input">
                             <input 
                                 className="font-link"
                                 type="text" 
                                 value={verificationCode}
-                                placeholder="Authentication Code"
+                                placeholder="Email"
                                 onChange={handleVerificationCodeChange}
                             />
                         </div>
                     </div>
 
                     <div className="login-button">
-                        <button className="text-button" value="Verify Account">Log In</button>
+                        <button className="text-button" value="Verify Account">Send Verification Code</button>
                     </div>
                 </div>
                 </form>
@@ -122,4 +136,4 @@ const TFAVerification = () => {
     );
 }
 
-export default TFAVerification;
+export default ForgetPasswordEmail;
