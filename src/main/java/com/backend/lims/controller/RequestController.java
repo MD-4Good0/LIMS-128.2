@@ -67,6 +67,12 @@ public class RequestController {
         return new ResponseEntity<>(requestService.getForReleaseRequests(), HttpStatus.OK);
     }
 
+    // Get requests for release
+    @GetMapping("/released")
+    public ResponseEntity<List<Request>> getReleasedRequests() {
+        return new ResponseEntity<>(requestService.getReleasedRequests(), HttpStatus.OK);
+    }
+
     @PutMapping("/approveRelease/{requestId}")
     public ResponseEntity<Request> approveRelease(@PathVariable Long requestId) {
         return new ResponseEntity<>(requestService.approveRelease(requestId), HttpStatus.OK);

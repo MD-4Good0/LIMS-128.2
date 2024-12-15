@@ -94,6 +94,10 @@ public class RequestService {
         return requestRepository.findByRequestStatus(RequestStatus.FOR_RELEASE);
     }
 
+    public List<Request> getReleasedRequests() {
+        return requestRepository.findByRequestStatus(RequestStatus.RELEASED);
+    }
+
     private String generateControlNumber(Long requestId) {
         return "CTRL-" + requestId + "-" + LocalDate.now().getYear();
     }
